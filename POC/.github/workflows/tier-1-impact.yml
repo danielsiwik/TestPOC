@@ -1,0 +1,62 @@
+name: Tier 1 Impact Check
+
+on:
+  pull_request_target:
+    types:
+      - opened
+      - synchronize
+      - reopened
+      - edited
+      - ready_for_review
+
+  # Uncomment this block GitHub merge queue will be in used 
+  # merge_group:
+  #   types:
+  #     - checks_requested
+
+permissions:
+  contents: read
+  issues: write
+  pull-requests: write
+  checks: write
+
+jobs:
+  tier1-impact:
+    name: Tier 1 Impact
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout default branch only
+        uses: actions/checkout@v4
+        with:
+          # Important: on pull_request_target we only use trusted code from the base repository
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Run Tier 1 impact analysis
+        id: analysis
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_AUTHOR: ${{ github.event.pull_request.user.login }}
+          PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          CONFIG_PATH: .github/tier1/tier1-config.json
+        run: node .github/scripts/tier1-impact-check.js
+
+      - name: Upload audit log
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: tier1-impact-pr-${{ github.event.pull_request.number }}
+          path: .github/tier1/output/tier1-audit.json
+
+      - name: Fail workflow when blocking is enabled
+        if: steps.analysis.outputs.should_block == 'true'
+        run: |
+          echo "Tier 1 impact detected and blocking mode is enabled."
+          exit 1

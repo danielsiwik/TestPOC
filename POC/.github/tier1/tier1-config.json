@@ -1,0 +1,13 @@
+{
+  "blocking": false,
+  "checkName": "Tier 1 Impact",
+  "commentMarker": "<!-- tier1-impact-check -->",
+  "architectTeamSlug": "",
+  "watchedObjects": [
+    "Account",
+    "Contact"
+  ],
+  "watchedFields": [
+    "Opportunity.At_Bat_Tier__c"
+  ]
+}

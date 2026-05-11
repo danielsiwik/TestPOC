@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>LinkedIn_Users__c</fullName>
+    <description>Number of LinkedIn Users updated manually by TaskUs team
+https://app.asana.com/0/1132572100452632/1130816145114966/f</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of LinkedIn Users. This is updated by TaskUs</inlineHelpText>
+    <label>LinkedIn Users</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

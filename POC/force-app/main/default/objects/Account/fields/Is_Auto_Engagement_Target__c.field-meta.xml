@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Auto_Engagement_Target__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>https://app.asana.com/1/15793206719/project/1209391763425740/task/1211711666540582?focus=true</description>
+    <label>Is Auto Engagement Target</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

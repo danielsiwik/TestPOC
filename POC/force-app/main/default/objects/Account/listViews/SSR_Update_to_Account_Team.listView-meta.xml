@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SSR_Update_to_Account_Team</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CREATEDBY_USER.ALIAS</columns>
+    <columns>EDR__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>EDR__c</field>
+        <operation>equals</operation>
+        <value>Xin Yi Lim</value>
+    </filters>
+    <label>SSR Update to Account Team</label>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

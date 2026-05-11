@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CSM_Assigned_Datetime__c</fullName>
+    <description>Date when CSM changed.
+
+https://asana.lightning.force.com/lightning/r/Project__c/a0b4M00002NGo5pQAD/view</description>
+    <inlineHelpText>Date when CSM changed.
+
+https://asana.lightning.force.com/lightning/r/Project__c/a0b4M00002NGo5pQAD/view</inlineHelpText>
+    <label>CSM Assigned Datetime</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

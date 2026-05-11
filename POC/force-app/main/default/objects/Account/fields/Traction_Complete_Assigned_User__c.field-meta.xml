@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Traction_Complete_Assigned_User__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>https://app.asana.com/0/1202710080826437/1206341295967754/f</description>
+    <inlineHelpText>This field shows the user assigned by the Traction Complete tool.</inlineHelpText>
+    <label>Traction Complete Assigned User</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Accounts7</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

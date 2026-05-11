@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Block_Users_To_Change_OwnerId</fullName>
+    <active>true</active>
+    <description>Allows only system users and users with the &quot;Account - Reassign&quot; or &quot;Account - Reassign Hierarchy Restriction&quot; permission to change Account Owner  https://app.asana.com/0/1198916935095389/1206569274136037/f</description>
+    <errorConditionFormula>AND(
+  ISCHANGED(OwnerId),
+  RecordType.Name = &quot;Customer Account&quot;,
+  NOT(
+    OR(
+      $Permission.Account_Reassign,
+      $Permission.Admin_Automation_Exclusion,
+      CONTAINS($User.Full_Name__c , &#39;Traction&#39;),
+      AND( 
+        $Permission.Account_Reassign_Hierarchy_Restriction, 
+        NOT( $Permission.Account_Reassign_SMB_Restricted)
+      ),
+      AND( 
+        $Permission.Account_Reassign_SMB_Restricted,
+        Hierarchy_Segment__c = &#39;SMB&#39;
+      )
+    )
+  )
+)</errorConditionFormula>
+    <errorMessage>You do not have permission to change account ownership. If you think this is incorrect, please contact RevOps for assistance.</errorMessage>
+</ValidationRule>

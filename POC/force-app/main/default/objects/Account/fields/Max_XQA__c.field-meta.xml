@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Max_XQA__c</fullName>
+    <description>Displays the highest Expansion Score within the Account Hierarchy - (https://app.asana.com/0/1203315724044772/1206331738985123/f).
+The Field Name was changed according to UAT request - (https://app.asana.com/0/0/1206557819106848/f)</description>
+    <externalId>false</externalId>
+    <formula>IF(AND(ISBLANK(UltimateParentAccount__c), NOT(ISBLANK(Max_XQA_Helper__c))),
+    Max_XQA_Helper__c,
+    IF(ISBLANK(UltimateParentAccount__c),
+        XQA_Score__c,
+        IF(AND(NOT(ISBLANK(UltimateParentAccount__c)), NOT(ISBLANK(UltimateParentAccount__r.Max_XQA_Helper__c))),
+            UltimateParentAccount__r.Max_XQA_Helper__c,
+            0)
+    )
+)</formula>
+    <inlineHelpText>Displays the highest Expansion Score within the Account Hierarchy.</inlineHelpText>
+    <label>Hierarchy Expansion Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

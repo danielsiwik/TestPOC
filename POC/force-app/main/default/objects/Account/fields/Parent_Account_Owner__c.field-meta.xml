@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Parent_Account_Owner__c</fullName>
+    <description>Parent Account Owner name, does not provide lookup capability to Owner ID</description>
+    <externalId>false</externalId>
+    <formula>Parent.Owner.Full_Name__c</formula>
+    <inlineHelpText>Parent Account Owner name</inlineHelpText>
+    <label>Parent Account Owner</label>
+    <required>false</required>
+    <securityClassification>Tier 1</securityClassification>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ConfirmedInterestInAsanaGov__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field determinig interest in Asana Gov product (https://app.asana.com/1/15793206719/project/1209391763425740/task/1210546430091983?focus=true)
+    Deprecated After: https://app.asana.com/1/15793206719/task/1212620747137823</description>
+    <inlineHelpText>Select this checkbox to confirm interest in Asana Gov product.</inlineHelpText>
+    <label>[Deprecated] Conf Interest in Asana Gov</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

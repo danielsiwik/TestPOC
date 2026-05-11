@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TaskUs_Upload_Date__c</fullName>
+    <description>Date of TaskUs&#39; most recent upload for LinkedIn Users, HQ Address, etc.; updated manually whenever a dataload from TaskUs happens
+https://app.asana.com/0/1132572100452632/1130816145114966/f</description>
+    <inlineHelpText>Date of most recent TaskUs upload</inlineHelpText>
+    <label>RevOps Upload Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

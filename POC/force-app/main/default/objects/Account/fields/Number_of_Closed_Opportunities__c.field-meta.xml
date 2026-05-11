@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_of_Closed_Opportunities__c</fullName>
+    <description>The number of opportunities in a closed status (Not Qualified, Closed Won, or Closed Lost).</description>
+    <inlineHelpText>The number of opportunities in a closed status (Not Qualified, Closed Won, or Closed Lost).</inlineHelpText>
+    <label>Number of Closed Opportunities</label>
+    <summaryFilterItems>
+        <field>Opportunity.StageName</field>
+        <operation>equals</operation>
+        <value>97 Not Qualified, 98 Closed Lost, 99 Closed Won</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

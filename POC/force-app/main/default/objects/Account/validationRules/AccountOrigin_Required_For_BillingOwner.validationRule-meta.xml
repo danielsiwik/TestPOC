@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AccountOrigin_Required_For_BillingOwner</fullName>
+    <active>false</active>
+    <description>Account Origin required if Partner Billing Owner is populated (https://app.asana.com/0/1169811029711865/1193323731816270)</description>
+    <errorConditionFormula>AND(
+            ISBLANK(TEXT(Account_Origin__c)),
+            ISBLANK(Billing_Owner__c) = false
+        )</errorConditionFormula>
+    <errorDisplayField>Account_Origin__c</errorDisplayField>
+    <errorMessage>Account Origin is required if Partner Billing Owner is populated</errorMessage>
+</ValidationRule>

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Status__c</fullName>
+    <description>https://app.asana.com/0/1202710080826437/1204252478178685/f</description>
+    <label>Account Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Active</fullName>
+                <default>false</default>
+                <label>Active</label>
+            </value>
+            <value>
+                <fullName>Inactive (Out of Business)</fullName>
+                <default>false</default>
+                <label>Inactive (Out of Business)</label>
+            </value>
+            <value>
+                <fullName>Inactive (M&amp;A)</fullName>
+                <default>false</default>
+                <label>Inactive (M&amp;A)</label>
+            </value>
+            <value>
+                <fullName>Inactive (Duplicate)</fullName>
+                <default>false</default>
+                <label>Inactive (Duplicate)</label>
+            </value>
+            <value>
+                <fullName>Inactive (Missing or Bad Website)</fullName>
+                <default>false</default>
+                <label>Inactive (Missing or Bad Website)</label>
+            </value>
+            <value>
+                <fullName>Inactive (Other)</fullName>
+                <default>false</default>
+                <label>Inactive (Other)</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

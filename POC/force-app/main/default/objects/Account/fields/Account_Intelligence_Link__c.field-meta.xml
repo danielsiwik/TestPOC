@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Intelligence_Link__c</fullName>
+    <description>https://app.asana.com/0/253313814113822/1203068712460476/f</description>
+    <externalId>false</externalId>
+    <formula>HYPERLINK(&quot;https://prod-useast-a.online.tableau.com/#/site/asana/views/AccountIntelligenceDashboard_16637933837850/UserInsights?:iid=9&amp;Account%20Name=&quot;&amp;Name , Name)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Account Intelligence Link</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

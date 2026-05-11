@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Highest_Revenue_Segment__c</fullName>
+    <description>Service field, which is populated only on the Ultimate Parent Account. It is populated with the largest segment in this account&#39;s hierarchy (https://app.asana.com/0/1200340081332764/1204404424769313)</description>
+    <label>Highest Account Size</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Revenue_Segment_for_Acc_and_EE</valueSetName>
+    </valueSet>
+</CustomField>

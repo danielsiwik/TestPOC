@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AI_Studio_Enabled__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>https://app.asana.com/1/15793206719/project/1209121380111720/task/1209072285765225?focus=true</description>
+    <label>AI Studio Enabled</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

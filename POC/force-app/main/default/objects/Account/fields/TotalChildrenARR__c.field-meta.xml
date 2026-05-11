@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TotalChildrenARR__c</fullName>
+    <description>Temporary field for calculating field &quot;Total Hierarchy ARR&quot;. To be filled in with Rollup Helper &quot;Acc: Sum of Children ARR&quot;, used in formula field &quot;Total Hierarchy ARR&quot;. (https://app.asana.com/0/1169811029711865/1200235963009047/f)
+
+involved in Rollup Helper job</description>
+    <label>Total Children ARR</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hierarchy_Graduation_Status__c</fullName>
+    <description>Indicates the Hierarchy eligibility for graduation and status https://app.asana.com/0/1206435824640705/1209012892599734/f</description>
+    <externalId>false</externalId>
+    <formula>IF(
+    ISBLANK(UltimateParentAccount__c), 
+    TEXT(Graduation_Status__c), 
+    TEXT(UltimateParentAccount__r.Graduation_Status__c)
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Hierarchy Graduation Status</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>S2L_Early_Handoff__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicator if related opportunity is ready for early handoff to the AMER Corporate SMB/MM team. Copied from S2L_Early_Handoff__c from Opportunity (https://app.asana.com/0/1203326674360215/1205002637704633/f)</description>
+    <label>S2L Early Handoff</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

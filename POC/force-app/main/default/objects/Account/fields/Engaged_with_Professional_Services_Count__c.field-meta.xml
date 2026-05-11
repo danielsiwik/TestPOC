@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Engaged_with_Professional_Services_Count__c</fullName>
+    <description>Count of all Opportunities that have already been escalated to the PS team 
+https://app.asana.com/0/1137568576642746/1147724742075617/f</description>
+    <inlineHelpText>Count of all Sales Opportunities escalated to Professional Services.</inlineHelpText>
+    <label>PS Engaged Opportunities</label>
+    <summaryFilterItems>
+        <field>Opportunity.Engaged_with_Professional_Services__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UltimateParentAccount__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Ultimate Parent Account (https://app.asana.com/0/1169811029711865/1200137718005028/f)
+
+involved in Rollup Helper job</description>
+    <label>Ultimate Parent Account</label>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Accounts (Ultimate Parent)</relationshipLabel>
+    <relationshipName>Accounts</relationshipName>
+    <required>false</required>
+    <securityClassification>Tier 1</securityClassification>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partner_Southern_Europe</fullName>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Partner_Type__c</columns>
+    <columns>Tier__c</columns>
+    <columns>Number_of_Active_Accounts__c</columns>
+    <columns>Status__c</columns>
+    <columns>Standard_Discount__c</columns>
+    <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.PartnerAccount</value>
+    </filters>
+    <filters>
+        <field>Subregion__c</field>
+        <operation>equals</operation>
+        <value>Southern Europe</value>
+    </filters>
+    <label>Partner Southern Europe</label>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

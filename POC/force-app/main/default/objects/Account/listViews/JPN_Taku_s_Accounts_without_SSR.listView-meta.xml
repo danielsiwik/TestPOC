@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>JPN_Taku_s_Accounts_without_SSR</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>EDR__c</columns>
+    <columns>UltimateParentAccount__c</columns>
+    <columns>Parent_Account_Owner__c</columns>
+    <columns>PARENT_NAME</columns>
+    <columns>ACCOUNT.INDUSTRY</columns>
+    <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Account_Owner_Manager__c</field>
+        <operation>contains</operation>
+        <value>Haryu</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.ADDRESS1_COUNTRY</field>
+        <operation>notContain</operation>
+        <value>Russian</value>
+    </filters>
+    <filters>
+        <field>EDR__c</field>
+        <operation>equals</operation>
+    </filters>
+    <label>Japan Accounts without SSR</label>
+</ListView>

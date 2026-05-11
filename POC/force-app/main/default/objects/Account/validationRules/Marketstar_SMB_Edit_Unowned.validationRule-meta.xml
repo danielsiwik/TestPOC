@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Marketstar_SMB_Edit_Unowned</fullName>
+    <active>false</active>
+    <description>Prevents Marketstar VSB reps from editing accounts they don&#39;t own.
+https://app.asana.com/0/1123979735231855/1182706289630849/f</description>
+    <errorConditionFormula>AND(NOT(ISNEW()),
+ ISCHANGED(OwnerId),
+ $User.Id&lt;&gt;PRIORVALUE(OwnerId),
+ $Profile.Name = &#39;External Partner Rep&#39;,
+ ISPICKVAL( $User.RevenueSegment__c ,&#39;VSB&#39;),
+ $Permission.Transfer_Records_for_M_Leads = FALSE
+)</errorConditionFormula>
+    <errorMessage>You can&#39;t modify unowned accounts.</errorMessage>
+</ValidationRule>

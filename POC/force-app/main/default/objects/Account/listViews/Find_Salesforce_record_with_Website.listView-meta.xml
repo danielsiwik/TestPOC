@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Find_Salesforce_record_with_Website</fullName>
+    <booleanFilter>(1 OR 2)</booleanFilter>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>ACCOUNT.URL</columns>
+    <columns>Non_Profit__c</columns>
+    <columns>Website_Normalized__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>contains</operation>
+        <value>concordcoalition.org</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.URL</field>
+        <operation>contains</operation>
+        <value>concordcoalition.org</value>
+    </filters>
+    <label>Find SFDC Account with Website (NP)</label>
+</ListView>

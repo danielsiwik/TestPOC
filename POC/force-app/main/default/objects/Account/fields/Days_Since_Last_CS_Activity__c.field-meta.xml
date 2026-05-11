@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Days_Since_Last_CS_Activity__c</fullName>
+    <description>Calculates days between today and Date of Last CS Activity</description>
+    <externalId>false</externalId>
+    <formula>IF(TODAY() -  Date_of_Last_Activity__c  = -1, 0, TODAY() - Date_of_Last_Activity__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Days between today and Date of Last CS Activity</inlineHelpText>
+    <label>Days Since Last CS Activity</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

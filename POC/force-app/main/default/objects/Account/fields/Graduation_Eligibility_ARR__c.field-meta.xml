@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Graduation_Eligibility_ARR__c</fullName>
+    <defaultValue>0</defaultValue>
+    <description>The account&#39;s eligibility ARR https://app.asana.com/1/15793206719/project/1207723732027412/task/1209358592355907?focus=true</description>
+    <label>Graduation Eligibility ARR</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

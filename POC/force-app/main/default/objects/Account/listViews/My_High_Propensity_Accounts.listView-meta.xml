@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_High_Propensity_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Company_Name__c</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>NB_Account_Priority_Score__c</columns>
+    <columns>ACCOUNT.INDUSTRY</columns>
+    <columns>ACCOUNT.EMPLOYEES</columns>
+    <columns>Total_Account_ARR__c</columns>
+    <columns>accountBuyingStage6sense__c</columns>
+    <columns>accountIntentScore6sense__c</columns>
+    <columns>accountProfileScore6sense__c</columns>
+    <columns>XQA_Score__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Internal_Business_List__c</field>
+        <operation>includes</operation>
+        <value>SMB30K,CORP10K,E2K</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.CustomerAccount</value>
+    </filters>
+    <label>My High Propensity Accounts</label>
+</ListView>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Industry_New__c</fullName>
+    <description>https://app.asana.com/0/1203315724044772/1205874290782802/f</description>
+    <externalId>false</externalId>
+    <formula>IF(
+   NOT( ISBLANK( TEXT(Industry_Override__c) ) ),
+   TEXT(Industry_Override__c), 
+   TEXT(Industry)
+)</formula>
+    <label>Asana Industry</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

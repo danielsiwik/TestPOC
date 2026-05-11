@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asana_Identified_Partner_Relationship__c</fullName>
+    <description>Potential partner relationship identified through customer interaction https://app.asana.com/0/1206411435319312/1207626568435418/f</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Potential partner relationship identified through customer interaction</inlineHelpText>
+    <label>Asana Identified Partner Relationship</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

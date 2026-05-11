@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_of_Sales_Assisted_Deals__c</fullName>
+    <description>Count of Sales Assisted Closed Won Opportunities associated with this account.</description>
+    <inlineHelpText>Sales Assisted Closed Won opps</inlineHelpText>
+    <label>Number of Sales-Assisted Deals</label>
+    <summaryFilterItems>
+        <field>Opportunity.Sales_Assisted_New__c</field>
+        <operation>equals</operation>
+        <value>True</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.StageName</field>
+        <operation>equals</operation>
+        <value>99 Closed Won</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>org_subscription_start_date__c</fullName>
+    <description>Subscription start date for the org&#39;s plan. If the subscription is monthly, the date will only reflect this month&#39;s billing cycle.</description>
+    <inlineHelpText>Subscription start date for the org&#39;s plan. If the subscription is monthly, the date will only reflect this month&#39;s billing cycle.</inlineHelpText>
+    <label>Org Subscription Start Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

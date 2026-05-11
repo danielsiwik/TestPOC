@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Unenrolled_from_CS_Pool__c</fullName>
+    <description>Date, when CS Pool was unenrolled (https://app.asana.com/0/1169811029711865/1200798133349171)</description>
+    <inlineHelpText>Date, when CS Pool was unenrolled</inlineHelpText>
+    <label>Unenrolled from CS Pool</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

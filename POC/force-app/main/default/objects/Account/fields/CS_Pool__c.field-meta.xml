@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CS_Pool__c</fullName>
+    <description>Picklist field, that helps to differentiate different pools for different regions and markets within a geo (https://app.asana.com/0/1169811029711865/1200798133349171)</description>
+    <inlineHelpText>Picklist field, that helps to differentiate different pools for different regions and markets within a geo</inlineHelpText>
+    <label>CS Pool</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>CS_Pool</valueSetName>
+    </valueSet>
+</CustomField>

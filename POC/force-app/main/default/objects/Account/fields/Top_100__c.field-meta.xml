@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Top_100__c</fullName>
+    <description>If this field has a value for a region, the account is in the Top 100 for that respective region.
+https://app.asana.com/0/253313814113822/1202491590735668/f</description>
+    <inlineHelpText>If this field has a value for a region, the account is in the Top 100 for that respective region</inlineHelpText>
+    <label>Top 100</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>AMER</fullName>
+                <default>false</default>
+                <label>AMER</label>
+            </value>
+            <value>
+                <fullName>EMEA</fullName>
+                <default>false</default>
+                <label>EMEA</label>
+            </value>
+            <value>
+                <fullName>APAC</fullName>
+                <default>false</default>
+                <label>APAC</label>
+            </value>
+            <value>
+                <fullName>JPN</fullName>
+                <default>false</default>
+                <label>JPN</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

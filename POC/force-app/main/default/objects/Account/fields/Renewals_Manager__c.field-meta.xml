@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Renewals_Manager__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>The assigned renewals manager of the account; populated manually by Strategy
+https://app.asana.com/0/1199570963463990/1199902246368731/f</description>
+    <label>Renewals Manager</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Renewals_Accounts</relationshipName>
+    <required>false</required>
+    <securityClassification>Tier 1</securityClassification>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Origin__c</fullName>
+    <description>Indicates whether this customer was originally sourced by the partner or was a lead or customer originally sourced by Asana (https://app.asana.com/0/1169811029711865/1193323731816270)</description>
+    <inlineHelpText>Indicates whether this customer was originally sourced by the partner or was a lead or customer originally sourced by Asana</inlineHelpText>
+    <label>Account Origin</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Asana Sourced</fullName>
+                <default>false</default>
+                <label>Asana Sourced</label>
+            </value>
+            <value>
+                <fullName>Partner Sourced</fullName>
+                <default>false</default>
+                <label>Partner Sourced</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Plan_Tier__c</fullName>
+    <description>https://app.asana.com/0/1206954742081993/1207277866810692/f</description>
+    <label>Plan Tier</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Enterprise</fullName>
+                <default>false</default>
+                <label>Enterprise</label>
+            </value>
+            <value>
+                <fullName>Enterprise Plus</fullName>
+                <default>false</default>
+                <label>Enterprise Plus</label>
+            </value>
+            <value>
+                <fullName>Legacy Enterprise</fullName>
+                <default>false</default>
+                <label>Legacy Enterprise</label>
+            </value>
+            <value>
+                <fullName>Business</fullName>
+                <default>false</default>
+                <label>Business</label>
+            </value>
+            <value>
+                <fullName>Premium</fullName>
+                <default>false</default>
+                <label>Premium</label>
+            </value>
+            <value>
+                <fullName>Starter</fullName>
+                <default>false</default>
+                <label>Starter</label>
+            </value>
+            <value>
+                <fullName>Advanced</fullName>
+                <default>false</default>
+                <label>Advanced</label>
+            </value>
+            <value>
+                <fullName>Free</fullName>
+                <default>false</default>
+                <label>Free</label>
+            </value>
+            <value>
+                <fullName>Japan - SLA All Enterprise Customers</fullName>
+                <default>false</default>
+                <label>Japan - SLA All Enterprise Customers</label>
+            </value>
+            <value>
+                <fullName>Japan - SLA Non-Enterprise Customers</fullName>
+                <default>false</default>
+                <label>Japan - SLA Non-Enterprise Customers</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

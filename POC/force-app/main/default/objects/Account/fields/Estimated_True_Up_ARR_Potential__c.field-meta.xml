@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Estimated_True_Up_ARR_Potential__c</fullName>
+    <description>https://app.asana.com/0/253313814113822/1202708278415923/f
+
+involved in Rollup Helper job</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Account ARR upside based on seat utilization (when &gt;50%) and internal user count (when &gt; paid seats)</inlineHelpText>
+    <label>Estimated True-Up ARR Potential</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

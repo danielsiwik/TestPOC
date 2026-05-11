@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BVC_Notes__c</fullName>
+    <description>Business Value Consultant Notes https://app.asana.com/0/1206411435319312/1207225282597519/f</description>
+    <inlineHelpText>Business Value Consultant Notes</inlineHelpText>
+    <label>BVC Notes</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>TextArea</type>
+</CustomField>

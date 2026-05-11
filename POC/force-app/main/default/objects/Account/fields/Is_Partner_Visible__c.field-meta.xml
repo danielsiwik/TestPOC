@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Partner_Visible__c</fullName>
+    <description>True if viewed by partner user https://app.asana.com/0/1169811029711865/1203578435491657/f</description>
+    <formula>Billing_Owner__c == $User.Account__c</formula>
+    <label>Is Partner Visible</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

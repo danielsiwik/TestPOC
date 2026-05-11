@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dedicated_CSM__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Customer success manager assigned to this account
+https://app.asana.com/0/515645212208478/1205293049589004/f</description>
+    <inlineHelpText>Customer success manager assigned to this account</inlineHelpText>
+    <label>CS Owner</label>
+    <lookupFilter>
+        <active>true</active>
+        <booleanFilter>1 OR 2</booleanFilter>
+        <filterItems>
+            <field>User.Profile.Name</field>
+            <operation>contains</operation>
+            <value>CS</value>
+        </filterItems>
+        <filterItems>
+            <field>User.RevenueDepartment__c</field>
+            <operation>equals</operation>
+            <value>DCS</value>
+        </filterItems>
+        <isOptional>true</isOptional>
+    </lookupFilter>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Accounts_CSM</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Lookup</type>
+</CustomField>

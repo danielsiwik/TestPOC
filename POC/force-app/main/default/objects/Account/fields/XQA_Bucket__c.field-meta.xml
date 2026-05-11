@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>XQA_Bucket__c</fullName>
+    <description>https://app.asana.com/0/1202710080826437/1204614510755513/f</description>
+    <externalId>false</externalId>
+    <formula>IF( ISBLANK(XQA_Score__c), &quot; &quot;,
+
+IF( AND(XQA_Score__c &gt;=0 , XQA_Score__c &lt;=33,  Total_Account_ARR__c &gt;0),&quot;At-Risk&quot;,
+
+IF( AND(XQA_Score__c &gt;=0 , XQA_Score__c &lt;=33,  (ISBLANK(Total_Account_ARR__c) || Total_Account_ARR__c =0)),&quot;Low&quot;,
+
+IF( AND(XQA_Score__c &gt;=34 , XQA_Score__c &lt;=67,  Total_Account_ARR__c &gt;0),&quot;Neutral&quot;,
+
+IF( AND(XQA_Score__c &gt;=34 , XQA_Score__c &lt;=67,  (ISBLANK(Total_Account_ARR__c) || Total_Account_ARR__c =0)),&quot;Medium&quot;,
+
+IF( AND(XQA_Score__c &gt;=68 , XQA_Score__c &lt;=100,  Total_Account_ARR__c &gt;0),&quot;Growth&quot;,
+
+IF( AND(XQA_Score__c &gt;=68 , XQA_Score__c &lt;=100,  (ISBLANK(Total_Account_ARR__c) || Total_Account_ARR__c =0)),&quot;High&quot;, &quot; &quot;)))))))</formula>
+    <inlineHelpText>Derived by the Expansion Score - evaluates account health for Paid accounts and conversion propensity for Free accounts</inlineHelpText>
+    <label>Expansion Bucket</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

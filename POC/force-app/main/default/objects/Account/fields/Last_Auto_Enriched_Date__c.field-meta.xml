@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Last_Auto_Enriched_Date__c</fullName>
+    <description>Populated when a record was enriched by Full Enrichment Batch Job (https://app.asana.com/0/1203315724044772/1204818111895008)</description>
+    <label>Last Auto Enriched Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

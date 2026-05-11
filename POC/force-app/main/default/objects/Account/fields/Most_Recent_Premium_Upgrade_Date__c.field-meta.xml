@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Most_Recent_Premium_Upgrade_Date__c</fullName>
+    <description>From Redshift: The most recent date when domain upgraded from free to any paid tier.</description>
+    <inlineHelpText>The most recent date when domain upgraded from free to any paid tier.</inlineHelpText>
+    <label>Most Recent Conversion Upgrade Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

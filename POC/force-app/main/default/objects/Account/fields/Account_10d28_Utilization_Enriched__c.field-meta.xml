@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_10d28_Utilization_Enriched__c</fullName>
+    <description>Account Utilization % calculated directly from SFDC pipeline. Calculated as users_visited_10d28 / users on an account&#39;s premium plans https://app.asana.com/0/193922247701627/1199585177038744</description>
+    <label>Account 10d28 Utilization (Enriched)</label>
+    <precision>10</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

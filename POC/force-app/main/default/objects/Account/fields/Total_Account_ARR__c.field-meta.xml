@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Total_Account_ARR__c</fullName>
+    <description>Aggregate spend across the account, used by CSMs to triage accounts; populated from Redshift.
+
+involved in Rollup Helper job</description>
+    <inlineHelpText>aggregate spend populated by Redshift</inlineHelpText>
+    <label>Total Account ARR</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <securityClassification>Tier 1</securityClassification>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Currency</type>
+</CustomField>

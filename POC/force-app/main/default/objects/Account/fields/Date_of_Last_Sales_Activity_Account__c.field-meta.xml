@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_of_Last_Sales_Activity_Account__c</fullName>
+    <description>Maximum date of last Sales activity on the Account level.  Populated by Process Builder (Update Date of Last Sales Activity) or Lead field mapping.</description>
+    <inlineHelpText>Max date of last Sales activity on the Account</inlineHelpText>
+    <label>Date of Last Sales Activity - Account</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

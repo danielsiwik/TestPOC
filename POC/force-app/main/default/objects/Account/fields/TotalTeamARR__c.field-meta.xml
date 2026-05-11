@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TotalTeamARR__c</fullName>
+    <description>Indicates Total Team ARR for this account (https://app.asana.com/0/1200340081332764/1203796945044015)
+
+involved in Rollup Helper job</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Shows total Team ARR for this account</inlineHelpText>
+    <label>Total Team ARR</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CS_Specialization__c</fullName>
+    <description>https://app.asana.com/0/1206411435319312/1207768608598727/f - field was created, https://app.asana.com/0/1209121380111720/1209174879297962/f - completely rebuilt and relabeled</description>
+    <externalId>false</externalId>
+    <formula>IF(
+  Dedicated_CSM__r.LastName = &#39;Scaled CSM&#39;,
+  &#39;Scaled&#39;,
+  IF(
+    ISPICKVAL(Dedicated_CSM__r.RevenueMarket__c, &#39;AMER&#39;) &amp;&amp;
+    ISPICKVAL(Dedicated_CSM__r.RevenueTeam__c, &#39;STRAT&#39;),
+    &#39;Top Accounts&#39;,
+    IF(
+      (ISPICKVAL(Dedicated_CSM__r.RevenueMarket__c, &#39;AMER&#39;) ||
+        ISPICKVAL(Dedicated_CSM__r.RevenueMarket__c, &#39;EMEA&#39;) ||
+        ISPICKVAL(Dedicated_CSM__r.RevenueMarket__c, &#39;APAC&#39;) ||
+        ISPICKVAL(Dedicated_CSM__r.RevenueMarket__c, &#39;JPN&#39;)
+      ) &amp;&amp;
+      ISPICKVAL(Dedicated_CSM__r.RevenueDepartment__c, &#39;DCS&#39;) &amp;&amp;
+      ISPICKVAL(Dedicated_CSM__r.RevenueVertical__c, &#39;ALL&#39;),
+      &#39;Named&#39;,
+      IF (
+        ISPICKVAL(Dedicated_CSM__r.RevenueMarket__c, &#39;AMER&#39;) &amp;&amp;
+        ISPICKVAL(Dedicated_CSM__r.RevenueDepartment__c, &#39;DCS&#39;) &amp;&amp;
+        ISPICKVAL(Dedicated_CSM__r.RevenueVertical__c, &#39;VERTS&#39;),
+        &#39;Named VERTS&#39;,
+        IF (
+          (ISPICKVAL(Dedicated_CSM__r.RevenueMarket__c, &#39;AMER&#39;) ||
+            ISPICKVAL(Dedicated_CSM__r.RevenueMarket__c, &#39;EMEA&#39;) ||
+            ISPICKVAL(Dedicated_CSM__r.RevenueMarket__c, &#39;APAC&#39;) ||
+            ISPICKVAL(Dedicated_CSM__r.RevenueMarket__c, &#39;JPN&#39;)
+          ) &amp;&amp;
+          ISPICKVAL(Dedicated_CSM__r.RevenueDepartment__c, &#39;PCS&#39;) &amp;&amp;
+          ISPICKVAL(Dedicated_CSM__r.RevenueVertical__c, &#39;ALL&#39;),
+          &#39;Portfolio&#39;,
+          IF (
+            ISPICKVAL(Dedicated_CSM__r.RevenueMarket__c, &#39;AMER&#39;) &amp;&amp;
+            ISPICKVAL(Dedicated_CSM__r.RevenueDepartment__c, &#39;PCS&#39;) &amp;&amp;
+            ISPICKVAL(Dedicated_CSM__r.RevenueVertical__c, &#39;VERTS&#39;),
+            &#39;Portfolio VERTS&#39;,
+            IF (
+              (ISPICKVAL(Dedicated_CSM__r.RevenueMarket__c, &#39;AMER&#39;) ||
+                ISPICKVAL(Dedicated_CSM__r.RevenueMarket__c, &#39;EMEA&#39;) ||
+                ISPICKVAL(Dedicated_CSM__r.RevenueMarket__c, &#39;APAC&#39;)
+              ) &amp;&amp;
+              ISPICKVAL(Dedicated_CSM__r.RevenueDepartment__c, &#39;SCS&#39;),
+              &#39;Scaled&#39;,
+              &#39;&#39;
+            )
+          )
+        )
+      )
+    )
+  )
+)</formula>
+    <label>CS Segment</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

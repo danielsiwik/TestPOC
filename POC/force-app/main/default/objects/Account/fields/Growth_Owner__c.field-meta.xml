@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Growth_Owner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Populated by RevOps/RevStrat to assign ownership of new Growth Opportunities  https://app.asana.com/0/1203315724044772/1206407197119298/f</description>
+    <inlineHelpText>The user who will become the owner of Growth Opportunities for this Account. If blank, Growth Opps will be assigned to the Account Owner.</inlineHelpText>
+    <label>Growth Owner</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Growth_Owner</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

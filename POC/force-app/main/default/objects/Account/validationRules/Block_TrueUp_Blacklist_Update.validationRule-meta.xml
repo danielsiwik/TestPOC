@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Block_TrueUp_Blacklist_Update</fullName>
+    <active>true</active>
+    <description>Block user from unchecking TrueUp Blacklist if billing country is embargoed.</description>
+    <errorConditionFormula>AND(		
+				NOT($Permission.Admin_Automation_Exclusion),
+				ISCHANGED(True_Up_Denylist__c),
+				NOT(True_Up_Denylist__c),
+				IsEmbargoedCountry__c
+)</errorConditionFormula>
+    <errorDisplayField>True_Up_Denylist__c</errorDisplayField>
+    <errorMessage>Cannot remove account from TrueUp blackist - Country is embargoed</errorMessage>
+</ValidationRule>

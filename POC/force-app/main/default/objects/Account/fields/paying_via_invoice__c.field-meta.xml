@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>paying_via_invoice__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>If the customer is paying via annual invoice, the box will be checked</description>
+    <inlineHelpText>If the customer is paying via annual invoice, the box will be checked</inlineHelpText>
+    <label>Paying via Invoice</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

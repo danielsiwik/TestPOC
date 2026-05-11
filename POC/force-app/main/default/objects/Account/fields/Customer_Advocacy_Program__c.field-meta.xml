@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Advocacy_Program__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Ability for CS to document customer advocacy program members and then track account changes over time.
+https://app.asana.com/0/253313814113822/1201754159992517/f</description>
+    <inlineHelpText>Customer is a member of advocacy program</inlineHelpText>
+    <label>Customer Advocacy Program</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

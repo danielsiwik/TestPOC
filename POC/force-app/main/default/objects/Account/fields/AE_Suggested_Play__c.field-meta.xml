@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AE_Suggested_Play__c</fullName>
+    <description>AE&#39;s suggested sales motion in account https://app.asana.com/0/253313814113822/1202780018364502/f</description>
+    <label>AE Suggested Motion</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Expand within Department</fullName>
+                <default>false</default>
+                <label>Expand within Department</label>
+            </value>
+            <value>
+                <fullName>Expand to New Department</fullName>
+                <default>false</default>
+                <label>Expand to New Department</label>
+            </value>
+            <value>
+                <fullName>Wall-to-Wall</fullName>
+                <default>false</default>
+                <label>Wall-to-Wall</label>
+            </value>
+            <value>
+                <fullName>First Monetization Event</fullName>
+                <default>false</default>
+                <label>First Monetization Event</label>
+            </value>
+            <value>
+                <fullName>Top Down/wall-to-wall</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Top Down/wall-to-wall</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

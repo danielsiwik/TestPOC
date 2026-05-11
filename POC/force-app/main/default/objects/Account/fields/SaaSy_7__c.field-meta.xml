@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SaaSy_7__c</fullName>
+    <description>Identifies Companies using Airtable, Jira, Trello, MS Project, Monday, Smartsheet, Workfront, Wrike. Updated by Zoom Managed App and configured and mapped within Zoom Clean Setting. Read Only for Entire Org
+https://app.asana.com/0/1145276374138076/1147377052230961</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Companies using Airtable, Jira, Trello, MS Project, Monday, Smartsheet, Workfront, Wrike</inlineHelpText>
+    <label>Zoom SaaSy 7</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

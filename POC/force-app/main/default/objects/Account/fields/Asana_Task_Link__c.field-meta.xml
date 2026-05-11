@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asana_Task_Link__c</fullName>
+    <description>Used to manually relate Asana tasks to this account in places where the Asana integration does not satisfy use cases
+https://app.asana.com/0/1200688953913592/1202129485029885/f</description>
+    <label>Asana Task Link</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Url</type>
+</CustomField>

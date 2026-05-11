@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hierarchical_Vertical_Industry__c</fullName>
+    <description>Hierarchy Vertical Industry related to the Industry on the Ultimate Parent or Standalone Account
+https://app.asana.com/0/1203315724044772/1205874290782802/f</description>
+    <externalId>false</externalId>
+    <formula>IF(
+    NOT(ISBLANK(UltimateParentAccount__c)),
+    IF(
+        NOT(ISBLANK(TEXT(UltimateParentAccount__r.Vertical_Industry__c))),
+        TEXT(UltimateParentAccount__r.Vertical_Industry__c),
+        &#39;&#39;
+    ),
+    IF(
+        NOT(ISBLANK(TEXT(Vertical_Industry__c))),
+        TEXT(Vertical_Industry__c),
+        &#39;&#39;
+    )
+)</formula>
+    <inlineHelpText>Matches the Hierarchy Industry value on the Ultimate Parent or Standalone Account</inlineHelpText>
+    <label>Hierarchy Vertical Industry</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_dCS_Team_s_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>TracHier__Owner__c</columns>
+    <columns>Dedicated_CSM__c</columns>
+    <columns>Bizneyland_Link__c</columns>
+    <columns>domain_id__c</columns>
+    <columns>Total_Account_ARR__c</columns>
+    <columns>paid_seats__c</columns>
+    <columns>UpcomingRenewalDate__c</columns>
+    <columns>Account_1d28_Utilization_Enriched__c</columns>
+    <columns>Days_Since_Last_CS_Activity__c</columns>
+    <columns>FY20_Account_Tier__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Dedicated_CSM_Manager__c</field>
+        <operation>equals</operation>
+        <value>$USER</value>
+    </filters>
+    <label>My dCS Team&#39;s Accounts</label>
+    <sharedTo>
+        <group>Dedicated_CSM_Leads</group>
+    </sharedTo>
+</ListView>

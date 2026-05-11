@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>S2L_Early_Handoff_Date__c</fullName>
+    <description>Stamped date when related opportunity is marked as ready for handoff. Populated and cleared based on S2L_Early_Handoff__c from Opportunity (https://app.asana.com/0/1203326674360215/1205002637704633/f)</description>
+    <label>S2L Early Handoff Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

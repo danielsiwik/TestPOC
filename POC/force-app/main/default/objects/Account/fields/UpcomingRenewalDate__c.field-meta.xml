@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>UpcomingRenewalDate__c</fullName>
+    <description>Used in a Rollup Helper - https://app.asana.com/0/1203315724044772/1204867886575954/f</description>
+    <inlineHelpText>Displays the soonest upcoming Renewal Date amongst all active Contracts on the Account.</inlineHelpText>
+    <label>Upcoming Renewal Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

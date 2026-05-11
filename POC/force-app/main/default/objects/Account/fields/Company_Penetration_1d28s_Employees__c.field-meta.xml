@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Company_Penetration_1d28s_Employees__c</fullName>
+    <description>Total Paid Seats within the Organization / Number of Employees at the Company</description>
+    <formula>IF(
+    OR(
+        ISBLANK(paid_seats__c),
+        ISBLANK(NumberOfEmployees),
+        paid_seats__c = 0,
+        NumberOfEmployees = 0
+    ),
+    0,
+    paid_seats__c / NumberOfEmployees 
+)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>Total Paid Seats within the Organization / Number of Employees at the Company</inlineHelpText>
+    <label>Company Penetration (Seats / Employees)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <securityClassification>Tier 1</securityClassification>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Block_User_Edit_CS_Pool</fullName>
+    <active>true</active>
+    <description>User can&#39;t set the CS Pool value when Dedicated CSM is populated (https://app.asana.com/0/1169811029711865/1200798133349171)</description>
+    <errorConditionFormula>AND(
+          ISCHANGED(CS_Pool__c),
+          NOT(ISBLANK(TEXT(CS_Pool__c))),
+          NOT(ISBLANK(Dedicated_CSM__c))
+        )</errorConditionFormula>
+    <errorMessage>You cannot select a CS Pool for the Account when the Account is assigned to a Dedicated CSM</errorMessage>
+</ValidationRule>

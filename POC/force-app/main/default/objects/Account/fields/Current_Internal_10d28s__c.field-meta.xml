@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Current_Internal_10d28s__c</fullName>
+    <description>From Redshift, populated by Snaplogic daily. Current internal 10d28 users (10 logins in last 28 days). Build new fields on Account (https://app.asana.com/0/1169811029711865/1174989140219396/f)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of users who logged in at least 10 times in the last 28 days</inlineHelpText>
+    <label>Current Internal 10d28s</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

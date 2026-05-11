@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Top_Inviter__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>Top Inviter</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Accounts (Top Inviter)</relationshipLabel>
+    <relationshipName>Top_Inviter</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

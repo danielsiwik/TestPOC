@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Accounts_at_Risk</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>UpcomingRenewalDate__c</columns>
+    <columns>XQA_ARS__c</columns>
+    <columns>Total_Account_ARR__c</columns>
+    <columns>paid_seats__c</columns>
+    <columns>internal_users__c</columns>
+    <columns>CurrentOwner__c</columns>
+    <columns>Account_Owner__c</columns>
+    <filterScope>Mine</filterScope>
+    <label>My Accounts at Risk</label>
+</ListView>

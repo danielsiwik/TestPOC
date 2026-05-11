@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_of_Last_CS_Activity__c</fullName>
+    <description>Maximum date of CS activities on related Opportunities  (deprecated in https://app.asana.com/0/1203315724044772/1205604221786156/f)</description>
+    <inlineHelpText>Max date of CS activities on related Opportunities</inlineHelpText>
+    <label>Date of Last CS Activity (deprecated)</label>
+    <summarizedField>Opportunity.Date_of_Last_CS_Activity__c</summarizedField>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

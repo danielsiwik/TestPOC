@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_assigment_for_segment_and_region</fullName>
+    <active>false</active>
+    <description>An account without Segment or Sales Region can not be assigned. - (https://app.asana.com/0/1203326674360215/1204292629506844/f)</description>
+    <errorConditionFormula>AND(
+   ISCHANGED(OwnerId),
+   IF($Permission.Admin_Automation_Exclusion,
+        false,
+        IF(ISPICKVAL($User.Business_Function__c , &quot;Sales Admin&quot;),
+            false,
+            true)),
+    OR(
+       AND(
+            ISBLANK(Hierarchy_Segment__c),
+            ISBLANK(NumberOfEmployees),
+            ISPICKVAL($User.Business_Function__c , &#39;Sales Development Rep&#39;)
+       ),
+       AND(
+            Hierarchy_Segment__c = &#39;SMB&#39;,
+            NOT(ISPICKVAL($User.Business_Function__c , &#39;Sales Development Rep&#39;)),
+            NOT(Account_Owner_Role__c = &#39;External Sales Rep&#39;)
+       ),
+       AND(
+            NOT(Hierarchy_Segment__c = &#39;SMB&#39;),
+            (ISPICKVAL($User.Business_Function__c , &#39;Sales Development Rep&#39;)),
+            Account_Owner_Role__c = &#39;External Sales Rep&#39;
+       ),
+       AND( 
+            NOT(ISBLANK(Hierarchy_Segment__c)),
+            Hierarchy_Segment__c = &#39;SMB&#39;,
+            (ISPICKVAL($User.Business_Function__c , &#39;Sales Development Rep&#39;)),
+            Account_Owner_Role__c = &#39;Account Executive&#39;
+       ),
+       AND( 
+            NOT(Hierarchy_Segment__c = &#39;SMB&#39;),
+            NOT(ISPICKVAL($User.Business_Function__c , &#39;Sales Development Rep&#39;)),
+            NOT(Account_Owner_Role__c = &#39;Account Executive&#39;)
+       ),
+       AND(
+            OR(
+                Hierarchy_Segment__c = &#39;Unknown&#39;,
+                ISBLANK(NumberOfEmployees)
+            ),
+            ISPICKVAL($User.Business_Function__c , &#39;Sales Development Rep&#39;)
+        )     
+    )
+)</errorConditionFormula>
+    <errorMessage>Accounts lacking Segment/Sales Region can&#39;t be assigned, and accounts can only be assigned to reps in the same segment. Confirm Employee Count/Billing Address, assign to correct segment rep, or submit RevOps ticket at go/revopsform.</errorMessage>
+</ValidationRule>

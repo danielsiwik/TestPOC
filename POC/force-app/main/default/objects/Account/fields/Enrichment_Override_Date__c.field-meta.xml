@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enrichment_Override_Date__c</fullName>
+    <description>Date of the last Enrichment (https://app.asana.com/0/1173635330340929/1200532064378387)</description>
+    <inlineHelpText>Date of the last Enrichment</inlineHelpText>
+    <label>Enrichment Override Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Primary_Line_of_Business__c</fullName>
+    <description>Primary Line of Business (https://app.asana.com/0/1169811029711865/1195356407950369)</description>
+    <label>Primary Line of Business</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Value-Added Reseller</fullName>
+                <default>false</default>
+                <label>Value-Added Reseller</label>
+            </value>
+            <value>
+                <fullName>Systems Integrator</fullName>
+                <default>false</default>
+                <label>Systems Integrator</label>
+            </value>
+            <value>
+                <fullName>Other</fullName>
+                <default>false</default>
+                <label>Other</label>
+            </value>
+            <value>
+                <fullName>Distributor</fullName>
+                <default>false</default>
+                <label>Distributor</label>
+            </value>
+            <value>
+                <fullName>Consultancy/ Professional Services Firm</fullName>
+                <default>false</default>
+                <label>Consultancy/ Professional Services Firm</label>
+            </value>
+            <value>
+                <fullName>Software Developer/ Publisher</fullName>
+                <default>false</default>
+                <label>Software Developer/ Publisher</label>
+            </value>
+            <value>
+                <fullName>Independent Software Vendor</fullName>
+                <default>false</default>
+                <label>Independent Software Vendor</label>
+            </value>
+            <value>
+                <fullName>Agency</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Agency</label>
+            </value>
+            <value>
+                <fullName>Consultant</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Consultant</label>
+            </value>
+            <value>
+                <fullName>Reseller</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Reseller</label>
+            </value>
+            <value>
+                <fullName>Service Provider</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Service Provider</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

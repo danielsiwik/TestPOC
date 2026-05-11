@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AI_Studio_First_Call_Deck_Requested_By__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <label>AI Studio First Call Deck Requested By</label>
+    <description>Lookup to the User who requested the First Call Deck.
+
+https://app.asana.com/1/15793206719/project/1213007451667626/task/1213644923156023?focus=true</description>
+    <referenceTo>User</referenceTo>
+    <relationshipLabel>AI Studio First Call Decks</relationshipLabel>
+    <relationshipName>AI_Studio_First_Call_Decks</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

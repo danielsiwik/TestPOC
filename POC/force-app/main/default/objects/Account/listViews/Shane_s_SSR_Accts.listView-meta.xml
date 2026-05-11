@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Shane_s_SSR_Accts</fullName>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>EDR__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CurrentOwner__c</field>
+        <operation>equals</operation>
+        <value>Matt Wilton,Angeline Chow</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.EMPLOYEES</field>
+        <operation>lessThan</operation>
+        <value>100</value>
+    </filters>
+    <filters>
+        <field>UltimateParentAccount__c</field>
+        <operation>equals</operation>
+    </filters>
+    <filters>
+        <field>paid_seats__c</field>
+        <operation>lessThan</operation>
+        <value>100</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notContain</operation>
+        <value>.gov.au</value>
+    </filters>
+    <label>Shane&#39;s SSR Accts</label>
+</ListView>

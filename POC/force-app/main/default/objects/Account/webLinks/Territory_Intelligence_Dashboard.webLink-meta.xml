@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Territory_Intelligence_Dashboard</fullName>
+    <availability>online</availability>
+    <description>Link to Territory Intelligence Dashboard in Tableau https://app.asana.com/0/253313814113822/1203092584871757/f</description>
+    <displayType>massActionButton</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <height>600</height>
+    <linkType>url</linkType>
+    <masterLabel>Territory Intelligence Dashboard</masterLabel>
+    <openType>sidebar</openType>
+    <protected>false</protected>
+    <requireRowSelection>true</requireRowSelection>
+    <url>https://prod-useast-a.online.tableau.com/#/site/asana/views/TerritoryIntelligenceDashboard/Home?SFDC+Account+Owner={!$User.FirstName}+{!$User.LastName}</url>
+</WebLink>

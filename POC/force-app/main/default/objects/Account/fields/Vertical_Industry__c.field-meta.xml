@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Vertical_Industry__c</fullName>
+    <description>Industry Vertical related to the Industry on the Ultimate Parent or Standalone Account
+https://app.asana.com/0/1203315724044772/1205874290782802/f</description>
+    <inlineHelpText>Industry Vertical related to the Industry on the Ultimate Parent or Standalone Account</inlineHelpText>
+    <label>Vertical Industry</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>true</sorted>
+            <value>
+                <fullName>Communications</fullName>
+                <default>false</default>
+                <label>Communications</label>
+            </value>
+            <value>
+                <fullName>Education</fullName>
+                <default>false</default>
+                <label>Education</label>
+            </value>
+            <value>
+                <fullName>Financial Services</fullName>
+                <default>false</default>
+                <label>Financial Services</label>
+            </value>
+            <value>
+                <fullName>Government</fullName>
+                <default>false</default>
+                <label>Government</label>
+            </value>
+            <value>
+                <fullName>Healthcare and Life Sciences</fullName>
+                <default>false</default>
+                <label>Healthcare and Life Sciences</label>
+            </value>
+            <value>
+                <fullName>Manufacturing, Energy, Utilities</fullName>
+                <default>false</default>
+                <label>Manufacturing, Energy, Utilities</label>
+            </value>
+            <value>
+                <fullName>Media and Entertainment</fullName>
+                <default>false</default>
+                <label>Media and Entertainment</label>
+            </value>
+            <value>
+                <fullName>Not For Profit</fullName>
+                <default>false</default>
+                <label>Not For Profit</label>
+            </value>
+            <value>
+                <fullName>Other Services</fullName>
+                <default>false</default>
+                <label>Other Services</label>
+            </value>
+            <value>
+                <fullName>Professional Services</fullName>
+                <default>false</default>
+                <label>Professional Services</label>
+            </value>
+            <value>
+                <fullName>Retail and Consumer Goods</fullName>
+                <default>false</default>
+                <label>Retail and Consumer Goods</label>
+            </value>
+            <value>
+                <fullName>Software and Technology</fullName>
+                <default>false</default>
+                <label>Software and Technology</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

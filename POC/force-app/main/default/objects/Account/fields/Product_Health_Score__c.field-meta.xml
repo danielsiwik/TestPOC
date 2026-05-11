@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Product_Health_Score__c</fullName>
+    <description>Product Health Score data from Territory Intelligence Dashboard
+https://app.asana.com/0/253313814113822/1202787536545870/f</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Product Health Score calculated by Data Science</inlineHelpText>
+    <label>Product Health Score</label>
+    <precision>5</precision>
+    <required>false</required>
+    <scale>1</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

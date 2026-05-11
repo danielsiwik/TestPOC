@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GraduationLandOwner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Original owner of the Account on New Business team (https://app.asana.com/0/1169811029711865/1189039256526464)</description>
+    <inlineHelpText>Account Owner at the moment of Account upgrade</inlineHelpText>
+    <label>GraduationLandOwner</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>LandOwner</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

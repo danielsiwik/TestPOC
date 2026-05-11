@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Interest__c</fullName>
+    <formula>OR(Number_of_Opportunities__c &gt; 0,  paid_seats__c &gt; 0)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Sales Interest</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

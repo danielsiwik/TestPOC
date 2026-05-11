@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hierarchy_Employee_Count__c</fullName>
+    <description>Number of employees of the account in this hierarchy with the largest EE
+https://app.asana.com/0/1203315724044772/1205530389454396/f</description>
+    <externalId>false</externalId>
+    <formula>IF(
+    NOT(ISBLANK(UltimateParentAccount__c)),
+    IF(
+        NOT(ISBLANK(TEXT(UltimateParentAccount__r.Hierarchy_Employee_Count_Help__c))),
+        UltimateParentAccount__r.Hierarchy_Employee_Count_Help__c,
+        0
+    ),
+    IF(
+        NOT(ISBLANK(TEXT(Hierarchy_Employee_Count_Help__c))),
+        Hierarchy_Employee_Count_Help__c,
+        NumberOfEmployees
+    )
+)</formula>
+    <inlineHelpText>Number of employees of the account in this hierarchy with the largest EE</inlineHelpText>
+    <label>Hierarchy Employee Count</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

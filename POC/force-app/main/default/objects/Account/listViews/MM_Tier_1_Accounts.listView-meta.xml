@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>MM_Tier_1_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FY20_Account_Tier__c</columns>
+    <columns>AE_Suggested_Play__c</columns>
+    <columns>Company_Penetration_1d28s_Employees__c</columns>
+    <columns>Account_Seat_Upside__c</columns>
+    <columns>ACCOUNT.INDUSTRY</columns>
+    <columns>paid_seats__c</columns>
+    <columns>Total_Account_ARR__c</columns>
+    <columns>plan_code__c</columns>
+    <columns>Utilization_1d28s_Paid_Seats__c</columns>
+    <columns>Recent_1d28__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>TotalHierarchyARR__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>USD 10000</value>
+    </filters>
+    <filters>
+        <field>Company_Penetration_1d28s_Employees__c</field>
+        <operation>lessOrEqual</operation>
+        <value>40</value>
+    </filters>
+    <filters>
+        <field>Utilization_1d28s_Paid_Seats__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>50</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.CustomerAccount</value>
+    </filters>
+    <label>MM Tier 1 Accounts</label>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

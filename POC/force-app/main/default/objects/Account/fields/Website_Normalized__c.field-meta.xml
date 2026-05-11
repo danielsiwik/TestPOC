@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Website_Normalized__c</fullName>
+    <description>Normalizes Account.Website to the same format</description>
+    <externalId>false</externalId>
+    <formula>SUBSTITUTE(
+        SUBSTITUTE(
+            SUBSTITUTE(
+                
+                IF(
+                    FIND(&quot;/&quot;, Website, FIND(&quot;.&quot;, Website)) == LEN(Website),
+                    LEFT(
+                        LOWER(Website),
+                        LEN(Website) - 1
+                    ),
+                    LOWER(Website)
+                ),
+                &quot;https://&quot;, &quot;&quot;
+            ), 
+            &quot;http://&quot;, &quot;&quot;
+        ), 
+        &quot;www.&quot;, &quot;&quot;
+    )</formula>
+    <inlineHelpText>Normalizes Account.Website to the same format https://app.asana.com/0/1169811029711865/1179467196981929</inlineHelpText>
+    <label>Website Normalized</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

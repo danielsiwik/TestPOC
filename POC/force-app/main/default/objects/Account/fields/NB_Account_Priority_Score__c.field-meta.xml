@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>NB_Account_Priority_Score__c</fullName>
+    <description>https://app.asana.com/1/15793206719/project/1209121380111720/task/1211213208260153?focus=true</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Indicates the overall priority of this account based on weighted factors.
+How this score is calculated:
+• Whitespace: 80% Intent Score | 20% News
+• Free Orgs / Free Workspaces: 40% Intent | 40% Expansion | 20% News
+• Paid Orgs / Paid Workspaces: 100% Expansion Score
+
+For details on how Expansion Score is calculated, visit go/xqa.</inlineHelpText>
+    <label>Account Priority Score</label>
+    <precision>4</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

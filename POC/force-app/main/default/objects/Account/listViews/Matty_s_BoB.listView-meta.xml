@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Matty_s_BoB</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>FY20_Account_Tier__c</columns>
+    <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+    <columns>Utilization_1d28s_Paid_Seats__c</columns>
+    <columns>Difference_in_Internal_1d28s__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>internal_users__c</columns>
+    <columns>paid_seats__c</columns>
+    <columns>plan_code__c</columns>
+    <columns>PARENT_NAME</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>mwilt</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notContain</operation>
+        <value>myob.com,xero.com,Sonic Healthcare,monash.edu,originenergy.com.au,delwp.vic.gov.au,aurecongroup.com,education.vic.gov.au,appen,wilson,itiger,king living,lexer,zai,mxstore,firecraft,magic tavern,osl,sea electric,pchome,ruten</value>
+    </filters>
+    <label>Matty&#39;s BoB</label>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

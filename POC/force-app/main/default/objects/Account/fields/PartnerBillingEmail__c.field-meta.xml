@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PartnerBillingEmail__c</fullName>
+    <description>Email where invoices from Asana will be sent (https://app.asana.com/0/1169811029711865/1198885904048568)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Email where invoices from Asana will be sent</inlineHelpText>
+    <label>(Deprecated) Partner Billing Email</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Email</type>
+    <unique>false</unique>
+</CustomField>

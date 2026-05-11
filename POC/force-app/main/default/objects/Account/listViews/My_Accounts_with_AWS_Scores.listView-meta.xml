@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Accounts_with_AWS_Scores</fullName>
+    <columns>FY20_Account_Tier__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>tackle__AWS_Marketplace_Score__c</columns>
+    <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+    <columns>paid_seats__c</columns>
+    <columns>Utilization_1d28s_Paid_Seats__c</columns>
+    <columns>Total_Account_ARR__c</columns>
+    <columns>plan_code__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Account_Owner_Manager__c</field>
+        <operation>equals</operation>
+        <value>Lauren Zoger</value>
+    </filters>
+    <label>My Accounts (with AWS Scores)</label>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sean_My_Team_s_Tier_4_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.URL</columns>
+    <columns>FY20_Account_Tier__c</columns>
+    <columns>recent_internal_1d28s__c</columns>
+    <columns>plan_code__c</columns>
+    <columns>ACCOUNT.EMPLOYEES</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>Utilization_1d28s_Paid_Seats__c</columns>
+    <columns>Difference_in_Internal_1d28s__c</columns>
+    <columns>Days_Since_Last_Activity__c</columns>
+    <columns>Subscription_End_Date__c</columns>
+    <columns>ACCOUNT.CREATED_DATE</columns>
+    <columns>Bizneyland_Link__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Account_Owner_Code__c</field>
+        <operation>equals</operation>
+        <value>NAMER-SAN-COM-EXP</value>
+    </filters>
+    <filters>
+        <field>FY20_Account_Tier__c</field>
+        <operation>equals</operation>
+        <value>Tier 4</value>
+    </filters>
+    <label>Sean - My Team&#39;s Tier 4 Accounts</label>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

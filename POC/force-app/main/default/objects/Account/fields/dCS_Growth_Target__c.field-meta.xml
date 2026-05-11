@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>dCS_Growth_Target__c</fullName>
+    <description>Used by CS to create Dedicated CSM target dashboards by updating the Dedicated Band field in Salesforce instead of manually updating Looker filters whenever a new account is added to the Dedicated book of business.
+
+https://asana.lightning.force.com/lightning/r/Project__c/a0b6100001QbCbnAAF/view</description>
+    <inlineHelpText>internal 1d28v growth target</inlineHelpText>
+    <label>dCS Growth Target</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Retain: 0-9%</fullName>
+                <default>false</default>
+                <label>Retain: 0-9%</label>
+            </value>
+            <value>
+                <fullName>Maintain Growth: 10-29%</fullName>
+                <default>false</default>
+                <label>Maintain Growth: 10-29%</label>
+            </value>
+            <value>
+                <fullName>Accelerate Growth: 30-69%</fullName>
+                <default>false</default>
+                <label>Accelerate Growth: 30-69%</label>
+            </value>
+            <value>
+                <fullName>Accelerate+ Growth: 70-100%+</fullName>
+                <default>false</default>
+                <label>Accelerate+ Growth: 70-100%+</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

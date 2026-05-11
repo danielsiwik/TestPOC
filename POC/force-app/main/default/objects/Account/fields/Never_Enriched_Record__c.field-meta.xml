@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Never_Enriched_Record__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checkbox, created to exclude a record from enrichment (https://app.asana.com/0/1169811029711865/1201032652115305)</description>
+    <inlineHelpText>Checkbox, created to exclude a record from enrichment</inlineHelpText>
+    <label>Never Enrich Record</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

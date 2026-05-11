@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Paid_Customer_Since_Date__c</fullName>
+    <description>This field captures the date when the account first transitioned to a paid subscription plan.
+https://app.asana.com/0/1202771858774857/1207837601516942/f</description>
+    <inlineHelpText>Date when the account first subscribed to a paid plan.</inlineHelpText>
+    <label>Paid Customer Since Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

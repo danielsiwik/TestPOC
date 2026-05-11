@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>internal_users__c</fullName>
+    <description>Populated for any Account currently with product data to indicate their entity&#39;s total internal users, will be only be updated from Redshift via Snaplogic. https://app.asana.com/0/529090902668900/1134347136032791/f</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Internal users on the Account&#39;s Asana entity</inlineHelpText>
+    <label>Internal Users</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

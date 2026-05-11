@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_P_P_Priority_Accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Total_Account_ARR__c</columns>
+    <columns>domain_id__c</columns>
+    <columns>plan_code__c</columns>
+    <columns>ACCOUNT.EMPLOYEES</columns>
+    <columns>paid_seats__c</columns>
+    <columns>FY20_Account_Tier__c</columns>
+    <columns>internal_users__c</columns>
+    <columns>Utilization_1d28s_Paid_Seats__c</columns>
+    <columns>recent_internal_1d28s__c</columns>
+    <columns>P_P_Priority__c</columns>
+    <columns>Dedicated_CSM__c</columns>
+    <columns>EDR__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>P_P_Priority__c</field>
+        <operation>equals</operation>
+        <value>1</value>
+    </filters>
+    <label>My P&amp;P Priority Accounts</label>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

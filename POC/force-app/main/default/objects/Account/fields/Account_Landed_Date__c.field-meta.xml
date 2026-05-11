@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Landed_Date__c</fullName>
+    <description>Indicates the date of Revenue Session which moved an entity over the 10k threshold (https://app.asana.com/0/1200340081332764/1203673014828786)</description>
+    <inlineHelpText>Indicates the date of Revenue Session which moved an entity over the 10k threshold</inlineHelpText>
+    <label>Account Landed Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

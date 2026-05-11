@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_of_Last_CS_Activity_new__c</fullName>
+    <description>Maximum date of CS activities on related Events (https://app.asana.com/0/1203315724044772/1205604221786156/f).</description>
+    <inlineHelpText>Max date of CS activities on related Events</inlineHelpText>
+    <label>Date of Last CS Activity</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

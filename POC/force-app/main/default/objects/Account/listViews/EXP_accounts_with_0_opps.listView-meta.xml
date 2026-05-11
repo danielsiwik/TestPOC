@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EXP_accounts_with_0_opps</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>plan_code__c</columns>
+    <columns>ACCOUNT.CREATED_DATE</columns>
+    <columns>domain_id__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>contains</operation>
+        <value>nels,patrick,frank,ddin,matt</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.LAST_ACTIVITY</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>EXP Accounts with 0 Total Opportunities</label>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FedRAMP__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Set by RevOps and VERT reps to indicate customers subject to FedRAMP https://app.asana.com/1/15793206719/project/1208607285344507/task/1209054269772825</description>
+    <inlineHelpText>Customer is subject to FedRamp</inlineHelpText>
+    <label>FedRAMP</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

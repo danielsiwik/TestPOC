@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Otto_Invoice_Link__c</fullName>
+    <description>1. This field is used by Reps to navigate to OTTO and view their domain&#39;s Invoice data.  1202636412362996
+2. When domain_id__c is set to negative number (representing pending request for domain) should not display this link. (https://app.asana.com/1/15793206719/project/1209391763425740/task/1211197106005125?focus=true)
+3. For Gov Acc redirect to gov page https://app.asana.com/1/15793206719/project/1209391763425740/task/1211457336061686?focus=true</description>
+    <externalId>false</externalId>
+    <formula>IF(
+    AND(
+        NOT(ISBLANK(domain_id__c)),
+        NOT(LEFT(domain_id__c, 1) = &#39;-&#39;)
+    ),
+    HYPERLINK(
+        IF(ISPICKVAL(DomainType__c, &#39;Asana Gov&#39;), 
+            &quot;https://otto.asanagov.biz/domain/&quot; &amp; domain_id__c, 
+            &quot;https://otto.asana.biz/domain/&quot; &amp; domain_id__c
+        ), 
+        domain_id__c
+   ),
+   &quot;&quot;
+)</formula>
+    <inlineHelpText>Use this link to navigate to OTTO and view Invoice data for your Account. Please populate the Account&#39;s Domain ID to see a URL.</inlineHelpText>
+    <label>OTTO Link</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

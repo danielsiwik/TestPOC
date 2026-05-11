@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Internal_Business_List__c</fullName>
+    <description>https://app.asana.com/0/1202710080826437/1206934413224115/f</description>
+    <inlineHelpText>This field denotes the External Business List(s) this Account belongs to</inlineHelpText>
+    <label>Internal Business List</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>MultiselectPicklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>FY25 Top Accounts (Seed/Land)</fullName>
+                <default>false</default>
+                <label>FY25 Top Accounts (Seed/Land)</label>
+            </value>
+            <value>
+                <fullName>FY25 Top Accounts (Expand)</fullName>
+                <default>false</default>
+                <label>FY25 Top Accounts (Expand)</label>
+            </value>
+            <value>
+                <fullName>Hidden Champions</fullName>
+                <default>false</default>
+                <label>Hidden Champions</label>
+            </value>
+            <value>
+                <fullName>Swiss 500</fullName>
+                <default>false</default>
+                <label>Swiss 500</label>
+            </value>
+            <value>
+                <fullName>Project Nessy</fullName>
+                <default>false</default>
+                <label>Project Nessy</label>
+            </value>
+            <value>
+                <fullName>Top 20 EMEA</fullName>
+                <default>false</default>
+                <label>Top 20 EMEA</label>
+            </value>
+            <value>
+                <fullName>Top 20 Indonesia</fullName>
+                <default>false</default>
+                <label>Top 20 Indonesia</label>
+            </value>
+            <value>
+                <fullName>Top 20 Philippines</fullName>
+                <default>false</default>
+                <label>Top 20 Philippines</label>
+            </value>
+            <value>
+                <fullName>Creditsafe</fullName>
+                <default>false</default>
+                <label>Creditsafe</label>
+            </value>
+            <value>
+                <fullName>AI Teammates Target List</fullName>
+                <default>false</default>
+                <label>AI Teammates Target List</label>
+            </value>
+            <value>
+                <fullName>AI Studio Pro Target List</fullName>
+                <default>false</default>
+                <label>AI Studio Pro Target List</label>
+            </value>
+            <value>
+                <fullName>AI Studio Max Target List</fullName>
+                <default>false</default>
+                <label>AI Studio Max Target List</label>
+            </value>
+            <value>
+                <fullName>AI Transformation - New Business</fullName>
+                <default>false</default>
+                <label>AI Transformation - New Business</label>
+            </value>
+            <value>
+                <fullName>AI Transformation - Expansion</fullName>
+                <default>false</default>
+                <label>AI Transformation - Expansion</label>
+            </value>
+            <value>
+                <fullName>SmartBEAT Customer Tier 1</fullName>
+                <default>false</default>
+                <label>SmartBEAT Customer Tier 1</label>
+            </value>
+            <value>
+                <fullName>SmartBEAT Customer Tier 2</fullName>
+                <default>false</default>
+                <label>SmartBEAT Customer Tier 2</label>
+            </value>
+            <value>
+                <fullName>SmartBEAT Customer Tier 3</fullName>
+                <default>false</default>
+                <label>SmartBEAT Customer Tier 3</label>
+            </value>
+            <value>
+                <fullName>AIStudioEA_Tier1</fullName>
+                <default>false</default>
+                <label>AIStudioEA_Tier1</label>
+            </value>
+            <value>
+                <fullName>AIStudioEA_Tier2</fullName>
+                <default>false</default>
+                <label>AIStudioEA_Tier2</label>
+            </value>
+            <value>
+                <fullName>AIStudioEA_Tier3</fullName>
+                <default>false</default>
+                <label>AIStudioEA_Tier3</label>
+            </value>
+            <value>
+                <fullName>AIStudioEA Beta</fullName>
+                <default>false</default>
+                <label>AIStudioEA Beta</label>
+            </value>
+            <value>
+                <fullName>PQL Control</fullName>
+                <default>false</default>
+                <label>PQL Control</label>
+            </value>
+            <value>
+                <fullName>PQL Treatment</fullName>
+                <default>false</default>
+                <label>PQL Treatment</label>
+            </value>
+            <value>
+                <fullName>FY26 Top Accounts (Tier 1)</fullName>
+                <default>false</default>
+                <label>FY26 Top Accounts (Tier 1)</label>
+            </value>
+            <value>
+                <fullName>FY26 Top Accounts (Tier 2)</fullName>
+                <default>false</default>
+                <label>FY26 Top Accounts (Tier 2)</label>
+            </value>
+            <value>
+                <fullName>FY26 Top Accounts (Tier 3)</fullName>
+                <default>false</default>
+                <label>FY26 Top Accounts (Tier 3)</label>
+            </value>
+            <value>
+                <fullName>E2K</fullName>
+                <default>false</default>
+                <label>E2K</label>
+            </value>
+            <value>
+                <fullName>CORP10K</fullName>
+                <default>false</default>
+                <label>CORP10K</label>
+            </value>
+            <value>
+                <fullName>SMB30K</fullName>
+                <default>false</default>
+                <label>SMB30K</label>
+            </value>
+            <value>
+                <fullName>AI300</fullName>
+                <default>false</default>
+                <label>AI300</label>
+            </value>
+            <value>
+                <fullName>ORBIT SKO Account</fullName>
+                <default>false</default>
+                <label>ORBIT SKO Account</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+    <visibleLines>4</visibleLines>
+</CustomField>

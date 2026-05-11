@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>DedicatedCSMRevenueCode__c</fullName>
+    <description>https://app.asana.com/0/1199207700370180/1200727975733448</description>
+    <externalId>false</externalId>
+    <formula>Dedicated_CSM__r.RevenueCode__c</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Dedicated CSM Revenue Code</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Changing_Domain_ID</fullName>
+    <active>true</active>
+    <description>Prevents changing Domain ID when an attempt is made on an existing record.  AE role and PCM profile are excepted.
+https://app.asana.com/0/253313814113822/1201002208961079/f</description>
+    <errorConditionFormula>AND(
+NOT(ISNEW()),
+ISCHANGED(domain_id__c),
+IF(
+(ISPICKVAL($User.Business_Function__c , &#39;Sales Admin&#39;) ||
+$Profile.Name == &#39;System Administrator&#39; ||
+$Profile.Name == &#39;Integration User&#39;), false,
+IF((ISPICKVAL($User.Business_Function__c , &#39;Account Executive&#39;) || ISPICKVAL($User.Business_Function__c , &#39;Partner Channel Lead&#39;) || ISPICKVAL($User.Business_Function__c , &#39;Partner Channel Manager&#39;) || ISPICKVAL($User.Business_Function__c , &#39;External Sales Rep&#39;)) &amp;&amp; PRIORVALUE(domain_id__c) == null , false,
+IF( $User.Alias = &#39;amerr&#39; &amp;&amp; PRIORVALUE(domain_id__c) == null, false,
+IF(($Profile.Name == &#39;Sales Ops&#39; &amp;&amp; RecordType.DeveloperName == &#39;PartnerAccount&#39;), false, true))))
+)</errorConditionFormula>
+    <errorMessage>Domain ID can&#39;t be changed on this Account.</errorMessage>
+</ValidationRule>

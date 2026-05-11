@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_on_EU_Data_Center__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>When checked to true, indicates and Account is on the EU Data Center. Manually set by Sales Ops until pipeline can be updated to set. Reference: https://app.asana.com/0/1132572100452632/1152066490471481/f</description>
+    <inlineHelpText>When checked to true, indicates and Account is on the EU Data Center.</inlineHelpText>
+    <label>Account on EU Data Center</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

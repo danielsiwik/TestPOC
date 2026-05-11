@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_Created__c</fullName>
+    <description>From Redshift: The date the domain was initially created.  domains.__creation_time</description>
+    <inlineHelpText>Date the domain was initially created</inlineHelpText>
+    <label>Domain Date Created</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

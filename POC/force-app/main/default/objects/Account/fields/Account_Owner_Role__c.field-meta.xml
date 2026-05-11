@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Owner_Role__c</fullName>
+    <description>Owner&#39;s Role as listed on their User record
+https://app.asana.com/0/1123979735231855/1147183565920262/f</description>
+    <externalId>false</externalId>
+    <formula>TEXT(Owner.Business_Function__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Account Owner Role</label>
+    <required>false</required>
+    <securityClassification>Tier 1</securityClassification>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

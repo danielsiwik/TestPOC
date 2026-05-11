@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>accountNumericalReachScore6sense__c</fullName>
+    <description>https://app.asana.com/0/1208607285344507/1208664584187152/f</description>
+    <externalId>false</externalId>
+    <inlineHelpText>A measure, between 0 and 100, represents 6sense’s current assessment of your team’s outreach on the account in comparison to the other accounts where opportunities were won previously.</inlineHelpText>
+    <label>6sense Account Numerical Reach Score</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Illegal_ParentId_change</fullName>
+    <active>true</active>
+    <description>Every user can update ParentId field if Parent Account is non-profit. And only Sys Admin, Integration User and Sales Ops can edit ParentId field if Parent Account is not non-profit (https://app.asana.com/0/1201094413545035/1201902348210125/f)</description>
+    <errorConditionFormula>AND(
+            ISCHANGED(ParentId),
+            $Profile.Name != &#39;System Administrator&#39;,
+            $Profile.Name != &#39;Integration User&#39;,
+            $Profile.Name != &#39;Sales Ops&#39;,
+            Parent.Non_Profit__c != true
+        )</errorConditionFormula>
+    <errorMessage>You can only set a non-profit Account as a parent</errorMessage>
+</ValidationRule>

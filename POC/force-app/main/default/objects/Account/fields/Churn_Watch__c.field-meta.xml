@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Churn_Watch__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Used by CS to highlight accounts that are at risk of churn.</description>
+    <inlineHelpText>Please check if you have knowledge that this account should be on churn watch</inlineHelpText>
+    <label>Churn Watch</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

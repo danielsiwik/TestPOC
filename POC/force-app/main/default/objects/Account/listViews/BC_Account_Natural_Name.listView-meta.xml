@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>BC_Account_Natural_Name</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Natural_Name__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.ALIAS</field>
+        <operation>equals</operation>
+        <value>ahenr,andrewci,ateng,alevi,blakekea,ceadi,csigl,derekber,dflyn,jimgoett,jordanle,jdath,kushpari,lstel,margauxp,mattgray,mhugh,rderr,rvora,rbeal,squin,ssten,torrepro,barbiera,christys,erickcar,zackbahn</value>
+    </filters>
+    <filters>
+        <field>FY20_Account_Tier__c</field>
+        <operation>equals</operation>
+        <value>Tier 3</value>
+    </filters>
+    <label>BC Account Natural Name</label>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

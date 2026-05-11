@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FY20_Account_Tier__c</fullName>
+    <businessStatus>Active</businessStatus>
+    <description>Descriptor for sales to prioritize and strategize their books of business based on their own parameters.
+https://app.asana.com/0/909474176187792/1130924783709191/f</description>
+    <inlineHelpText>Tier 1 = high priority account. Tier 4 = low priority account. Choose as you see fit.</inlineHelpText>
+    <label>Account Tier</label>
+    <required>false</required>
+    <securityClassification>Tier 1</securityClassification>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Tier 1</fullName>
+                <default>false</default>
+                <label>Tier 1</label>
+            </value>
+            <value>
+                <fullName>Tier 2</fullName>
+                <default>false</default>
+                <label>Tier 2</label>
+            </value>
+            <value>
+                <fullName>Tier 3</fullName>
+                <default>false</default>
+                <label>Tier 3</label>
+            </value>
+            <value>
+                <fullName>Tier 4</fullName>
+                <default>false</default>
+                <label>Tier 4</label>
+            </value>
+            <value>
+                <fullName>Remove from Book</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Remove from Book</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

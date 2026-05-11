@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Featured_Partner__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Marks the account as featured granting higher priority in sorting on the Partner Directory</description>
+    <inlineHelpText>Featured partners have higher visibility on the Partner Directory</inlineHelpText>
+    <label>(Deprecated) Featured Partner</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

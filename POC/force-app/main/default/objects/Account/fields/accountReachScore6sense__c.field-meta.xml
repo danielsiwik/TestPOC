@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>accountReachScore6sense__c</fullName>
+    <description>https://app.asana.com/0/1208607285344507/1208664584187152/f</description>
+    <externalId>false</externalId>
+    <inlineHelpText>A measure of current outreach activities against optimal quality, quantity, and diversity of outreach activities as defined by your company’s historical success on won opportunities. Outbound calls, both marketing and sales emails are analyzed for this measure. For additional information please see this https://support.6sense.com/knowledge-base/360046057394-FAQ-Predictive-Account-Reach-Score/.</inlineHelpText>
+    <label>6sense Account Reach Score</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

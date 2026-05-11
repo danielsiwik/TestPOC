@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Website_Syntax</fullName>
+    <active>true</active>
+    <description>Website can not contain @.
+https://app.asana.com/0/1132572100452632/1147168312818313/f</description>
+    <errorConditionFormula>AND(ISCHANGED(Website),CONTAINS(Website,&#39;@&#39;))</errorConditionFormula>
+    <errorDisplayField>Website</errorDisplayField>
+    <errorMessage>Website can&#39;t contain @</errorMessage>
+</ValidationRule>

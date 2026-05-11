@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Industry_Source__c</fullName>
+    <description>https://app.asana.com/0/515645212208478/1204937820537245/f</description>
+    <label>Industry Source</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Billing_Address_Source</valueSetName>
+    </valueSet>
+</CustomField>

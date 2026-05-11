@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_Owner_Region__c</fullName>
+    <description>Owner&#39;s Revenue Region as listed on their User record
+https://app.asana.com/0/253313814113822/1200493559480321/f</description>
+    <externalId>false</externalId>
+    <formula>TEXT(Owner.RevenueRegion__c)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Account Owner Region</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

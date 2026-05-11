@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>TrialComplete__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This account previously had a trial and the related opportunity is now closed.
+
+https://na34.salesforce.com/a0b6100000S6nLK</description>
+    <inlineHelpText>[Set by Workflow] This account previously had a trial and the related opportunity is now closed.</inlineHelpText>
+    <label>SS Trial Complete</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

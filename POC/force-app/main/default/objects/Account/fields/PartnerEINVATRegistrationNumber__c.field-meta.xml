@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>PartnerEINVATRegistrationNumber__c</fullName>
+    <description>Partner EIN/VAT Registration Number (https://app.asana.com/0/1169811029711865/1198885904048567)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Partner EIN/VAT Registration Number</inlineHelpText>
+    <label>Partner EIN/VAT Registration Number</label>
+    <length>80</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Active_ELA_Contract__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>https://app.asana.com/0/0/1204635531895689/f</description>
+    <inlineHelpText>Evaluates to True if there&#39;s a related contract with Active Contract = 1 and Deal Structure = ELA</inlineHelpText>
+    <label>Active ELA Contract</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

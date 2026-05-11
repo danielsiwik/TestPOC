@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>X1d28s_Greater_than_Paid_Seats__c</fullName>
+    <description>Count of 1d28s (monthly active users) over number of Total Paid Seats field.</description>
+    <formula>recent_internal_1d28s__c &gt;  paid_seats__c</formula>
+    <label>1d28s Greater than Paid Seats</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

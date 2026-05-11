@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Segment__c</fullName>
+    <description>Customer Segment (https://app.asana.com/0/1169811029711865/1195356407950369)</description>
+    <label>Customer Segment</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Small Business (0 - 100 Employees)</fullName>
+                <default>false</default>
+                <label>Small Business (0 - 100 Employees)</label>
+            </value>
+            <value>
+                <fullName>Mid Market (101 - 1000 Employees)</fullName>
+                <default>false</default>
+                <label>Mid Market (101 - 1000 Employees)</label>
+            </value>
+            <value>
+                <fullName>Enterprise (1000+ Employees)</fullName>
+                <default>false</default>
+                <label>Enterprise (1000+ Employees)</label>
+            </value>
+            <value>
+                <fullName>0-50</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>0-50</label>
+            </value>
+            <value>
+                <fullName>10000+</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>10000+</label>
+            </value>
+            <value>
+                <fullName>1001-5000</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>1001-5000</label>
+            </value>
+            <value>
+                <fullName>251-500</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>251-500</label>
+            </value>
+            <value>
+                <fullName>5001-10000</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>5001-10000</label>
+            </value>
+            <value>
+                <fullName>501-1000</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>501-1000</label>
+            </value>
+            <value>
+                <fullName>51-250</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>51-250</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

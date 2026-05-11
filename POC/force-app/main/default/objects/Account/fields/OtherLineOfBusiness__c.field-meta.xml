@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>OtherLineOfBusiness__c</fullName>
+    <description>Partner Other Lines of Business
+        (https://app.asana.com/0/1169811029711865/1196443103711491)</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Partner Other Lines of Business</inlineHelpText>
+    <label>Other Line of Business</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

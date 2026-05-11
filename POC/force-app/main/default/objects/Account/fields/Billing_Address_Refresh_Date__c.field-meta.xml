@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Address_Refresh_Date__c</fullName>
+    <description>https://app.asana.com/0/1202710080826437/1204894558785374/f</description>
+    <inlineHelpText>Date when the billing addressed was identified using the enrichment source</inlineHelpText>
+    <label>Billing Address Refresh Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

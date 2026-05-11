@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>FY23_AMER_STRAT_Accounts_Subs</fullName>
+    <booleanFilter>1 AND (2 OR 3 OR 4) AND 5 AND 6 AND 7 AND 8 AND 9 AND 10</booleanFilter>
+    <columns>UltimateParentAccount__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>PARENT_NAME</columns>
+    <columns>Parent_Account_Owner__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Account_Owner_Team__c</field>
+        <operation>contains</operation>
+        <value>STRAT</value>
+    </filters>
+    <filters>
+        <field>UltimateParentAccount__c</field>
+        <operation>contains</operation>
+        <value>nike.com,google.com,us.mcd.com,salesforce.com,amazon.com,us.ibm.com,fb.com,netflix.com,att.com,accenture.com,mbww.com,t-mobile.com,dell.com,walmart.com,cisco.com,cable.comcast.com,uber.com,disney.com,allstate.com,microsoft.com,humana.com</value>
+    </filters>
+    <filters>
+        <field>UltimateParentAccount__c</field>
+        <operation>contains</operation>
+        <value>omnicommediagroup.com,paypal.com,verizon.com,pg.com,coca-cola.com,bofa.com</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>notContain</operation>
+        <value>attraction,(do not use)</value>
+    </filters>
+    <filters>
+        <field>TracRTC__Traction_Complete_Domain__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>TracRTC__Traction_Complete_Domain__c</field>
+        <operation>notContain</operation>
+        <value>dummy</value>
+    </filters>
+    <filters>
+        <field>ACCOUNT.ADDRESS1_COUNTRY</field>
+        <operation>equals</operation>
+        <value>united states</value>
+    </filters>
+    <filters>
+        <field>TracRTC__Traction_Complete_Domain__c</field>
+        <operation>contains</operation>
+        <value>.com</value>
+    </filters>
+    <filters>
+        <field>UltimateParentAccount__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>Account_Score__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>FY23 AMER STRAT Accounts Subs</label>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

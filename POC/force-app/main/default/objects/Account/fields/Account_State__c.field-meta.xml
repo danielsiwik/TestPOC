@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Account_State__c</fullName>
+    <description>Indicates if the Account is New Business or Expansion, and SMB, Commercial, Mid-Market, or Enterprise based on Account Spend and Number of Employees.
+https://app.asana.com/0/1156951077655217/1159469601995612/f</description>
+    <externalId>false</externalId>
+    <formula>IF(NumberOfEmployees&lt;50,&quot;SMB&quot;,
+      
+      IF(AND(Total_Account_ARR__c&lt;5000,
+                    AND(NumberOfEmployees&gt;=50,
+                         NumberOfEmployees&lt;500)),&quot;Commercial New Business&quot;,
+                         
+       IF(AND(Total_Account_ARR__c&gt;=5000,
+                    AND(NumberOfEmployees&gt;=50,
+                         NumberOfEmployees&lt;500)),&quot;Commercial Expansion&quot;,
+
+       IF(AND(Total_Account_ARR__c&lt;25000,
+                    AND(NumberOfEmployees&gt;=500,
+                         NumberOfEmployees&lt;2000)),&quot;Mid-Market New Business&quot;,
+                         
+       IF(AND(Total_Account_ARR__c&gt;=25000,
+                    AND(NumberOfEmployees&gt;=500,
+                         NumberOfEmployees&lt;2000)),&quot;Mid-Market Expansion&quot;,
+                         
+       IF(AND(Total_Account_ARR__c&lt;50000,
+                    NumberOfEmployees&gt;=2000),&quot;Enterprise New Business&quot;,
+                         
+       IF(AND(Total_Account_ARR__c&gt;=50000,
+                    NumberOfEmployees&gt;=2000),&quot;Enterprise Expansion&quot;,&quot;&quot;)))))))</formula>
+    <inlineHelpText>Set based on the Total Account ARR and Number of Employees.</inlineHelpText>
+    <label>Account State</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

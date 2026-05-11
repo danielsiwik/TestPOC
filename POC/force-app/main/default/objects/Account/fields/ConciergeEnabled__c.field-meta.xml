@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ConciergeEnabled__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Take this on as a short term fix, can be deprecated when [SCOPE] Populate account field with &#39;Concierge Flags Enabled&#39; dynamically (https://app.asana.com/0/0/1199884242416720/f) is finished.</description>
+    <label>Concierge Enabled</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

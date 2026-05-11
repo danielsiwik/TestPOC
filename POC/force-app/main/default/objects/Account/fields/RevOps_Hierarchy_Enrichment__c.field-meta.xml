@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>RevOps_Hierarchy_Enrichment__c</fullName>
+    <description>https://app.asana.com/1/15793206719/project/1199543532541045/task/1209793696453897?focus=true</description>
+    <externalId>false</externalId>
+    <formula>IF(
+  AND(
+    OR(
+      Account_Hierarchy_Sales_Region__c = &#39;AMER&#39;,
+      Account_Hierarchy_Sales_Region__c = &#39;EMEA&#39;,
+      Account_Hierarchy_Sales_Region__c = &#39;APAC&#39;,
+      Account_Hierarchy_Sales_Region__c = &#39;JPN&#39;
+    ),
+    Hierarchy_Employee_Count__c &gt; 0
+  ),
+  &quot;No Action Needed&quot;,
+  IF(
+    AND(
+      OR(
+        Account_Hierarchy_Sales_Region__c = &#39;AMER&#39;,
+        Account_Hierarchy_Sales_Region__c = &#39;EMEA&#39;,
+        Account_Hierarchy_Sales_Region__c = &#39;APAC&#39;,
+        Account_Hierarchy_Sales_Region__c = &#39;JPN&#39;
+      ),
+      Hierarchy_Employee_Count__c = 0
+    ),
+    &quot;Missing Hierarchy Employee Count&quot;,
+    IF(
+      AND(
+        Account_Hierarchy_Sales_Region__c == null,
+        Hierarchy_Employee_Count__c &gt; 0
+      ),
+      &quot;Missing Hierarchy Sales Region&quot;,
+      &quot;Missing Hierarchy Sales Region and Hierarchy Employee Count&quot;
+    )
+  )
+)</formula>
+    <inlineHelpText>Validation to help RevOps identify accounts that require enrichment to populate Hierarchy Segment</inlineHelpText>
+    <label>RevOps Hierarchy Enrichment</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompactLayout xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partner_Account_Compact_Layout</fullName>
+    <fields>Name</fields>
+    <fields>ChannelProgramName</fields>
+    <fields>ChannelProgramLevelName</fields>
+    <fields>Standard_Tier_Discount__c</fields>
+    <fields>Standard_Tier_Margin__c</fields>
+    <fields>Referral_Commission_Eligible__c</fields>
+    <fields>Sales_Assist_Commission_Eligible_10__c</fields>
+    <label>Partner Account Compact Layout</label>
+</CompactLayout>

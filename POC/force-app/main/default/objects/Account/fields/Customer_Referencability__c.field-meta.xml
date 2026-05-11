@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Customer_Referencability__c</fullName>
+    <description>Allows customer facing teams to check if this Account can be referred to other customers, and in what capacity. https://app.asana.com/0/1157241870822589/1133378568607271/f</description>
+    <inlineHelpText>Can we use this customer as a reference to others? And in what capacity? Check with Marketing for the most up to date information.</inlineHelpText>
+    <label>Customer Referenceability</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Can Reference</fullName>
+                <default>false</default>
+                <label>Can Reference</label>
+            </value>
+            <value>
+                <fullName>Requires prior written consent</fullName>
+                <default>false</default>
+                <label>Requires prior written consent</label>
+            </value>
+            <value>
+                <fullName>Can not reference</fullName>
+                <default>false</default>
+                <label>Can not reference</label>
+            </value>
+            <value>
+                <fullName>--Not Known--</fullName>
+                <default>true</default>
+                <label>--Not Known--</label>
+            </value>
+            <value>
+                <fullName>Can&#39;t reference</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Can&#39;t reference</label>
+            </value>
+            <value>
+                <fullName>Case Study Available</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Case Study Available</label>
+            </value>
+            <value>
+                <fullName>Have done marketing activity</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Have done marketing activity</label>
+            </value>
+            <value>
+                <fullName>Need Express Permission</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Need Express Permission</label>
+            </value>
+            <value>
+                <fullName>Not Referenceable</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Not Referenceable</label>
+            </value>
+            <value>
+                <fullName>Public</fullName>
+                <default>false</default>
+                <isActive>false</isActive>
+                <label>Public</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

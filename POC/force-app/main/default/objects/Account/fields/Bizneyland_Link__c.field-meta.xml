@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Bizneyland_Link__c</fullName>
+    <description>A link to the domain&#39;s information in Bizneyland. This is a formula concatenating the base url with the domain id</description>
+    <externalId>false</externalId>
+    <formula>IF( ISBLANK(domain_id__c), &quot;Update Domain ID to populate Bizneyland link or &quot;+ HYPERLINK(&quot;https://www.golinks.io/revopsform&quot;,&quot;go/revopsform &quot;) +&quot;for Help&quot;,
+HYPERLINK(&quot;https://prod-useast-a.online.tableau.com/t/asana/views/DomainDetailsDashboard_16436046727730/DomainDetailsDashboard?%3Aembed=yes&amp;%3Atoolbar=top&amp;P_Domain_ID=&quot;&amp;domain_id__c, domain_id__c))</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>A link to the domain&#39;s information in Bizneyland. Use this instead of the Oplandia Link</inlineHelpText>
+    <label>Bizneyland Link</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

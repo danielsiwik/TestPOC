@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Credit_Hold_Reason__c</fullName>
+    <description>https://app.asana.com/0/1206291515899616/1206731937211724</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Reason why there&#39;s a credit hold on the account. Managed by Finance.</inlineHelpText>
+    <label>Credit Hold Reason</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

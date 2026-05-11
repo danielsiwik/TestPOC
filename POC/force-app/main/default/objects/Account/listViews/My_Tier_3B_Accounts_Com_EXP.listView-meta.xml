@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>My_Tier_3B_Accounts_Com_EXP</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.EMPLOYEES</columns>
+    <columns>FY20_Account_Tier__c</columns>
+    <columns>paid_seats__c</columns>
+    <columns>Total_Account_ARR__c</columns>
+    <columns>plan_code__c</columns>
+    <columns>Utilization_1d28s_Paid_Seats__c</columns>
+    <columns>Difference_in_Internal_1d28s__c</columns>
+    <columns>Recent_1d28__c</columns>
+    <columns>recent_internal_1d28s__c</columns>
+    <columns>Account_Seat_Upside__c</columns>
+    <columns>Number_of_Open_Sales_Opportunities__c</columns>
+    <columns>Company_Penetration_1d28s_Employees__c</columns>
+    <columns>internal_users__c</columns>
+    <columns>Subscription_End_Date__c</columns>
+    <filterScope>Mine</filterScope>
+    <filters>
+        <field>Company_Penetration_1d28s_Employees__c</field>
+        <operation>greaterOrEqual</operation>
+        <value>80</value>
+    </filters>
+    <filters>
+        <field>Utilization_1d28s_Paid_Seats__c</field>
+        <operation>lessThan</operation>
+        <value>50</value>
+    </filters>
+    <label>My Tier 3B Accounts (Com EXP)</label>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

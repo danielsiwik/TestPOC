@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Enterprise__c</fullName>
+    <formula>CONTAINS(LOWER(plan_code__c),&quot;enterprise&quot;)</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Is Enterprise</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

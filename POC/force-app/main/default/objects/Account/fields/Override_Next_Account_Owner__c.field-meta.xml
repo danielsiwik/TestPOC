@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Override_Next_Account_Owner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>https://app.asana.com/0/515645212208478/1207448876743496/f</description>
+    <inlineHelpText>Next Account Owner on Account Graduation Date manually assigned</inlineHelpText>
+    <label>Override Next Account Owner</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Accounts9</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

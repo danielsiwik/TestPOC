@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_of_Last_Activity__c</fullName>
+    <description>Maximum date of activities on related Engagements (https://app.asana.com/0/1169811029711865/1188222558784420)
+
+
+involved in Rollup Helper job</description>
+    <inlineHelpText>Maximum date of activities on related Engagements</inlineHelpText>
+    <label>Date of Last Activity</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>East_ENT_UN</fullName>
+    <columns>FY20_Account_Tier__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Number_of_Open_Sales_Opportunities__c</columns>
+    <columns>Utilization_1d28s_Paid_Seats__c</columns>
+    <columns>recent_internal_1d28s__c</columns>
+    <columns>plan_code__c</columns>
+    <columns>Premium_State__c</columns>
+    <columns>Region_Clearbit__c</columns>
+    <columns>paid_seats__c</columns>
+    <columns>Short_Notes__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.FIRST_NAME</field>
+        <operation>contains</operation>
+        <value>John</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.LAST_NAME</field>
+        <operation>contains</operation>
+        <value>Ferenchak</value>
+    </filters>
+    <label>East ENT UN</label>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

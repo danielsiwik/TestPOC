@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Beta_Contact_OK__c</fullName>
+    <description>If Yes, User Experience Research can reach out to users in domain to ask about beta participation.  Set by CSM.
+https://app.asana.com/0/1202710080826437/1204110080862596/f</description>
+    <inlineHelpText>OK for UXR to reach out to users in this domain about beta participation, and allowed for by contract?</inlineHelpText>
+    <label>Beta Contact OK?</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Yes</fullName>
+                <default>false</default>
+                <label>Yes</label>
+            </value>
+            <value>
+                <fullName>No</fullName>
+                <default>false</default>
+                <label>No</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Send_Renewal_Reminder__c</fullName>
+    <defaultValue>true</defaultValue>
+    <description>If checked, this field indicates that the customer should receive a renewal reminder email if they are set to auto-renew and on an active annual subscription. Uncheck to suppress the reminder for this customer.</description>
+    <inlineHelpText>Checked when customer is on auto-renew (default), uncheck to suppress reminder.</inlineHelpText>
+    <label>Send Renewal Reminder</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

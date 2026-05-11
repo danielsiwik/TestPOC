@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Partner_Program_Member__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates when a Customer Account belongs to an active Partner Program member https://app.asana.com/1/15793206719/project/1208607285344507/task/1211185872385759?focus=true</description>
+    <inlineHelpText>This Account belongs to an active Partner Program member</inlineHelpText>
+    <label>Partner Program Member</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

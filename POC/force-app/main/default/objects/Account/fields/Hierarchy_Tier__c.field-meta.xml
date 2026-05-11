@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hierarchy_Tier__c</fullName>
+    <description>Highest tier in the account&#39;s hierarchy
+https://app.asana.com/1/15793206719/project/1202771858774857/task/1212534771051770?focus=true</description>
+    <label>Territory Hierarchy Tier</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Tier_List</valueSetName>
+    </valueSet>
+</CustomField>

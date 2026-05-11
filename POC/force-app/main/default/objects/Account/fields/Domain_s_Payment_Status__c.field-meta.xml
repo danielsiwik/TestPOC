@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Domain_s_Payment_Status__c</fullName>
+    <description>This field will display the Domain&#39;s Payment Status. Populated via pipeline. 1202636412362996</description>
+    <inlineHelpText>The Account&#39;s Invoice Payment Status. Paid Up = All invoices have been paid. Due = The payment has not been paid on the Due Date but has not exceeded the Payment Terms. Dunning = The Account has missed a payment and a balance is outstanding.</inlineHelpText>
+    <label>Domain Payment Status</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>None</fullName>
+                <default>true</default>
+                <label>None</label>
+            </value>
+            <value>
+                <fullName>Paid Up</fullName>
+                <default>false</default>
+                <label>Paid Up</label>
+            </value>
+            <value>
+                <fullName>Overdue</fullName>
+                <default>false</default>
+                <label>Overdue</label>
+            </value>
+            <value>
+                <fullName>Dunning</fullName>
+                <default>false</default>
+                <label>Dunning</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

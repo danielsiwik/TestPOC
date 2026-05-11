@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>vw_com_accounts</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>PARENT_NAME</columns>
+    <columns>EDR__c</columns>
+    <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+    <columns>ACCOUNT.EMPLOYEES</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <columns>Total_Account_ARR__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>UltimateParentAccount__c</field>
+        <operation>equals</operation>
+        <value>vw.com</value>
+    </filters>
+    <label>vw.com accounts</label>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

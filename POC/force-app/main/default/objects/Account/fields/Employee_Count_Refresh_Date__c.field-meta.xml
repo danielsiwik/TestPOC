@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Employee_Count_Refresh_Date__c</fullName>
+    <description>Date on which the value in &#39;Employees&#39; was added, or the date on which the &#39;Employee Count Source&#39; was last refreshed
+https://app.asana.com/0/1202710080826437/1203832946782595/f</description>
+    <label>Employee Count Refresh Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

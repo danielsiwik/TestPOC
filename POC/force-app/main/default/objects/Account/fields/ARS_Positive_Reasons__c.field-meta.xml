@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ARS_Positive_Reasons__c</fullName>
+    <description>https://app.asana.com/0/1199207275557939/1207438697751829/f</description>
+    <inlineHelpText>Qualitative reasons that describe why an account is more likely to be retained.</inlineHelpText>
+    <label>Retention Positive Reasons</label>
+    <length>400</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>2</visibleLines>
+</CustomField>

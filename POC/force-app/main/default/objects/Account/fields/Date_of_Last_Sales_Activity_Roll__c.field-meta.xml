@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Date_of_Last_Sales_Activity_Roll__c</fullName>
+    <description>Maximum date of last Sales activity from related Opportunities.</description>
+    <inlineHelpText>Max date of last Sales activity from related Opportunities.</inlineHelpText>
+    <label>Date of Last Sales Activity (Roll)</label>
+    <summarizedField>Opportunity.Date_of_Last_Sales_Activity__c</summarizedField>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>max</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

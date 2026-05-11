@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Mission_based_customer__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Field to update and capture all Asana mission-based customers.
+
+https://na34.salesforce.com/a0b6100000oxfhh</description>
+    <inlineHelpText>Does this customer perform mission-based work that aligns with Asana&#39;s value of doing good?</inlineHelpText>
+    <label>Mission-based Customer</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

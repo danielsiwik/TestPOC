@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>P_P_Priority__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>This record needs to be focused for selling the new tiers (https://app.asana.com/0/1203315724044772/1205303679181834)</description>
+    <inlineHelpText>This account has one or more Billing Entities identified as priority pre-selling.</inlineHelpText>
+    <label>P&amp;P Priority</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

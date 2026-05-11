@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enabled_Domain_Feature_Flags__c</fullName>
+    <description>Concatenated list of all enabled domain feature flags to see if a domain has a certain flag enabled. Note if the flag belongs to an experiment this may not necessarily indicate they are enrolled in that experiment - this must be x-referenced in the domain_experiments table in Redshift. https://app.asana.com/0/1199875313004255/1199987685249042/f</description>
+    <label>Enabled Domain Feature Flags</label>
+    <length>32768</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>3</visibleLines>
+</CustomField>

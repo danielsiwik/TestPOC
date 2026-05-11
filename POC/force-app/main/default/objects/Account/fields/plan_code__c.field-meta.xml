@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>plan_code__c</fullName>
+    <description>Plan code only if there is a plan code for the domain. If the domain has premium teams or divisions, this will be left blank.</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Plan code only if there is a plan code for the domain. If the domain has premium teams or divisions, this will be left blank.</inlineHelpText>
+    <label>Domain Plan Code</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

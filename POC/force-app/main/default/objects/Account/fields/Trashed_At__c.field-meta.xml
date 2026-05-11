@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Trashed_At__c</fullName>
+    <description>Field for Outreach-SFDC integration (https://app.asana.com/0/1169811029711865/1199883784798111)</description>
+    <label>Trashed At</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

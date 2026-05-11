@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Employee_Count_Source__c</fullName>
+    <description>Source of RevOps&#39; determination of the value in Account.Employees. 
+https://app.asana.com/0/1199543532541045/1203832946782595/f</description>
+    <label>Employee Count Source</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Next_Employees_Source</valueSetName>
+    </valueSet>
+</CustomField>

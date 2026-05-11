@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Org_Account_Hierarchy</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>EDR__c</columns>
+    <columns>Total_Account_ARR__c</columns>
+    <columns>paid_seats__c</columns>
+    <columns>ACCOUNT.EMPLOYEES</columns>
+    <columns>ACCOUNT.LAST_ACTIVITY</columns>
+    <columns>UpcomingRenewalDate__c</columns>
+    <columns>Otto_Invoice_Link__c</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>Sales_Region__c</columns>
+    <columns>Subregion__c</columns>
+    <columns>Vertical_Industry__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.RECORDTYPE</field>
+        <operation>equals</operation>
+        <value>Account.CustomerAccount</value>
+    </filters>
+    <filters>
+        <field>CurrentOwner__c</field>
+        <operation>equals</operation>
+        <value>Takuto Maekawa</value>
+    </filters>
+    <label>Org_Account_Hierarchy</label>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

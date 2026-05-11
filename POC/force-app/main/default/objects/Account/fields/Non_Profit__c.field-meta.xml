@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Non_Profit__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Checked to true by the Non-Profit team if the Account is a non-profit.
+https://app.asana.com/0/1199543532541045/1200690170214634</description>
+    <inlineHelpText>Checked to true by the Non-Profit team if the Account is a non-profit</inlineHelpText>
+    <label>Non-Profit</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

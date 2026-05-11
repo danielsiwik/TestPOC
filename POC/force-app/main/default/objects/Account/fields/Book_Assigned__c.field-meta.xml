@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Book_Assigned__c</fullName>
+    <description>https://app.asana.com/0/1173635330340929/1201622638572643</description>
+    <externalId>false</externalId>
+    <inlineHelpText>This field denotes the future book this account will be assigned to when new reps are hired.</inlineHelpText>
+    <label>Account Book Assigned</label>
+    <length>255</length>
+    <required>false</required>
+    <securityClassification>Tier 1</securityClassification>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

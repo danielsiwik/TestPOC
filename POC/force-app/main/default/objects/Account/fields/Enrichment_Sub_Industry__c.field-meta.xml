@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Enrichment_Sub_Industry__c</fullName>
+    <description>Sub Industry from the Enrichment Engine
+https://app.asana.com/0/1203315724044772/1205874290782802/f</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Sub Industry from the Enrichment Engine</inlineHelpText>
+    <label>Enrichment Sub Industry</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

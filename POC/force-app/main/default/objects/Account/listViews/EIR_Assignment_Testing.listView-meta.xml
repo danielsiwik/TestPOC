@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EIR_Assignment_Testing</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>EDR__c</columns>
+    <columns>Account_Owner_Team__c</columns>
+    <columns>PARENT_NAME</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>CORE.USERS.LAST_NAME</columns>
+    <columns>Number_of_Open_Sales_Opportunities__c</columns>
+    <columns>ACCOUNT.EMPLOYEES</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>ACCOUNT.NAME</field>
+        <operation>contains</operation>
+        <value>smurfit</value>
+    </filters>
+    <label>AcctAssignment Testing</label>
+    <sharedTo>
+        <role>Sales_Admin</role>
+    </sharedTo>
+</ListView>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Company_Fiscal_Year_Start__c</fullName>
+    <description>Manual input field to track fiscal year start.
+https://app.asana.com/0/515645212208478/1207069342877990/f</description>
+    <label>Company Fiscal Year Start</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Calendar_Months</valueSetName>
+    </valueSet>
+</CustomField>

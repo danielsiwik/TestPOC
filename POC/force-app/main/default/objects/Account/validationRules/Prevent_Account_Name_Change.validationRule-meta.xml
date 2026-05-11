@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Prevent_Account_Name_Change</fullName>
+    <active>true</active>
+    <description>Prevent Support Agent, Support Agent Hawk and Support Agent Manager to change Account Name</description>
+    <errorConditionFormula>AND(
+    ISCHANGED(Name),
+    OR(
+        $Profile.Name = &quot;Support Agent&quot;,
+        $Profile.Name = &quot;Support Agent Hawk&quot;,
+        $Profile.Name = &quot;Support Agent Manager&quot;
+    )
+)</errorConditionFormula>
+    <errorDisplayField>Natural_Name__c</errorDisplayField>
+    <errorMessage>Support Agents are not allowed to change the Account Name.</errorMessage>
+</ValidationRule>

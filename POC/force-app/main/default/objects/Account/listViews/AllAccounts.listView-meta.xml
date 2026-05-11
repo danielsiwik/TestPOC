@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>AllAccounts</fullName>
+    <columns>Dedicated_CSM__c</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>domain_id__c</columns>
+    <columns>Total_Account_ARR__c</columns>
+    <columns>Difference_in_Internal_1d28s__c</columns>
+    <columns>internal_users__c</columns>
+    <columns>CORE.USERS.FIRST_NAME</columns>
+    <columns>Region_Clearbit__c</columns>
+    <columns>Account_Owner_Team__c</columns>
+    <columns>Account_Owner_Role__c</columns>
+    <columns>FY20_Account_Tier__c</columns>
+    <filterScope>Everything</filterScope>
+    <label>All</label>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

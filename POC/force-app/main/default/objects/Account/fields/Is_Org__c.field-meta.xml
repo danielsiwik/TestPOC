@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Org__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Displays whether this Account&#39;s Domain is an org (true) or workspace (false)</description>
+    <inlineHelpText>Account&#39;s Domain is an org (true) or workspace (false)</inlineHelpText>
+    <label>Is Org</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

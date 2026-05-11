@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Phil_Mogilev</fullName>
+    <columns>PARENT_NAME</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>Dedicated_CSM__c</columns>
+    <columns>plan_code__c</columns>
+    <columns>ACCOUNT.EMPLOYEES</columns>
+    <columns>paid_seats__c</columns>
+    <columns>recent_internal_1d28s__c</columns>
+    <columns>Utilization_1d28s_Paid_Seats__c</columns>
+    <columns>X1d28s_Greater_than_Paid_Seats__c</columns>
+    <columns>Difference_in_Internal_1d28s__c</columns>
+    <columns>Last_Closed_Oppportunity_Date__c</columns>
+    <columns>Number_of_Open_Sales_Opportunities__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>CORE.USERS.FIRST_NAME</field>
+        <operation>equals</operation>
+        <value>Phil</value>
+    </filters>
+    <filters>
+        <field>CORE.USERS.LAST_NAME</field>
+        <operation>equals</operation>
+        <value>mogilev</value>
+    </filters>
+    <label>Phil_Mogilev_Account_List</label>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

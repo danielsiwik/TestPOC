@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Copy_of_MENA_edits</fullName>
+    <columns>Subregion__c</columns>
+    <columns>ACCOUNT.ADDRESS1_COUNTRY</columns>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>PARENT_NAME</columns>
+    <columns>Parent_Account_Owner__c</columns>
+    <columns>ACCOUNT.EMPLOYEES</columns>
+    <columns>paid_seats__c</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Total_Account_ARR__c</columns>
+    <columns>recent_internal_1d28s__c</columns>
+    <columns>EDR__c</columns>
+    <columns>ACCOUNT.LAST_UPDATE</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>PARENT_NAME</field>
+        <operation>equals</operation>
+        <value>biomerieux.com,vivendi.com,thalesgroup.com,bouygues.com,engie.com,veolia.com,L?Oréal,ipsos.com,Groupe Yves Rocher,teleperformance.com,vetoquinol.com,terreal.com,somfy.com,renault.com,fivesgroup.com</value>
+    </filters>
+    <filters>
+        <field>PARENT_NAME</field>
+        <operation>equals</operation>
+        <value>cafpi.fr,hessautomobile.com,oecd.org,webhelp.com,spie.com,valeo.com,FMLogistic,aldautomotive.com,atos.net,aubay.it,egis.fr,eiffage.com,guerbet.com,ifremer.fr,jcdecaux.com</value>
+    </filters>
+    <filters>
+        <field>PARENT_NAME</field>
+        <operation>equals</operation>
+        <value>lectra.com,nexity.fr,pole-emploi.fr,safrangroup.com,sia.eu,systeme-u.fr,teleperformance.com,Thales,total.com,vinci-concessions.com</value>
+    </filters>
+    <filters>
+        <field>Account_Owner_Code__c</field>
+        <operation>equals</operation>
+        <value>0058Y000009wJf5</value>
+    </filters>
+    <label>Account Assignment list</label>
+    <sharedTo>
+        <allInternalUsers />
+    </sharedTo>
+</ListView>

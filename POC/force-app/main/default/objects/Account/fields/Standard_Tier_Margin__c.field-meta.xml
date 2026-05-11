@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Standard_Tier_Margin__c</fullName>
+    <description>Standard fulfillment margin as per assigned partner program and tier https://app.asana.com/1/15793206719/project/1200123607410324/task/1209565574354500?focus=true</description>
+    <inlineHelpText>Standard fulfillment margin as per assigned partner program and tier</inlineHelpText>
+    <label>Standard Tier Margin</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Percent</type>
+</CustomField>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>EDR__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Business Dev/Sales Dev/Enterprise Inside (Dev) Rep lookup.
+https://app.asana.com/0/0/1199506071419293/f
+https://app.asana.com/0/1156951077655217/1159885654619305/f</description>
+    <label>Secondary Sales Rep</label>
+    <referenceTo>User</referenceTo>
+    <relationshipName>Accounts</relationshipName>
+    <required>false</required>
+    <securityClassification>Tier 1</securityClassification>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Lookup</type>
+</CustomField>

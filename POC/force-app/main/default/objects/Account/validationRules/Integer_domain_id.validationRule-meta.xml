@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ValidationRule xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Integer_domain_id</fullName>
+    <active>true</active>
+    <description>Presents error when the field is not an integer.
+
+https://asana.lightning.force.com/lightning/r/Project__c/a0b6100001kMlvDAAS/view</description>
+    <errorConditionFormula>NOT(ISBLANK(domain_id__c))
+&amp;&amp;
+(NOT(ISNUMBER(domain_id__c))
+||
+FLOOR(VALUE(domain_id__c)) &lt;&gt; VALUE(domain_id__c))</errorConditionFormula>
+    <errorDisplayField>domain_id__c</errorDisplayField>
+    <errorMessage>Domain ID must be a whole number.</errorMessage>
+</ValidationRule>

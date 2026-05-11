@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Dedicated_CSM_Manager_Missmatch__c</fullName>
+    <description>To identify accounts with dedicated CSM missmatch</description>
+    <formula>Dedicated_CSM_Manager__c  &lt;&gt;  Dedicated_CSM__r.ManagerId</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <label>Dedicated CSM Manager Missmatch</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

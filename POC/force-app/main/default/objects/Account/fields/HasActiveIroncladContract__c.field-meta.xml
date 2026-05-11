@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>HasActiveIroncladContract__c</fullName>
+    <description>TRUE if the Account has at least one Active Contract and FALSE if not.(https://app.asana.com/0/1169811029711865/1199152636417838). The Field was edited - https://app.asana.com/0/1200340081332764/1204319517321545</description>
+    <formula>Number_of_Paid_Plans__c &gt; 0</formula>
+    <formulaTreatBlanksAs>BlankAsZero</formulaTreatBlanksAs>
+    <inlineHelpText>TRUE if the Account has at least one Active Contract and FALSE if not.</inlineHelpText>
+    <label>Has Active Contract</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

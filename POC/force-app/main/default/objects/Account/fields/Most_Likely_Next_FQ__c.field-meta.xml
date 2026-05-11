@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Most_Likely_Next_FQ__c</fullName>
+    <description>CS Forecasting most likely ARR for next FQ</description>
+    <inlineHelpText>The ARR this account is most likely to have at the end of the next fiscal quarter</inlineHelpText>
+    <label>Most Likely (Next FQ)</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>2</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Currency</type>
+</CustomField>

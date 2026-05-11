@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>SLED__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>SLED stands for State, Local and Education
+https://app.asana.com/0/515645212208478/1204927819227010/f</description>
+    <inlineHelpText>Checked to True by RevOps if the account is Government</inlineHelpText>
+    <label>Government</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

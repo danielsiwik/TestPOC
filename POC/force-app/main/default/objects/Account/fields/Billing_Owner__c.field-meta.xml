@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Billing_Owner__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Asana partner who manages billing for this customer. Leave blank if billing not done by partner (https://app.asana.com/0/1169811029711865/1193323731816270)
+
+involved in Rollup Helper job</description>
+    <inlineHelpText>Asana partner who manages billing for this customer. Leave blank if billing not done by partner</inlineHelpText>
+    <label>Partner Billing Owner</label>
+    <lookupFilter>
+        <active>true</active>
+        <errorMessage>Only Partner Accounts can be selected as Partner Billing Owner</errorMessage>
+        <filterItems>
+            <field>Account.RecordTypeId</field>
+            <operation>equals</operation>
+            <value>Partner Account</value>
+        </filterItems>
+        <isOptional>false</isOptional>
+    </lookupFilter>
+    <referenceTo>Account</referenceTo>
+    <relationshipLabel>Customer Accounts</relationshipLabel>
+    <relationshipName>CustomerAccounts</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Lookup</type>
+</CustomField>

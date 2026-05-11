@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Partner_Directory_Contact__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>https://app.asana.com/0/1169811029711865/1200135995389730/f</description>
+    <label>(Deprecated) Partner Directory Contact</label>
+    <referenceTo>Contact</referenceTo>
+    <relationshipLabel>Accounts (Partner Directory Contact)</relationshipLabel>
+    <relationshipName>PartnerDirectoryContacts</relationshipName>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Lookup</type>
+</CustomField>

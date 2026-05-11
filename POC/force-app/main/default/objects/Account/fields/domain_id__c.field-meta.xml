@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>domain_id__c</fullName>
+    <caseSensitive>false</caseSensitive>
+    <description>From Redshift: domains.__id</description>
+    <externalId>true</externalId>
+    <inlineHelpText>Domain ID from Redshift, only editable by Admins</inlineHelpText>
+    <label>Domain ID</label>
+    <length>255</length>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Text</type>
+    <unique>true</unique>
+</CustomField>

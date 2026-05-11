@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>GiftingProhibited__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Determines the persons or domains that are not allowed to receive gifting campaign as per our Legal team (https://app.asana.com/0/1169811029711865/1199392844342855)</description>
+    <inlineHelpText>Determines the persons or domains that are not allowed to receive gifting campaign as per our Legal team</inlineHelpText>
+    <label>Gifting Prohibited</label>
+    <securityClassification>Tier 1</securityClassification>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

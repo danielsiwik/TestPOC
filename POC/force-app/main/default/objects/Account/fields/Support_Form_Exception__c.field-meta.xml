@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Support_Form_Exception__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>https://app.asana.com/0/1202771858774857/1212932513028836/f - Enables access to Create Case button on help.asana.com for accounts that do not meet standard audience criteria (e.g., $0 ARR partners)</description>
+    <label>Support Form Exception</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

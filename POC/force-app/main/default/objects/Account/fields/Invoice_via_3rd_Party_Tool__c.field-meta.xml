@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Invoice_via_3rd_Party_Tool__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates whether the customer requires submitting invoices via a third-party tool https://app.asana.com/0/1169811029711865/1202864400510137/f</description>
+    <inlineHelpText>Indicates whether the customer requires submitting invoices via a third-party tool</inlineHelpText>
+    <label>Supplier Invoicing Portal Required</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Graduated__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicates the Account as graduated from New Business to Expansion based on Sales Region and Owner Team (https://app.asana.com/0/1169811029711865/1189039256526464)</description>
+    <inlineHelpText>If checked, Account was graduated from Land to Expand</inlineHelpText>
+    <label>Graduated</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

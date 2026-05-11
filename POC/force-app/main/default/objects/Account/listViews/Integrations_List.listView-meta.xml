@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ListView xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Integrations_List</fullName>
+    <columns>ACCOUNT.NAME</columns>
+    <columns>ACCOUNT.ADDRESS1_STATE</columns>
+    <columns>ACCOUNT.PHONE1</columns>
+    <columns>ACCOUNT.TYPE</columns>
+    <columns>CORE.USERS.ALIAS</columns>
+    <columns>Google_Integration__c</columns>
+    <columns>Microsoft_Integration__c</columns>
+    <columns>Enrichment_Notes__c</columns>
+    <filterScope>Everything</filterScope>
+    <filters>
+        <field>Microsoft_Integration__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <filters>
+        <field>TracHier__Owner__c</field>
+        <operation>equals</operation>
+        <value>Danniella Markovic</value>
+    </filters>
+    <filters>
+        <field>Google_Integration__c</field>
+        <operation>notEqual</operation>
+    </filters>
+    <label>Integrations List</label>
+</ListView>

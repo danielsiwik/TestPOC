@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_of_Open_CS_Opportunities__c</fullName>
+    <description>Number of CS opportunities on an Account in an Open stage
+
+https://asana.lightning.force.com/lightning/r/Project__c/a0b6100001QcWwOAAV/view</description>
+    <inlineHelpText>Number of CS opportunities on an Account in an Open stage</inlineHelpText>
+    <label>Number of Open CS Opportunities</label>
+    <summaryFilterItems>
+        <field>Opportunity.RecordTypeId</field>
+        <operation>equals</operation>
+        <value>CS Consultation, CS Coaching, CS Deployment</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.IsClosed</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

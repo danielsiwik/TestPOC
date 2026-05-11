@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Number_of_Active_Trials__c</fullName>
+    <description>Counts open opportunities with Trial State = active.
+
+https://asana.lightning.force.com/one/one.app#/sObject/a0b6100000uPfqOAAS/view</description>
+    <inlineHelpText>Open opportunities with Trial State = active</inlineHelpText>
+    <label>Number of Active Trials</label>
+    <summaryFilterItems>
+        <field>Opportunity.Trial_State__c</field>
+        <operation>equals</operation>
+        <value>active</value>
+    </summaryFilterItems>
+    <summaryFilterItems>
+        <field>Opportunity.IsClosed</field>
+        <operation>equals</operation>
+        <value>False</value>
+    </summaryFilterItems>
+    <summaryForeignKey>Opportunity.AccountId</summaryForeignKey>
+    <summaryOperation>count</summaryOperation>
+    <trackHistory>false</trackHistory>
+    <type>Summary</type>
+</CustomField>

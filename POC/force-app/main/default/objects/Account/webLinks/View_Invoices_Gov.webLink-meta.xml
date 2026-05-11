@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WebLink xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>View_Invoices_Gov</fullName>
+    <availability>online</availability>
+    <description>Links to Otto page for the Account&#39;s Domain ID
+https://app.asana.com/0/1202780178149915/1202824936830597/f
+https://app.asana.com/1/15793206719/project/1209391763425740/task/1211457336061686?focus=true</description>
+    <displayType>button</displayType>
+    <encodingKey>UTF-8</encodingKey>
+    <hasMenubar>false</hasMenubar>
+    <hasScrollbars>true</hasScrollbars>
+    <hasToolbar>false</hasToolbar>
+    <height>600</height>
+    <isResizable>true</isResizable>
+    <linkType>url</linkType>
+    <masterLabel>View Invoices (Gov)</masterLabel>
+    <openType>newWindow</openType>
+    <position>none</position>
+    <protected>false</protected>
+    <showsLocation>false</showsLocation>
+    <showsStatus>false</showsStatus>
+    <url>https://otto.asanagov.biz/domain/{!Account.domain_id__c}/?tab=Subscriptions</url>
+</WebLink>

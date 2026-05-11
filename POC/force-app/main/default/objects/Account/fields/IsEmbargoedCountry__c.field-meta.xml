@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>IsEmbargoedCountry__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Indicator for Account record with embargoed Billing Country (https://app.asana.com/0/1201094413545035/1201616059310906)</description>
+    <inlineHelpText>Indicator for Account record with embargoed Billing Country</inlineHelpText>
+    <label>Is Embargoed Country?</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

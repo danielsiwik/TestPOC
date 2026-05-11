@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>CS_Priority__c</fullName>
+    <description>Provide visibility on where CSMs are spending most effort 
+https://app.asana.com/0/253313814113822/1201916610504509/f</description>
+    <inlineHelpText>Priority - Accts where you&#39;re operating proactively, executing on high-leverage / impact activities to drive growth and/or mitigate risk
+Maintain - Accts where you&#39;re establishing and maintaining an operating cadence that enables you to sustain current rate of growth</inlineHelpText>
+    <label>CS Priority</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetDefinition>
+            <sorted>false</sorted>
+            <value>
+                <fullName>Priority</fullName>
+                <default>false</default>
+                <label>Priority</label>
+            </value>
+            <value>
+                <fullName>Maintain</fullName>
+                <default>false</default>
+                <label>Maintain</label>
+            </value>
+        </valueSetDefinition>
+    </valueSet>
+</CustomField>

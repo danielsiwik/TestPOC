@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Scaled_CS_Last_Proactive_Case_Date__c</fullName>
+    <description>https://app.asana.com/0/1206411435319312/1207564925626719/f</description>
+    <label>Scaled CS Last Proactive Case Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

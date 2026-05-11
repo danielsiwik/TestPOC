@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>First_Engaged_with_Scaled_Date__c</fullName>
+    <description>Used by CS to track when account first responded to an email or participated in a Webinar.  write_sfdc_snapshots (raw_sfdc_accounts) - True</description>
+    <inlineHelpText>First time they responded to an email or participated in a Webinar</inlineHelpText>
+    <label>First Engaged with Scaled Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Date</type>
+</CustomField>

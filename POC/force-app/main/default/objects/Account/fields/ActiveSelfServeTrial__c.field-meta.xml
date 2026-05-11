@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>ActiveSelfServeTrial__c</fullName>
+    <description>Indicates the Account has an active trial.
+
+https://na34.salesforce.com/a0b6100000S6nLK</description>
+    <formula>OR( 
+  plan_code__c=&quot;biz-org-trial&quot;,
+  plan_code__c=&quot;biz-team-trial&quot;,
+    AND(Number_of_Active_Trials__c&gt;0)
+)</formula>
+    <label>Active Self-Serve Trial</label>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

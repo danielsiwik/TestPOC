@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hierarchy_Segment__c</fullName>
+    <description>The largest segment in this account&#39;s hierarchy (https://app.asana.com/0/1200340081332764/1204264701751392)</description>
+    <externalId>false</externalId>
+    <formula>IF(
+Account_Hierarchy_Sales_Region__c = &#39;EMEA&#39;,
+IF(
+AND(Hierarchy_Employee_Count__c &gt; 0, Hierarchy_Employee_Count__c &lt; 99),
+&#39;SMB&#39;,
+IF(
+AND(Hierarchy_Employee_Count__c &gt;= 100, Hierarchy_Employee_Count__c &lt;= 1999),
+&#39;Corporate&#39;,
+IF(Hierarchy_Employee_Count__c &gt;= 2000, &#39;Enterprise&#39;, &#39;SMB&#39;)
+)
+),
+IF(
+Account_Hierarchy_Sales_Region__c = &#39;APAC&#39;,
+IF(
+AND(Hierarchy_Employee_Count__c &gt; 0, Hierarchy_Employee_Count__c &lt; 99),
+&#39;SMB&#39;,
+IF(
+AND(Hierarchy_Employee_Count__c &gt;= 100, Hierarchy_Employee_Count__c &lt;= 999),
+&#39;Corporate&#39;,
+IF(Hierarchy_Employee_Count__c &gt;= 1000, &#39;Enterprise&#39;, &#39;SMB&#39;)
+)
+),
+IF(
+OR(Account_Hierarchy_Sales_Region__c = &#39;AMER&#39;, Account_Hierarchy_Sales_Region__c = &#39;LATAM&#39;),
+IF(
+AND(Hierarchy_Employee_Count__c &gt; 0, Hierarchy_Employee_Count__c &lt;= 99),
+&#39;SMB&#39;,
+IF(
+AND(Hierarchy_Employee_Count__c &gt;= 100, Hierarchy_Employee_Count__c &lt;= 999),
+&#39;Corporate&#39;,
+IF(
+AND(Hierarchy_Employee_Count__c &gt;= 1000, Hierarchy_Employee_Count__c &lt;= 3999),
+&#39;Emerging Enterprise&#39;,
+IF(Hierarchy_Employee_Count__c &gt;= 4000, &#39;Enterprise&#39;, &#39;SMB&#39;)
+)
+)
+),
+IF(
+Account_Hierarchy_Sales_Region__c = &#39;JPN&#39;,
+IF(
+AND(Hierarchy_Employee_Count__c &gt; 0, Hierarchy_Employee_Count__c &lt;= 299),
+&#39;SMB&#39;,
+IF(
+AND(Hierarchy_Employee_Count__c &gt;= 300, Hierarchy_Employee_Count__c &lt;= 1999),
+&#39;Corporate&#39;,
+IF(Hierarchy_Employee_Count__c &gt;= 2000, &#39;Enterprise&#39;, &#39;SMB&#39;)
+)
+),
+&#39;SMB&#39;
+)
+)
+)
+)</formula>
+    <inlineHelpText>The largest segment in this account&#39;s hierarchy</inlineHelpText>
+    <label>Segment</label>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <type>Text</type>
+    <unique>false</unique>
+</CustomField>

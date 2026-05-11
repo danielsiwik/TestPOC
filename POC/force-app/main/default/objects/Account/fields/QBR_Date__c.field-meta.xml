@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>QBR_Date__c</fullName>
+    <description>Datetime of the last QBR (https://app.asana.com/0/1169811029711865/1200563413862977)</description>
+    <inlineHelpText>Datetime of the last QBR</inlineHelpText>
+    <label>QBR Date</label>
+    <required>false</required>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>DateTime</type>
+</CustomField>

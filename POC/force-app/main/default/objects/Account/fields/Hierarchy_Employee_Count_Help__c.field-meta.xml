@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Hierarchy_Employee_Count_Help__c</fullName>
+    <description>Number of employees of the account in this hierarchy with the largest EE (This is the field to help calculate Hierarchy Employee Count)
+https://app.asana.com/0/1203315724044772/1205530389454396/f</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Number of employees of the account in this hierarchy with the largest EE</inlineHelpText>
+    <label>Hierarchy Employee Count Help</label>
+    <precision>18</precision>
+    <required>false</required>
+    <scale>0</scale>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Number</type>
+    <unique>false</unique>
+</CustomField>

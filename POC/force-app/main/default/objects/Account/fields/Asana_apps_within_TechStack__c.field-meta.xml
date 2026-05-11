@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Asana_apps_within_TechStack__c</fullName>
+    <description>Apps this Account uses that can integrate with Asana. Zoom Managed App and configured and mapped within Zoom Clean Setting. Read Only for Entire Org (https://app.asana.com/0/1169811029711865/1200455414241241)</description>
+    <inlineHelpText>Apps this Account uses that can integrate with Asana</inlineHelpText>
+    <label>Asana apps within TechStack</label>
+    <length>600</length>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>LongTextArea</type>
+    <visibleLines>5</visibleLines>
+</CustomField>

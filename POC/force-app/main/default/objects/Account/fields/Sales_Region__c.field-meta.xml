@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Sales_Region__c</fullName>
+    <description>Sales Region calculated using Enrichment data to map country to region
+
+https://app.asana.com/0/529090902668900/1158191018931458/f</description>
+    <inlineHelpText>Sales Region is calculated using Data Enrichment source data and mapping to Region</inlineHelpText>
+    <label>Sales Region</label>
+    <required>false</required>
+    <securityClassification>Tier 1</securityClassification>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>true</trackHistory>
+    <type>Picklist</type>
+    <valueSet>
+        <restricted>true</restricted>
+        <valueSetName>Region</valueSetName>
+    </valueSet>
+</CustomField>

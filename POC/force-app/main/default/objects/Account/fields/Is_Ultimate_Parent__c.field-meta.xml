@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Is_Ultimate_Parent__c</fullName>
+    <defaultValue>false</defaultValue>
+    <description>Identifies the Account as an ultimate parent: has no parent and at least once child account https://app.asana.com/0/1206435824640705/1207937179070007/f</description>
+    <inlineHelpText>This account is a parent to one or more related accounts.</inlineHelpText>
+    <label>Is Ultimate Parent</label>
+    <trackFeedHistory>false</trackFeedHistory>
+    <trackHistory>false</trackHistory>
+    <type>Checkbox</type>
+</CustomField>

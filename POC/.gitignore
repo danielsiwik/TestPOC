@@ -1,0 +1,497 @@
+# =============================================================================
+# GITIGNORE FILE FOR SALESFORCE PROJECT
+# =============================================================================
+# This file specifies intentionally untracked files that Git should ignore.
+# For more information: https://git-scm.com/docs/gitignore
+# For useful templates: https://github.com/github/gitignore
+
+# =============================================================================
+# SALESFORCE DEVELOPMENT TOOLS & CACHE
+# =============================================================================
+
+# Salesforce CLI cache and local development
+.sf/
+.sfdx/
+.localdevserver/
+deploy-options.json
+.pmdCache
+
+# Copado deployment tool
+.copado
+
+# Package manifest (recreated by Copado)
+package.xml
+
+# =============================================================================
+# LIGHTNING WEB COMPONENTS (LWC)
+# =============================================================================
+
+# LWC VSCode autocomplete
+**/lwc/jsconfig.json
+
+# LWC Jest coverage reports
+coverage/
+
+# =============================================================================
+# DEVELOPMENT DEPENDENCIES & BUILD TOOLS
+# =============================================================================
+
+# Node.js dependencies
+node_modules/
+
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ESLint cache
+.eslintcache
+
+# TypeScript build artifacts
+tsconfig.json
+**/tsconfig*.json
+**/*.tsbuildinfo
+target/
+
+# =============================================================================
+# OPERATING SYSTEM FILES
+# =============================================================================
+
+# macOS system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+ehthumbs.db
+[Dd]esktop.ini
+$RECYCLE.BIN/
+
+# =============================================================================
+# ENVIRONMENT & CONFIGURATION
+# =============================================================================
+
+# Local environment variables
+.env
+
+# Python virtual environments
+**/__pycache__/
+**/.venv/
+**/venv/
+
+# IDE and editor files
+.vscode/
+.idea/
+.illuminatedCloud/
+illuminatedCloud/
+/IlluminatedCloud/
+.local/*
+.cursor/*
+
+# =============================================================================
+# SALESFORCE MANAGED PACKAGES - INSTALLED PACKAGES
+# =============================================================================
+# These are packages that can trigger installation/uninstallation
+# and should be managed outside of Git
+
+installedPackages/*
+
+# =============================================================================
+# SALESFORCE MANAGED PACKAGES - NAMESPACE PATTERNS
+# =============================================================================
+# Individual managed package namespaces to ignore
+
+# Core Salesforce and AppExchange packages
+*sf_com_apps__*
+*sf_chttr_apps__*
+*Lucidchart__*
+*safebase__*
+*commonroom__*
+*DNBI__*
+*bizible2__*
+*EasyDescribe__*
+*rhx__*
+*rh2__*
+*AsanaPublic__*
+*AAKCS__*
+*tackle__*
+*mkto_si__*
+*qualtrics__*
+*regieai__*
+
+# =============================================================================
+# SALESFORCE MANAGED PACKAGES - COMPONENT PATTERNS
+# =============================================================================
+# These patterns ignore managed package components across all metadata types
+# Format: */{metadataType}/{namespace}__*
+
+# Copado Quality Integration Framework
+force-app/main/default/classes/copadoQuality__*
+force-app/main/default/triggers/copadoQuality__*
+force-app/main/default/lwc/copadoQuality__*
+force-app/main/default/flows/copadoQuality__*
+force-app/main/default/flowDefinitions/copadoQuality__*
+force-app/main/default/objectTranslations/copadoQuality__*
+force-app/main/default/pages/copadoQuality__*
+force-app/main/default/quickActions/copadoQuality__*
+
+# ZoomInfo Enrichment
+force-app/main/default/classes/zisf__*
+force-app/main/default/triggers/zisf__*
+force-app/main/default/lwc/zisf__*
+force-app/main/default/flows/zisf__*
+force-app/main/default/flowDefinitions/zisf__*
+force-app/main/default/objectTranslations/zisf__*
+force-app/main/default/pages/zisf__*
+force-app/main/default/quickActions/zisf__*
+
+# Highspot
+force-app/main/default/classes/highspot__*
+force-app/main/default/triggers/highspot__*
+force-app/main/default/lwc/highspot__*
+force-app/main/default/flows/highspot__*
+force-app/main/default/flowDefinitions/highspot__*
+force-app/main/default/objectTranslations/highspot__*
+force-app/main/default/pages/highspot__*
+force-app/main/default/quickActions/highspot__*
+
+# Ironclad
+force-app/main/default/tabs/ironclad__*
+force-app/main/default/classes/ironclad__*
+force-app/main/default/triggers/ironclad__*
+force-app/main/default/lwc/ironclad__*
+force-app/main/default/flows/ironclad__*
+force-app/main/default/flowDefinitions/ironclad__*
+force-app/main/default/objectTranslations/ironclad__*
+force-app/main/default/pages/ironclad__*
+force-app/main/default/quickActions/ironclad__*
+
+# Drift
+force-app/main/default/classes/DriftData__*
+force-app/main/default/triggers/DriftData__*
+force-app/main/default/lwc/DriftData__*
+force-app/main/default/flows/DriftData__*
+force-app/main/default/flowDefinitions/DriftData__*
+force-app/main/default/objectTranslations/DriftData__*
+force-app/main/default/pages/DriftData__*
+force-app/main/default/quickActions/DriftData__*
+
+# Sales Insights
+force-app/main/default/classes/OIQ__*
+force-app/main/default/triggers/OIQ__*
+force-app/main/default/lwc/OIQ__*
+force-app/main/default/flows/OIQ__*
+force-app/main/default/flowDefinitions/OIQ__*
+force-app/main/default/objectTranslations/OIQ__*
+force-app/main/default/pages/OIQ__*
+force-app/main/default/quickActions/OIQ__*
+
+# Skilljar
+force-app/main/default/tabs/skilljar__*
+force-app/main/default/classes/skilljar__*
+force-app/main/default/triggers/skilljar__*
+force-app/main/default/lwc/skilljar__*
+force-app/main/default/flows/skilljar__*
+force-app/main/default/flowDefinitions/skilljar__*
+force-app/main/default/objectTranslations/skilljar__*
+force-app/main/default/pages/skilljar__*
+force-app/main/default/quickActions/skilljar__*
+
+# Slack
+force-app/main/default/tabs/slackv2__*
+force-app/main/default/classes/slackv2__*
+force-app/main/default/triggers/slackv2__*
+force-app/main/default/lwc/slackv2__*
+force-app/main/default/flows/slackv2__*
+force-app/main/default/flowDefinitions/slackv2__*
+force-app/main/default/objectTranslations/slackv2__*
+force-app/main/default/pages/slackv2__*
+force-app/main/default/quickActions/slackv2__*
+
+# ZoomInfo Prospecting
+force-app/main/default/layouts/DOZISF__*
+force-app/main/default/classes/DOZISF__*
+force-app/main/default/triggers/DOZISF__*
+force-app/main/default/lwc/DOZISF__*
+force-app/main/default/flows/DOZISF__*
+force-app/main/default/flowDefinitions/DOZISF__*
+force-app/main/default/objectTranslations/DOZISF__*
+force-app/main/default/pages/DOZISF__*
+force-app/main/default/quickActions/DOZISF__*
+force-app/main/default/customMetadata/DOZISF__*
+
+# Traction Complete
+force-app/main/default/tabs/TracRTC__*
+force-app/main/default/classes/TracRTC__*
+force-app/main/default/triggers/TracRTC__*
+force-app/main/default/lwc/TracRTC__*
+force-app/main/default/flows/TracRTC__*
+force-app/main/default/flowDefinitions/TracRTC__*
+force-app/main/default/objectTranslations/TracRTC__*
+force-app/main/default/pages/TracRTC__*
+force-app/main/default/quickActions/TracRTC__*
+
+# CPQ Advanced Approvals
+force-app/main/default/tabs/sbaa__*
+force-app/main/default/classes/sbaa__*
+force-app/main/default/triggers/sbaa__*
+force-app/main/default/pages/sbaa__*
+
+# CPQ (SteelBrick)
+force-app/main/default/tabs/SBQQ__*
+force-app/main/default/classes/SBQQ__*
+force-app/main/default/triggers/SBQQ__*
+force-app/main/default/pages/SBQQ__*
+force-app/main/default/flexipages/SBQQ__*
+force-app/main/default/flowDefinitions/SBQQ__*
+force-app/main/default/aura/SBQQ__*
+force-app/main/default/flows/SBQQ__*
+force-app/main/default/objectTranslations/SBQQ__*
+
+# Clearbit
+force-app/main/default/classes/cbit__*
+force-app/main/default/triggers/cbit__*
+force-app/main/default/pages/cbit__*
+
+# Salesforce Admin Apps
+force-app/main/default/classes/sfadminapps__*
+force-app/main/default/triggers/sfadminapps__*
+force-app/main/default/pages/sfadminapps__*
+
+# Dialpad
+force-app/main/default/classes/Dialpad__*
+force-app/main/default/triggers/Dialpad__*
+force-app/main/default/pages/Dialpad__*
+
+# GetFeedback
+force-app/main/default/classes/GetFeedback_Aut__*
+force-app/main/default/triggers/GetFeedback_Aut__*
+force-app/main/default/pages/GetFeedback_Aut__*
+
+# EditQuotas
+force-app/main/default/classes/EditQuotas__*
+force-app/main/default/triggers/EditQuotas__*
+force-app/main/default/pages/EditQuotas__*
+
+# LinkedIn Sales Navigator
+force-app/main/default/tabs/LID__*
+force-app/main/default/classes/LID__*
+force-app/main/default/triggers/LID__*
+force-app/main/default/pages/LID__*
+
+# Field Footprint
+force-app/main/default/classes/footprint__*
+force-app/main/default/triggers/footprint__*
+force-app/main/default/pages/footprint__*
+
+# Chorus
+force-app/main/default/tabs/affectlayer__*
+force-app/main/default/classes/affectlayer__*
+force-app/main/default/triggers/affectlayer__*
+force-app/main/default/pages/affectlayer__*
+
+# Salesforce IQ Cloud
+force-app/main/default/classes/SIQCloud__*
+force-app/main/default/triggers/SIQCloud__*
+force-app/main/default/pages/SIQCloud__*
+
+# LinkedIn Sales Insights
+force-app/main/default/classes/linkedin_si__*
+force-app/main/default/triggers/linkedin_si__*
+force-app/main/default/pages/linkedin_si__*
+
+# Zendesk
+force-app/main/default/classes/zdsf__*
+force-app/main/default/triggers/zdsf__*
+force-app/main/default/pages/zdsf__*
+
+# Salesforce Profile to Permission Set Converter
+force-app/main/default/tabs/Profile2PermSet__*
+force-app/main/default/classes/Profile2PermSet__*
+force-app/main/default/triggers/Profile2PermSet__*
+force-app/main/default/pages/Profile2PermSet__*
+
+# Matik
+force-app/main/default/tabs/matik__*
+force-app/main/default/classes/matik__*
+force-app/main/default/triggers/matik__*
+force-app/main/default/pages/matik__*
+
+# Traction Hierarchies
+force-app/main/default/tabs/TracHier__*
+force-app/main/default/classes/TracHier__*
+force-app/main/default/triggers/TracHier__*
+force-app/main/default/pages/TracHier__*
+
+# Tableau
+force-app/main/default/classes/tab__*
+force-app/main/default/triggers/tab__*
+force-app/main/default/pages/tab__*
+
+# Consensus
+force-app/main/default/tabs/Consensus__*
+force-app/main/default/classes/Consensus__*
+force-app/main/default/triggers/Consensus__*
+force-app/main/default/pages/Consensus__*
+force-app/main/default/flexipages/Consensus__*
+force-app/main/default/flowDefinitions/Consensus__*
+force-app/main/default/aura/Consensus__*
+force-app/main/default/flows/Consensus__*
+force-app/main/default/layouts/Consensus__*
+force-app/main/default/objectTranslations/Consensus__*
+force-app/main/default/objects/Account/fields/Consensus__*
+force-app/main/default/objects/Consensus__ErrorLog__c/*
+force-app/main/default/objects/Consensus__cDemoBoard__c/*
+force-app/main/default/objects/Consensus__*
+
+# cmcSf
+force-app/main/default/classes/cmcSf__*
+force-app/main/default/triggers/cmcSf__*
+force-app/main/default/page/cmcSf__*
+
+# Custom monitoring tools
+force-app/main/default/classes/AVA__*
+force-app/main/default/triggers/AVA__*
+force-app/main/default/*/LIMITMON__*
+
+# Sixsense
+force-app/main/default/triggers/sixsense__*
+force-app/main/default/tabs/sixsense__*
+
+# SF Devops
+force-app/main/default/triggers/sf_devops__*
+
+# Codebuilder
+force-app/main/default/tabs/CodeBuilder__*
+force-app/main/default/triggers/CodeBuilder__*
+
+# pse
+force-app/main/default/tabs/pse__*
+
+# psaws
+force-app/main/default/tabs/psaws__*
+
+# WM4SF3
+force-app/main/default/tabs/WM4SF3__*
+
+# xbeamprod
+force-app/main/default/tabs/xbeamprod__*
+
+# ob1
+force-app/main/default/tabs/ob1__*
+
+# iv
+force-app/main/default/tabs/iv__*
+
+# fferpcore
+force-app/main/default/tabs/fferpcore__*
+
+# Streaming Monitor
+force-app/main/default/flexipages/smon__*
+force-app/main/default/permissionsets/smon__*
+force-app/main/default/tabs/smon__*
+
+# ERP Workspace
+force-app/main/default/flexipages/erpws__*
+force-app/main/default/layouts/erpws__*
+force-app/main/default/remoteSiteSettings/erpws__*
+force-app/main/default/sharingRules/erpws__*
+force-app/main/default/tabs/erpws__*
+
+# Appirio Core
+force-app/main/default/sharingRules/appirio_core__*
+force-app/main/default/tabs/appirio_core__*
+
+# Engagio
+force-app/main/default/layouts/engagio__*
+force-app/main/default/objectTranslations/engagio__*
+force-app/main/default/pages/engagio__*
+force-app/main/default/tabs/engagio__*
+
+# FF Business Analytics
+force-app/main/default/tabs/ffban__*
+
+# Smart Lists
+force-app/main/default/customMetadata/smartlists__*
+force-app/main/default/layouts/smartlists__*
+force-app/main/default/objectTranslations/smartlists__*
+force-app/main/default/sharingRules/smartlists__*
+
+# =============================================================================
+# SALESFORCE STANDARD PROFILES
+# =============================================================================
+# Standard profiles that are not used and should be skipped
+
+force-app/main/default/profiles/Analytics Cloud Integration User.profile-meta.xml
+force-app/main/default/profiles/Analytics Cloud Security User.profile-meta.xml
+force-app/main/default/profiles/B2BMA Integration User.profile-meta.xml
+force-app/main/default/profiles/Chatter External User.profile-meta.xml
+force-app/main/default/profiles/Chatter Free User.profile-meta.xml
+force-app/main/default/profiles/Chatter Moderator User.profile-meta.xml
+force-app/main/default/profiles/ContractManager.profile-meta.xml
+force-app/main/default/profiles/Customer Community Plus Login User.profile-meta.xml
+force-app/main/default/profiles/Guest License User.profile-meta.xml
+force-app/main/default/profiles/Identity User.profile-meta.xml
+force-app/main/default/profiles/MarketingProfile.profile-meta.xml
+force-app/main/default/profiles/Minimum Access - API Only Integrations.profile-meta.xml
+force-app/main/default/profiles/Minimum Access - Salesforce.profile-meta.xml
+force-app/main/default/profiles/Sales Insights Integration User.profile-meta.xml
+force-app/main/default/profiles/Salesforce API Only System Integrations.profile-meta.xml
+force-app/main/default/profiles/SalesforceIQ Integration User.profile-meta.xml
+force-app/main/default/profiles/SolutionManager.profile-meta.xml
+force-app/main/default/profiles/Standard.profile-meta.xml
+force-app/main/default/profiles/StandardAul.profile-meta.xml
+force-app/main/default/profiles/Test Ironclad Profile.profile-meta.xml
+
+# =============================================================================
+# SALESFORCE METADATA TYPES - ENVIRONMENT SPECIFIC
+# =============================================================================
+# These metadata types contain environment-specific information
+# or are typically managed outside of version control
+
+# Documents (mostly created in Production)
+force-app/main/default/documents/*
+
+# Flow definitions (can be environment-specific)
+force-app/main/default/flowDefinitions/*
+
+# Static resources (large binary files)
+force-app/main/default/staticresources/*
+!force-app/main/default/staticresources/Asana_Illustration
+
+# Authentication providers
+authprovider/*
+
+# SAML SSO configurations
+samlssoconfigs/*
+
+# AI metadata
+ai/*
+
+# =============================================================================
+# TRANSLATIONS (OPTIONAL)
+# =============================================================================
+# Translations are complex and can cause deployment failures if fields don't exist
+# on the destination org. Uncomment if you want to ignore them entirely.
+# If you choose to ignore them, you can deploy translations using Copado Deployer.
+
+# translations/*
+# objectTranslations/*
+
+# =============================================================================
+# SITES (OPTIONAL)
+# =============================================================================
+# Sites with domain mapping contain environment-specific information.
+# Uncomment if you want to ignore them. Make sure to set up Copado Environment
+# Variables to make site config files environment-agnostic.
+
+# sites/*
+# siteDotComSites/*
+
+# =============================================================================
+# NOTES
+# =============================================================================
+#
+
+.gitignore_local

@@ -1,0 +1,21 @@
+# https://editorconfig.org/
+
+# Check whether your IDE requires a plugin or not (some have this included by default)
+# https://editorconfig.org/#download
+
+root = true
+
+[*]
+end_of_line = lf
+insert_final_newline = false
+charset = utf-8
+indent_style = space
+indent_size = 4
+trim_trailing_whitespace = true
+
+[*.{html,cmp,js}]
+indent_size = 2
+
+[*.{cls,trigger,apex}]
+indent_style = tab
+

@@ -1,0 +1,280 @@
+
+**/tsconfig.json
+#
+# List files or directories below to ignore them when running force:source:push, force:source:pull, and force:source:status
+# LWC configuration files
+**/eslint.config.mjs
+**/*.ts
+# More information: https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_exclude_source.htm
+# LWC Jest
+**/*.d.ts
+package.xml
+deletedclass/
+**/jsconfig.json
+/.illuminatedCloud/
+**/.eslintrc.json
+**/.eslintrc
+**/__tests__/**
+**/*.tsbuildinfo
+**/tsconfig*.json
+
+
+# Managed Package Metadata
+# # Custom monitoring tools
+force-app/main/default/layouts/AVA__*
+force-app/main/default/objectTranslations/AVA__*
+force-app/main/default/pages/AVA__*
+force-app/main/default/remoteSiteSettings/AVA__*
+force-app/main/default/sharingRules/AVA__*
+force-app/main/default/tabs/AVA__*
+
+# # Codebuilder
+force-app/main/default/flexipages/CodeBuilder__*
+force-app/main/default/layouts/CodeBuilder__*
+force-app/main/default/objectTranslations/CodeBuilder__*
+force-app/main/default/permissionsets/CodeBuilder__*
+force-app/main/default/remoteSiteSettings/CodeBuilder__*
+force-app/main/default/sharingRules/CodeBuilder__*
+force-app/main/default/tabs/CodeBuilder__*
+
+# # Consensus
+force-app/main/default/flowDefinitions/Consensus__*
+force-app/main/default/flows/Consensus__*
+force-app/main/default/layouts/Consensus__*
+force-app/main/default/objectTranslations/Consensus__*
+force-app/main/default/permissionsets/Consensus__*
+force-app/main/default/sharingRules/Consensus__*
+
+# # Dialpad
+force-app/main/default/objectTranslations/Dialpad__*
+force-app/main/default/pages/Dialpad__*
+force-app/main/default/permissionsets/Dialpad__*
+force-app/main/default/tabs/Dialpad__*
+
+# # EditQuotas
+force-app/main/default/pages/EditQuotas__*
+force-app/main/default/permissionsets/EditQuotas__*
+force-app/main/default/tabs/EditQuotas__*
+
+# # GetFeedback
+force-app/main/default/layouts/GetFeedback_Aut__*
+force-app/main/default/objectTranslations/GetFeedback_Aut__*
+force-app/main/default/sharingRules/GetFeedback_Aut__*
+force-app/main/default/tabs/GetFeedback_Aut__*
+
+# # LinkedIn Sales Navigator
+force-app/main/default/flexipages/LID__*
+force-app/main/default/layouts/LID__*
+force-app/main/default/objectTranslations/LID__*
+force-app/main/default/pages/LID__*
+force-app/main/default/permissionsets/LID__*
+force-app/main/default/remoteSiteSettings/LID__*
+force-app/main/default/sharingRules/LID__*
+
+# # Salesforce Profile to Permission Set Converter
+force-app/main/default/permissionsets/Profile2PermSet__*
+
+# # CPQ (SteelBrick)
+force-app/main/default/layouts/SBQQ__*
+force-app/main/default/objectTranslations/SBQQ__*
+force-app/main/default/pages/SBQQ__*
+force-app/main/default/permissionsets/SBQQ__*
+force-app/main/default/remoteSiteSettings/SBQQ__*
+force-app/main/default/sharingRules/SBQQ__*
+force-app/main/default/workflows/SBQQ__*
+
+# # CPQ layouts whitelist (must follow layouts/SBQQ__* above — last matching pattern wins)
+# Do not whitelist SBQQ__QuoteLine__c-SBQQ__Quote Line.
+!force-app/main/default/layouts/SBQQ__Quote__c-Asana CPQ Quote Layout*
+!force-app/main/default/layouts/SBQQ__Quote__c-Approved Quotes Layout.layout-meta.xml
+!force-app/main/default/layouts/SBQQ__Quote__c-Approved_v2.layout-meta.xml
+!force-app/main/default/layouts/SBQQ__Quote__c-Deal Desk.layout-meta.xml
+!force-app/main/default/layouts/SBQQ__Quote__c-Ironclad Layout %28Test Only%29.layout-meta.xml
+!force-app/main/default/layouts/SBQQ__Quote__c-Partner Portal Draft.layout-meta.xml
+!force-app/main/default/layouts/SBQQ__Quote__c-Partner Portal Read-Only.layout-meta.xml
+!force-app/main/default/layouts/SBQQ__Quote__c-Pending Quotes Layout.layout-meta.xml
+!force-app/main/default/layouts/SBQQ__Quote__c-Pending_v2.layout-meta.xml
+!force-app/main/default/layouts/SBQQ__Quote__c-ReadOnly.layout-meta.xml
+
+# # Traction Hierarchies
+force-app/main/default/flexipages/TracHier__*
+force-app/main/default/layouts/TracHier__*
+force-app/main/default/objectTranslations/TracHier__*
+force-app/main/default/pages/TracHier__*
+force-app/main/default/permissionsets/TracHier__*
+force-app/main/default/sharingRules/TracHier__*
+
+# # Traction Complete
+force-app/main/default/flexipages/TracRTC__*
+force-app/main/default/layouts/TracRTC__*
+force-app/main/default/objectTranslations/TracRTC__*
+force-app/main/default/pages/TracRTC__*
+force-app/main/default/permissionsets/TracRTC__*
+force-app/main/default/sharingRules/TracRTC__*
+
+# # WM4SF3
+force-app/main/default/homePageComponents/WM4SF3__*
+force-app/main/default/objectTranslations/WM4SF3__*
+force-app/main/default/pages/WM4SF3__*
+
+# # Chorus
+force-app/main/default/layouts/affectlayer__*
+force-app/main/default/objectTranslations/affectlayer__*
+force-app/main/default/pages/affectlayer__*
+force-app/main/default/permissionsets/affectlayer__*
+force-app/main/default/remoteSiteSettings/affectlayer__*
+force-app/main/default/sharingRules/affectlayer__*
+force-app/main/default/triggers/affectlayer__*
+
+# # Appirio Core
+force-app/main/default/sharingRules/appirio_core__*
+force-app/main/default/tabs/appirio_core__*
+
+# # Clearbit
+force-app/main/default/layouts/cbit__*
+force-app/main/default/objectTranslations/cbit__*
+force-app/main/default/pages/cbit__*
+force-app/main/default/permissionsets/cbit__*
+force-app/main/default/remoteSiteSettings/cbit__*
+force-app/main/default/sharingRules/cbit__*
+force-app/main/default/tabs/cbit__*
+
+# # cmcSf
+force-app/main/default/flexipages/cmcSf__*
+force-app/main/default/flowDefinitions/cmcSf__*
+force-app/main/default/flows/cmcSf__*
+force-app/main/default/permissionsets/cmcSf__*
+force-app/main/default/tabs/cmcSf__*
+
+# # Copado Quality Integration Framework
+force-app/main/default/flowDefinitions/copadoQuality__*
+force-app/main/default/sharingRules/copadoQuality__*
+force-app/main/default/tabs/copadoQuality__*
+
+# # Engagio
+force-app/main/default/layouts/engagio__*
+force-app/main/default/objectTranslations/engagio__*
+force-app/main/default/pages/engagio__*
+force-app/main/default/tabs/engagio__*
+
+# # ERP Workspace
+force-app/main/default/flexipages/erpws__*
+force-app/main/default/layouts/erpws__*
+force-app/main/default/remoteSiteSettings/erpws__*
+force-app/main/default/sharingRules/erpws__*
+force-app/main/default/tabs/erpws__*
+
+# # FF Business Analytics
+force-app/main/default/tabs/ffban__*
+
+# # fferpcore
+force-app/main/default/sharingRules/fferpcore__*
+
+# # Field Footprint
+force-app/main/default/customMetadata/footprint__*
+force-app/main/default/layouts/footprint__*
+force-app/main/default/objectTranslations/footprint__*
+force-app/main/default/pages/footprint__*
+force-app/main/default/remoteSiteSettings/footprint__*
+force-app/main/default/sharingRules/footprint__*
+force-app/main/default/tabs/footprint__*
+force-app/main/default/workflows/footprint__*
+
+# # Ironclad
+force-app/main/default/flexipages/ironclad__*
+force-app/main/default/layouts/ironclad__*
+force-app/main/default/objectTranslations/ironclad__*
+force-app/main/default/pages/ironclad__*
+force-app/main/default/pathAssistants/ironclad__*
+force-app/main/default/permissionsets/ironclad__*
+force-app/main/default/remoteSiteSettings/ironclad__*
+force-app/main/default/sharingRules/ironclad__*
+
+# # iv
+force-app/main/default/homePageComponents/iv__*
+force-app/main/default/objectTranslations/iv__*
+force-app/main/default/pages/iv__*
+
+# # Matik
+force-app/main/default/flexipages/matik__*
+force-app/main/default/layouts/matik__*
+force-app/main/default/objectTranslations/matik__*
+force-app/main/default/pages/matik__*
+force-app/main/default/permissionsets/matik__*
+force-app/main/default/remoteSiteSettings/matik__*
+force-app/main/default/sharingRules/matik__*
+
+# # ob1
+force-app/main/default/layouts/ob1__*
+force-app/main/default/sharingRules/ob1__*
+
+# # pse
+force-app/main/default/approvalProcesses/pse__*
+force-app/main/default/homePageComponents/pse__*
+force-app/main/default/layouts/pse__*
+force-app/main/default/matchingRules/pse__*
+force-app/main/default/pathAssistants/pse__*
+force-app/main/default/remoteSiteSettings/pse__*
+force-app/main/default/reports/pse__*
+force-app/main/default/sharingRules/pse__*
+force-app/main/default/workflows/pse__*
+
+# # Qualtrics
+force-app/main/default/layouts/qualtrics__*
+force-app/main/default/tabs/qualtrics__*
+
+# # CPQ Advanced Approvals
+force-app/main/default/layouts/sbaa__*
+force-app/main/default/objectTranslations/sbaa__*
+force-app/main/default/pages/sbaa__*
+force-app/main/default/permissionsets/sbaa__*
+force-app/main/default/workflows/sbaa__*
+
+# # SF Devops
+force-app/main/default/matchingRules/sf_devops__*
+force-app/main/default/objectTranslations/sf_devops__*
+force-app/main/default/permissionsets/sf_devops__*
+force-app/main/default/remoteSiteSettings/sf_devops__*
+force-app/main/default/sharingRules/sf_devops__*
+
+# # Sixsense
+force-app/main/default/objectTranslations/sixsense__*
+force-app/main/default/permissionsets/sixsense__*
+force-app/main/default/remoteSiteSettings/sixsense__*
+force-app/main/default/sharingRules/sixsense__*
+
+# # Skilljar
+force-app/main/default/objectTranslations/skilljar__*
+force-app/main/default/pages/skilljar__*
+force-app/main/default/sharingRules/skilljar__*
+
+# # Slack
+force-app/main/default/layouts/slackv2__*
+force-app/main/default/objectTranslations/slackv2__*
+force-app/main/default/pages/slackv2__*
+force-app/main/default/permissionsets/slackv2__*
+force-app/main/default/remoteSiteSettings/slackv2__*
+force-app/main/default/sharingRules/slackv2__*
+
+# # Smart Lists
+force-app/main/default/customMetadata/smartlists__*
+force-app/main/default/layouts/smartlists__*
+force-app/main/default/objectTranslations/smartlists__*
+force-app/main/default/sharingRules/smartlists__*
+
+# # Streaming Monitor
+force-app/main/default/flexipages/smon__*
+force-app/main/default/permissionsets/smon__*
+force-app/main/default/tabs/smon__*
+
+# # xbeamprod
+force-app/main/default/flexipages/xbeamprod__*
+force-app/main/default/layouts/xbeamprod__*
+force-app/main/default/objectTranslations/xbeamprod__*
+force-app/main/default/permissionsets/xbeamprod__*
+force-app/main/default/remoteSiteSettings/xbeamprod__*
+force-app/main/default/sharingRules/xbeamprod__*
+
+# # Zendesk
+force-app/main/default/pages/zdsf__*
+

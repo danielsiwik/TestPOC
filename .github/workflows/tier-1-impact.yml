@@ -9,7 +9,7 @@ on:
       - edited
       - ready_for_review
 
-  # Uncomment this block GitHub merge queue will be in used 
+  # Uncomment this block if GitHub merge queue will be used
   # merge_group:
   #   types:
   #     - checks_requested
@@ -46,6 +46,8 @@ jobs:
           PR_AUTHOR: ${{ github.event.pull_request.user.login }}
           PR_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
           CONFIG_PATH: .github/tier1/tier1-config.json
+          ASANA_PAT: ${{ secrets.ASANASEC }}
+          ASANA_PROJECT_GID: "1214712241832731"
         run: node .github/scripts/tier1-impact-check.js
 
       - name: Upload audit log

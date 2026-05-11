@@ -43,26 +43,45 @@ function normalizeChangeType(status) {
   return "update";
 }
 
+function parseWatchedField(fullName) {
+  const [objectName, ...rest] = String(fullName || "").split(".");
+  const fieldName = rest.join(".");
+  if (!objectName || !fieldName) return null;
+
+  return {
+    objectName,
+    fieldName,
+    fullName: `${objectName}.${fieldName}`
+  };
+}
+
 function loadConfig(filePath) {
   const raw = fs.readFileSync(filePath, "utf8");
   const cfg = JSON.parse(raw);
 
-  cfg.objects = cfg.objects || [];
-  cfg.fields = cfg.fields || [];
-  cfg.blocking = Boolean(cfg.blocking);
-  cfg.checkName = cfg.checkName || "Tier 1 Impact";
-  cfg.commentMarker = cfg.commentMarker || "<!-- tier1-impact-check -->";
-  cfg.architectTeamSlug = cfg.architectTeamSlug || "";
+  const watchedObjects = uniqueBy(cfg.watchedObjects || [], (x) => x).filter(Boolean);
+  const watchedFields = uniqueBy(cfg.watchedFields || [], (x) => x).filter(Boolean);
+  const watchedFieldDefinitions = watchedFields.map(parseWatchedField).filter(Boolean);
 
-  return cfg;
+  return {
+    blocking: Boolean(cfg.blocking),
+    checkName: cfg.checkName || "Tier 1 Impact",
+    commentMarker: cfg.commentMarker || "<!-- tier1-impact-check -->",
+    architectTeamSlug: cfg.architectTeamSlug || "",
+    watchedObjects,
+    watchedFields,
+    watchedObjectSet: new Set(watchedObjects),
+    watchedFieldSet: new Set(watchedFields),
+    watchedFieldDefinitions
+  };
 }
 
 async function gh(url, options = {}) {
   const response = await fetch(`https://api.github.com${url}`, {
     method: options.method || "GET",
     headers: {
-      "Authorization": `Bearer ${token}`,
-      "Accept": "application/vnd.github+json",
+      Authorization: `Bearer ${token}`,
+      Accept: "application/vnd.github+json",
       "X-GitHub-Api-Version": "2022-11-28",
       ...(options.headers || {})
     },
@@ -93,42 +112,68 @@ async function paginate(url) {
   return all;
 }
 
+function parseSalesforceObjectMetadata(filename) {
+  const objectRootMatch = filename.match(/(?:^|\/)objects\/([^/]+)\/(.+)$/);
+  if (!objectRootMatch) return null;
+
+  const objectName = objectRootMatch[1];
+  const relativePath = objectRootMatch[2];
+
+  let componentType = "object-child-metadata";
+  let componentName = relativePath;
+  let fullName = `${objectName}:${relativePath}`;
+
+  const patterns = [
+    { regex: /^fields\/([^/]+)\.field-meta\.xml$/, type: "field", formatter: (name) => `${objectName}.${name}` },
+    { regex: /^fieldSets\/([^/]+)\.fieldSet-meta\.xml$/, type: "fieldSet", formatter: (name) => `${objectName}.${name}` },
+    { regex: /^recordTypes\/([^/]+)\.recordType-meta\.xml$/, type: "recordType", formatter: (name) => `${objectName}.${name}` },
+    { regex: /^compactLayouts\/([^/]+)\.compactLayout-meta\.xml$/, type: "compactLayout", formatter: (name) => `${objectName}.${name}` },
+    { regex: /^listViews\/([^/]+)\.listView-meta\.xml$/, type: "listView", formatter: (name) => `${objectName}.${name}` },
+    { regex: /^validationRules\/([^/]+)\.validationRule-meta\.xml$/, type: "validationRule", formatter: (name) => `${objectName}.${name}` },
+    { regex: /^sharingReasons\/([^/]+)\.sharingReason-meta\.xml$/, type: "sharingReason", formatter: (name) => `${objectName}.${name}` },
+    { regex: /^webLinks\/([^/]+)\.webLink-meta\.xml$/, type: "webLink", formatter: (name) => `${objectName}.${name}` },
+    { regex: /^businessProcesses\/([^/]+)\.businessProcess-meta\.xml$/, type: "businessProcess", formatter: (name) => `${objectName}.${name}` },
+    { regex: /^([^/]+)\.object-meta\.xml$/, type: "object", formatter: () => objectName }
+  ];
+
+  for (const pattern of patterns) {
+    const match = relativePath.match(pattern.regex);
+    if (!match) continue;
+
+    componentType = pattern.type;
+    componentName = match[1] || objectName;
+    fullName = pattern.formatter(componentName);
+    break;
+  }
+
+  return {
+    objectName,
+    relativePath,
+    componentType,
+    componentName,
+    fullName
+  };
+}
+
 function detectMetadataImpact(file, config) {
-  const fieldMatch = file.filename.match(/objects\/([^/]+)\/fields\/([^/]+)\.field-meta\.xml$/);
-  if (fieldMatch) {
-    const objectName = fieldMatch[1];
-    const fieldName = fieldMatch[2];
-    const fullName = `${objectName}.${fieldName}`;
-    const isTier1 = config.fields.some((f) => f.fullName === fullName);
+  const parsed = parseSalesforceObjectMetadata(file.filename);
+  if (!parsed) return null;
 
-    if (isTier1) {
-      return {
-        source: "metadata",
-        componentType: "field",
-        name: fullName,
-        changeType: normalizeChangeType(file.status),
-        file: file.filename
-      };
-    }
+  const watchedByObject = config.watchedObjectSet.has(parsed.objectName);
+  const watchedByField =
+    parsed.componentType === "field" && config.watchedFieldSet.has(parsed.fullName);
+
+  if (!watchedByObject && !watchedByField) {
+    return null;
   }
 
-  const objectMatch = file.filename.match(/objects\/([^/]+)\/[^/]+\.object-meta\.xml$/);
-  if (objectMatch) {
-    const objectName = objectMatch[1];
-    const isTier1 = config.objects.some((o) => o.apiName === objectName);
-
-    if (isTier1) {
-      return {
-        source: "metadata",
-        componentType: "object",
-        name: objectName,
-        changeType: normalizeChangeType(file.status),
-        file: file.filename
-      };
-    }
-  }
-
-  return null;
+  return {
+    source: "metadata",
+    componentType: parsed.componentType,
+    name: parsed.fullName,
+    changeType: normalizeChangeType(file.status),
+    file: file.filename
+  };
 }
 
 function splitPatchLines(patch) {
@@ -147,25 +192,43 @@ function splitPatchLines(patch) {
 }
 
 function buildMatchers(config) {
-  const objectMatchers = config.objects.map((obj) => {
-    const aliases = uniqueBy([obj.apiName, ...(obj.aliases || [])], (x) => x).filter(Boolean);
+  const objectMatchers = config.watchedObjects.map((objectName) => {
+    const aliases = uniqueBy(
+      [
+        objectName,
+        `Schema.${objectName}`,
+        `Schema.SObjectType.${objectName}`
+      ],
+      (x) => x
+    ).filter(Boolean);
+
     return {
       componentType: "object",
-      name: obj.apiName,
-      patterns: aliases.map((alias) => new RegExp(`(^|[^A-Za-z0-9_])${escapeRegExp(alias)}([^A-Za-z0-9_]|$)`))
+      name: objectName,
+      patterns: aliases.map(
+        (alias) => new RegExp(`(^|[^A-Za-z0-9_])${escapeRegExp(alias)}([^A-Za-z0-9_]|$)`)
+      )
     };
   });
 
-  const fieldMatchers = config.fields.map((field) => {
+  const fieldMatchers = config.watchedFieldDefinitions.map((field) => {
     const aliases = uniqueBy(
-      [field.fullName, field.apiName, ...(field.aliases || [])],
+      [
+        field.fullName,
+        field.fieldName,
+        `${field.objectName}.${field.fieldName}`,
+        `${field.objectName}.Fields.${field.fieldName}`,
+        `Schema.${field.objectName}.Fields.${field.fieldName}`
+      ],
       (x) => x
     ).filter(Boolean);
 
     return {
       componentType: "field",
       name: field.fullName,
-      patterns: aliases.map((alias) => new RegExp(`(^|[^A-Za-z0-9_])${escapeRegExp(alias)}([^A-Za-z0-9_]|$)`))
+      patterns: aliases.map(
+        (alias) => new RegExp(`(^|[^A-Za-z0-9_])${escapeRegExp(alias)}([^A-Za-z0-9_]|$)`)
+      )
     };
   });
 
@@ -204,14 +267,18 @@ function detectCodeReferenceImpacts(file, matchers) {
 
 function buildComment(report, config, shouldBlock) {
   const statusLine = report.hasImpact
-    ? (shouldBlock ? "⚠️ Tier 1 impact detected — merge blocking is enabled." : "⚠️ Tier 1 impact detected.")
+    ? shouldBlock
+      ? "⚠️ Tier 1 impact detected — merge blocking is enabled."
+      : "⚠️ Tier 1 impact detected."
     : "✅ No Tier 1 impact detected.";
 
   const rows = report.impacts.length
-    ? report.impacts.map(
-        (impact) =>
-          `| ${impact.name} | ${impact.componentType} | ${impact.source} | ${impact.changeType} | \`${impact.file}\` |`
-      ).join("\n")
+    ? report.impacts
+        .map(
+          (impact) =>
+            `| ${impact.name} | ${impact.componentType} | ${impact.source} | ${impact.changeType} | \`${impact.file}\` |`
+        )
+        .join("\n")
     : "| None | - | - | - | - |";
 
   return `${config.commentMarker}
@@ -267,11 +334,15 @@ async function requestArchitectReview(teamSlug) {
 
 async function createCheckRun(config, report, shouldBlock) {
   const conclusion = report.hasImpact
-    ? (shouldBlock ? "failure" : "neutral")
+    ? shouldBlock
+      ? "failure"
+      : "neutral"
     : "success";
 
   const title = report.hasImpact
-    ? (shouldBlock ? "Tier 1 impact detected (blocking)" : "Tier 1 impact detected")
+    ? shouldBlock
+      ? "Tier 1 impact detected (blocking)"
+      : "Tier 1 impact detected"
     : "No Tier 1 impact";
 
   const summary = report.hasImpact
@@ -279,7 +350,12 @@ async function createCheckRun(config, report, shouldBlock) {
     : `No Tier 1 impact detected in PR #${report.prNumber}.`;
 
   const text = report.impacts.length
-    ? report.impacts.map((impact) => `- ${impact.name} (${impact.componentType}, ${impact.source}, ${impact.changeType}) in ${impact.file}`).join("\n")
+    ? report.impacts
+        .map(
+          (impact) =>
+            `- ${impact.name} (${impact.componentType}, ${impact.source}, ${impact.changeType}) in ${impact.file}`
+        )
+        .join("\n")
     : "No impacted components.";
 
   await gh(`/repos/${owner}/${repo}/check-runs`, {
@@ -305,16 +381,20 @@ async function main() {
   const matchers = buildMatchers(config);
   const files = await paginate(`/repos/${owner}/${repo}/pulls/${prNumber}/files`);
 
+  console.log(`Scanning ${files.length} changed files in PR #${prNumber}.`);
+  console.log(`Watched objects: ${config.watchedObjects.join(", ") || "none"}`);
+  console.log(`Watched fields: ${config.watchedFields.join(", ") || "none"}`);
+
   const impacts = [];
 
   for (const file of files) {
     const metadataImpact = detectMetadataImpact(file, config);
-    if (metadataImpact) impacts.push(metadataImpact);
+    if (metadataImpact) {
+      console.log(`Metadata impact detected: ${metadataImpact.name} (${metadataImpact.componentType})`);
+      impacts.push(metadataImpact);
+    }
 
-    const isMetadataFile =
-      file.filename.endsWith(".field-meta.xml") ||
-      file.filename.endsWith(".object-meta.xml");
-
+    const isMetadataFile = Boolean(parseSalesforceObjectMetadata(file.filename));
     if (!isMetadataFile) {
       impacts.push(...detectCodeReferenceImpacts(file, matchers));
     }

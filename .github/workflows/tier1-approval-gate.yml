@@ -1,0 +1,205 @@
+name: Tier 1 Approval Gate
+
+on:
+  workflow_run:
+    workflows:
+      - Tier 1 Impact Check
+    types:
+      - completed
+
+  pull_request_review:
+    types:
+      - submitted
+      - edited
+      - dismissed
+
+permissions:
+  contents: read
+  issues: read
+  pull-requests: write
+
+jobs:
+  approval-gate:
+    name: Tier 1 Approval Gate
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout default branch only
+        uses: actions/checkout@v4
+        with:
+          # We only need trusted config from the base repository
+          ref: ${{ github.event.repository.default_branch }}
+
+      - name: Evaluate approval gate
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const fs = require("fs");
+
+            // Load the same config file used by the existing Tier 1 checker
+            const config = JSON.parse(
+              fs.readFileSync(".github/tier1/tier1-config.json", "utf8")
+            );
+
+            const approvalGate = config.approvalGate || {};
+            const commentMarker = config.commentMarker || "<!-- tier1-impact-check -->";
+
+            // Exit cleanly when the approval gate is disabled
+            if (!approvalGate.enabled) {
+              core.info("approvalGate.enabled=false, skipping approval gate.");
+              return;
+            }
+
+            // Normalize the configured approver list
+            const requiredApprovers = [...new Set(
+              (approvalGate.requiredApprovers || [])
+                .map((value) => String(value || "").trim())
+                .filter(Boolean)
+            )];
+
+            if (requiredApprovers.length === 0) {
+              core.setFailed("approvalGate.enabled=true but requiredApprovers is empty.");
+              return;
+            }
+
+            // Resolve the PR number for both supported event types
+            let pullNumber = null;
+
+            if (context.eventName === "workflow_run") {
+              const prs = context.payload.workflow_run?.pull_requests || [];
+              if (prs.length === 0) {
+                core.info("No pull request attached to this workflow_run event.");
+                return;
+              }
+              pullNumber = prs[0].number;
+            } else if (context.eventName === "pull_request_review") {
+              pullNumber = context.payload.pull_request?.number || null;
+            }
+
+            if (!pullNumber) {
+              core.setFailed("Could not resolve pull request number.");
+              return;
+            }
+
+            // Read PR details
+            const prResponse = await github.rest.pulls.get({
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pullNumber
+            });
+
+            const pr = prResponse.data;
+
+            // Read PR comments and find the latest comment created by the existing Tier 1 workflow
+            const comments = await github.paginate(github.rest.issues.listComments, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              issue_number: pullNumber,
+              per_page: 100
+            });
+
+            const tier1Comments = comments
+              .filter((comment) => comment.body && comment.body.includes(commentMarker))
+              .sort((a, b) => new Date(b.updated_at) - new Date(a.updated_at));
+
+            const latestTier1Comment = tier1Comments[0];
+
+            // If the baseline comment does not exist yet, fail only for workflow_run.
+            // For review events, pass quietly because there is nothing to gate yet.
+            if (!latestTier1Comment) {
+              if (context.eventName === "workflow_run") {
+                core.setFailed("Tier 1 baseline comment was not found after Tier 1 Impact Check completed.");
+                return;
+              }
+
+              core.info("No Tier 1 baseline comment found on this PR. Gate passes.");
+              return;
+            }
+
+            // Detect Tier 1 based on the existing comment content produced by your current JS
+            const hasTier1Impact = latestTier1Comment.body.includes("⚠️ Tier 1 impact detected");
+
+            if (!hasTier1Impact) {
+              await core.summary
+                .addHeading("Tier 1 Approval Gate")
+                .addRaw(`PR #${pullNumber} has no Tier 1 impact. Approval gate passes.`, true)
+                .write();
+
+              core.info(`PR #${pullNumber} has no Tier 1 impact.`);
+              return;
+            }
+
+            // Request review from configured approvers
+            try {
+              await github.rest.pulls.requestReviewers({
+                owner: context.repo.owner,
+                repo: context.repo.repo,
+                pull_number: pullNumber,
+                reviewers: requiredApprovers
+              });
+            } catch (error) {
+              core.warning(`Could not request reviewers: ${error.message}`);
+            }
+
+            // Read all PR reviews and keep the latest state per configured approver
+            const reviews = await github.paginate(github.rest.pulls.listReviews, {
+              owner: context.repo.owner,
+              repo: context.repo.repo,
+              pull_number: pullNumber,
+              per_page: 100
+            });
+
+            const latestReviewStateByUser = new Map();
+
+            for (const review of reviews) {
+              const login = review.user?.login ? review.user.login.toLowerCase() : null;
+              if (!login) continue;
+              latestReviewStateByUser.set(login, review.state);
+            }
+
+            const approverStates = requiredApprovers.map((login) => {
+              const normalized = login.toLowerCase();
+              return {
+                login,
+                state: latestReviewStateByUser.get(normalized) || "NONE"
+              };
+            });
+
+            const approvedApprovers = approverStates.filter(
+              (item) => item.state === "APPROVED"
+            );
+
+            const requireAnyOneApproval = approvalGate.requireAnyOneApproval !== false;
+
+            const passed = requireAnyOneApproval
+              ? approvedApprovers.length > 0
+              : approvedApprovers.length === requiredApprovers.length;
+
+            const summaryLines = [
+              `PR: #${pullNumber}`,
+              `URL: ${pr.html_url}`,
+              `Tier 1 impact: YES`,
+              `Approval mode: ${requireAnyOneApproval ? "any one approval" : "all approvals"}`,
+              `Required approvers: ${requiredApprovers.join(", ")}`,
+              "",
+              "Current review states:",
+              ...approverStates.map((item) => `- ${item.login}: ${item.state}`)
+            ];
+
+            await core.summary
+              .addHeading("Tier 1 Approval Gate")
+              .addRaw(summaryLines.join("\n"), true)
+              .write();
+
+            if (!passed) {
+              const requirementText = requireAnyOneApproval
+                ? `one of: ${requiredApprovers.join(", ")}`
+                : `all of: ${requiredApprovers.join(", ")}`;
+
+              core.setFailed(`Tier 1 PR requires approval from ${requirementText}.`);
+              return;
+            }
+
+            core.info(
+              `Approval gate passed. Approved by: ${approvedApprovers.map((x) => x.login).join(", ")}`
+            );

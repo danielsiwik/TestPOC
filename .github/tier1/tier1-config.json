@@ -9,5 +9,14 @@
   ],
   "watchedFields": [
     "Opportunity.At_Bat_Tier__c"
-  ]
+  ],
+  "approvalGate": {
+    "enabled": true,
+    "label": "tier-1-impact",
+    "checkName": "Tier 1 Approval Gate",
+    "requiredApprovers": [
+      "deepakdhakal-asana"
+    ],
+    "requireAnyOneApproval": true
+  }
 }

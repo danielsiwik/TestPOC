@@ -4,6 +4,10 @@ on:
   push:
     branches:
       - main
+    paths-ignore:
+      - '.github/workflows/cursor-merge-summary.yml'
+      - 'AGENTS.md'
+      - '.cursor/skills/**'
 
 permissions:
   contents: read
@@ -33,64 +37,108 @@ jobs:
           echo "before=$BEFORE" >> "$GITHUB_OUTPUT"
           echo "after=$AFTER" >> "$GITHUB_OUTPUT"
 
-          git diff --name-only "$BEFORE" "$AFTER" > changed_files.txt || true
-          git diff --stat "$BEFORE" "$AFTER" > diff_stat.txt || true
-          git diff --unified=0 "$BEFORE" "$AFTER" > diff.patch || true
+          git diff --name-only "$BEFORE" "$AFTER" -- . \
+            ':(exclude).github/workflows/cursor-merge-summary.yml' \
+            ':(exclude)AGENTS.md' \
+            ':(exclude).cursor/skills/sfdc-business-docs/SKILL.md' > changed_files.txt || true
 
-      - name: Generate technical documentation with Cursor
+          git diff --stat "$BEFORE" "$AFTER" -- . \
+            ':(exclude).github/workflows/cursor-merge-summary.yml' \
+            ':(exclude)AGENTS.md' \
+            ':(exclude).cursor/skills/sfdc-business-docs/SKILL.md' > diff_stat.txt || true
+
+          git diff --unified=0 "$BEFORE" "$AFTER" -- . \
+            ':(exclude).github/workflows/cursor-merge-summary.yml' \
+            ':(exclude)AGENTS.md' \
+            ':(exclude).cursor/skills/sfdc-business-docs/SKILL.md' > diff.patch || true
+
+          if [ -s changed_files.txt ]; then
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Generate fallback business note
+        if: steps.diff.outputs.has_changes != 'true'
+        shell: bash
+        run: |
+          cat > business-doc.md <<'EOF'
+          # Business Documentation
+
+          ## Summary
+          No business-facing product or process change was detected in this merge.
+
+          ## Business Impact
+          The merged changes only affected internal workflow, agent, or skill configuration, so there is nothing new for business teams to act on.
+
+          ## Teams Affected
+          No Customer Success, Sales Ops, Revenue Ops, Product, or Business Analyst action is required.
+
+          ## Operational Notes
+          No business process, Salesforce user workflow, or customer-facing behavior changed.
+
+          ## Follow-up
+          No follow-up is required from business stakeholders.
+          EOF
+
+      - name: Generate business documentation with Cursor
+        if: steps.diff.outputs.has_changes == 'true'
         env:
           CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
         shell: bash
         run: |
           cat > prompt.txt <<'EOF'
           Read AGENTS.md first and follow it strictly.
+          Then read .cursor/skills/sfdc-business-docs/SKILL.md and use it as the primary writing skill for this task.
+
+          Important:
+          - This is BUSINESS documentation, not technical documentation.
+          - Write for non-technical stakeholders such as Customer Success Managers, Sales Ops, Revenue Ops, Product Managers, and Business Analysts.
+          - Use plain English.
+          - Focus on business meaning, process impact, operational behavior, and what teams need to know.
+          - Do not write code-level implementation details unless they are necessary to explain business impact.
+          - Do not generate docs-business/ or multiple files. Return one Markdown document only.
+          - Ignore workflow, AGENTS, and skill maintenance changes. Focus on the merged business-relevant repository changes only.
+          - If the merge contains no meaningful business-facing change, say that clearly instead of inventing impact.
 
           Task:
-          Create a technical documentation note for the changes introduced by the latest merge to main.
-
-          Rules:
-          - Do not modify files.
-          - Do not commit.
-          - Do not push.
-          - Do not open a pull request.
-          - Return only Markdown.
-          - Be precise, technical, and implementation-focused.
-          - Do not write generic release notes.
+          Create a business-facing documentation note for the changes introduced by the latest merge to main.
 
           Required output format:
-          # Technical Documentation
+          # Business Documentation
 
           ## Summary
-          Brief technical overview of what was merged.
+          Brief plain-English overview of what changed.
 
-          ## Changed Components
-          List the key files, modules, scripts, workflows, configs, or metadata affected.
+          ## Business Impact
+          Explain what changed for business users, teams, or operations.
 
-          ## Implementation Details
-          Explain what changed technically, how the logic or configuration works now, and what behavior was added, removed, or changed.
+          ## Teams Affected
+          State which teams should care and why.
 
-          ## CI/CD and Operational Impact
-          Describe any impact on workflows, deployment, validation, automation, integrations, or runtime behavior.
+          ## What Happens Now
+          Describe any new or changed process behavior, automation behavior, or operational expectation.
 
-          ## Risks and Follow-up
-          List technical risks, assumptions, limitations, and recommended next checks.
+          ## Follow-up
+          List any recommended checks, communications, or next actions for business stakeholders.
 
           Use these inputs:
           - changed_files.txt
           - diff_stat.txt
           - diff.patch
           - AGENTS.md
+          - .cursor/skills/sfdc-business-docs/SKILL.md
           - README.md if helpful
           EOF
 
           PROMPT="$(cat prompt.txt)"
-          cursor-agent -p "$PROMPT" --model gpt-5.5-high --trust --force > tech-doc.md
+          cursor-agent -p "$PROMPT" --model gpt-5.5-high --trust --force > business-doc.md
 
       - name: Build Asana task content
         id: asana_payload
         shell: bash
         run: |
-          TITLE="Technical documentation for merge to main - ${GITHUB_SHA::7}"
+          TITLE="Business documentation for merge to main - ${GITHUB_SHA::7}"
 
           {
             echo "title=$TITLE"
@@ -100,10 +148,10 @@ jobs:
             echo "Commit: ${{ github.sha }}"
             echo "Compare: ${{ steps.diff.outputs.before }}..${{ steps.diff.outputs.after }}"
             echo ""
-            if [ -f tech-doc.md ]; then
-              cat tech-doc.md
+            if [ -f business-doc.md ]; then
+              cat business-doc.md
             else
-              echo "No technical documentation was generated."
+              echo "No business documentation was generated."
             fi
             echo "EOF"
           } >> "$GITHUB_OUTPUT"
@@ -153,14 +201,14 @@ jobs:
         shell: bash
         run: |
           {
-            echo "# Cursor technical documentation"
+            echo "# Cursor business documentation"
             echo
             echo "Merge range: \`${{ steps.diff.outputs.before }}..${{ steps.diff.outputs.after }}\`"
             echo
-            if [ -f tech-doc.md ]; then
-              cat tech-doc.md
+            if [ -f business-doc.md ]; then
+              cat business-doc.md
             else
-              echo "No technical documentation was generated."
+              echo "No business documentation was generated."
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
@@ -168,9 +216,9 @@ jobs:
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cursor-tech-doc
+          name: cursor-business-doc
           path: |
-            tech-doc.md
+            business-doc.md
             changed_files.txt
             diff_stat.txt
             diff.patch

@@ -37,7 +37,7 @@ jobs:
           git diff --stat "$BEFORE" "$AFTER" > diff_stat.txt || true
           git diff --unified=0 "$BEFORE" "$AFTER" > diff.patch || true
 
-      - name: Generate summary with Cursor
+      - name: Generate technical documentation with Cursor
         env:
           CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
         shell: bash
@@ -46,21 +46,34 @@ jobs:
           Read AGENTS.md first and follow it strictly.
 
           Task:
-          Summarize the changes introduced by the merge to main.
+          Create a technical documentation note for the changes introduced by the latest merge to main.
 
           Rules:
           - Do not modify files.
           - Do not commit.
           - Do not push.
           - Do not open a pull request.
-          - Return only a concise report in Markdown.
+          - Return only Markdown.
+          - Be precise, technical, and implementation-focused.
+          - Do not write generic release notes.
 
           Required output format:
-          1. Short summary
-          2. Files changed
-          3. Important behavioral or CI/CD impact
-          4. Risks / things to verify
-          5. Suggested next step
+          # Technical Documentation
+
+          ## Summary
+          Brief technical overview of what was merged.
+
+          ## Changed Components
+          List the key files, modules, scripts, workflows, configs, or metadata affected.
+
+          ## Implementation Details
+          Explain what changed technically, how the logic or configuration works now, and what behavior was added, removed, or changed.
+
+          ## CI/CD and Operational Impact
+          Describe any impact on workflows, deployment, validation, automation, integrations, or runtime behavior.
+
+          ## Risks and Follow-up
+          List technical risks, assumptions, limitations, and recommended next checks.
 
           Use these inputs:
           - changed_files.txt
@@ -71,32 +84,93 @@ jobs:
           EOF
 
           PROMPT="$(cat prompt.txt)"
-          cursor-agent -p "$PROMPT" --model gpt-5.5-high --trust --force > cursor-summary.md
+          cursor-agent -p "$PROMPT" --model gpt-5.5-high --trust --force > tech-doc.md
+
+      - name: Build Asana task payload
+        id: asana_payload
+        shell: bash
+        run: |
+          TITLE="Technical documentation for merge to main - ${GITHUB_SHA::7}"
+
+          {
+            echo "title=$TITLE"
+            echo "notes<<EOF"
+            echo "Repository: ${{ github.repository }}"
+            echo "Branch: main"
+            echo "Commit: ${{ github.sha }}"
+            echo "Compare: ${{ steps.diff.outputs.before }}..${{ steps.diff.outputs.after }}"
+            echo ""
+            if [ -f tech-doc.md ]; then
+              cat tech-doc.md
+            else
+              echo "No technical documentation was generated."
+            fi
+            echo "EOF"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Create Asana task
+        env:
+          ASANA_PAT: ${{ secrets.ASANASEC }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+
+          payload = {
+              "data": {
+                  "name": os.environ["ASANA_TASK_TITLE"],
+                  "notes": os.environ["ASANA_TASK_NOTES"],
+                  "projects": ["1215114726069982"]
+              }
+          }
+
+          with open("asana-payload.json", "w", encoding="utf-8") as f:
+              json.dump(payload, f, ensure_ascii=False)
+          PY
+        env:
+          ASANA_PAT: ${{ secrets.ASANASEC }}
+          ASANA_TASK_TITLE: ${{ steps.asana_payload.outputs.title }}
+          ASANA_TASK_NOTES: ${{ steps.asana_payload.outputs.notes }}
+
+      - name: Send task to Asana
+        env:
+          ASANA_PAT: ${{ secrets.ASANASEC }}
+        shell: bash
+        run: |
+          curl -sS -X POST "https://app.asana.com/api/1.0/tasks" \
+            -H "Authorization: Bearer $ASANA_PAT" \
+            -H "Content-Type: application/json" \
+            --data @asana-payload.json > asana-response.json
+
+          cat asana-response.json
 
       - name: Publish GitHub job summary
         if: always()
         shell: bash
         run: |
           {
-            echo "# Cursor merge summary"
+            echo "# Cursor technical documentation"
             echo
             echo "Merge range: \`${{ steps.diff.outputs.before }}..${{ steps.diff.outputs.after }}\`"
             echo
-            if [ -f cursor-summary.md ]; then
-              cat cursor-summary.md
+            if [ -f tech-doc.md ]; then
+              cat tech-doc.md
             else
-              echo "No summary was generated."
+              echo "No technical documentation was generated."
             fi
           } >> "$GITHUB_STEP_SUMMARY"
 
-      - name: Upload summary artifact
+      - name: Upload artifacts
         if: always()
         uses: actions/upload-artifact@v4
         with:
-          name: cursor-merge-summary
+          name: cursor-tech-doc
           path: |
-            cursor-summary.md
+            tech-doc.md
             changed_files.txt
             diff_stat.txt
             diff.patch
             prompt.txt
+            asana-payload.json
+            asana-response.json

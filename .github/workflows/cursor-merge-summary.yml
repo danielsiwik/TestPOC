@@ -86,7 +86,7 @@ jobs:
           PROMPT="$(cat prompt.txt)"
           cursor-agent -p "$PROMPT" --model gpt-5.5-high --trust --force > tech-doc.md
 
-      - name: Build Asana task payload
+      - name: Build Asana task content
         id: asana_payload
         shell: bash
         run: |
@@ -111,11 +111,14 @@ jobs:
       - name: Create Asana task
         env:
           ASANA_PAT: ${{ secrets.ASANASEC }}
+          ASANA_TASK_TITLE: ${{ steps.asana_payload.outputs.title }}
+          ASANA_TASK_NOTES: ${{ steps.asana_payload.outputs.notes }}
         shell: bash
         run: |
           python3 - <<'PY'
           import json
           import os
+          import urllib.request
 
           payload = {
               "data": {
@@ -127,23 +130,23 @@ jobs:
 
           with open("asana-payload.json", "w", encoding="utf-8") as f:
               json.dump(payload, f, ensure_ascii=False)
+
+          req = urllib.request.Request(
+              "https://app.asana.com/api/1.0/tasks",
+              data=json.dumps(payload).encode("utf-8"),
+              headers={
+                  "Authorization": f"Bearer {os.environ['ASANA_PAT']}",
+                  "Content-Type": "application/json"
+              },
+              method="POST"
+          )
+
+          with urllib.request.urlopen(req) as response:
+              body = response.read().decode("utf-8")
+              print(body)
+              with open("asana-response.json", "w", encoding="utf-8") as f:
+                  f.write(body)
           PY
-        env:
-          ASANA_PAT: ${{ secrets.ASANASEC }}
-          ASANA_TASK_TITLE: ${{ steps.asana_payload.outputs.title }}
-          ASANA_TASK_NOTES: ${{ steps.asana_payload.outputs.notes }}
-
-      - name: Send task to Asana
-        env:
-          ASANA_PAT: ${{ secrets.ASANASEC }}
-        shell: bash
-        run: |
-          curl -sS -X POST "https://app.asana.com/api/1.0/tasks" \
-            -H "Authorization: Bearer $ASANA_PAT" \
-            -H "Content-Type: application/json" \
-            --data @asana-payload.json > asana-response.json
-
-          cat asana-response.json
 
       - name: Publish GitHub job summary
         if: always()

@@ -21,7 +21,7 @@ jobs:
       - name: Install Cursor CLI
         run: |
           curl https://cursor.com/install -fsS | bash
-          echo "$HOME/.cursor/bin" >> $GITHUB_PATH
+          echo "$HOME/.cursor/bin" >> "$GITHUB_PATH"
 
       - name: Prepare diff context
         id: diff
@@ -33,9 +33,9 @@ jobs:
           echo "before=$BEFORE" >> "$GITHUB_OUTPUT"
           echo "after=$AFTER" >> "$GITHUB_OUTPUT"
 
-          git diff --name-only "$BEFORE" "$AFTER" > changed_files.txt
-          git diff --stat "$BEFORE" "$AFTER" > diff_stat.txt
-          git diff --unified=0 "$BEFORE" "$AFTER" > diff.patch
+          git diff --name-only "$BEFORE" "$AFTER" > changed_files.txt || true
+          git diff --stat "$BEFORE" "$AFTER" > diff_stat.txt || true
+          git diff --unified=0 "$BEFORE" "$AFTER" > diff.patch || true
 
       - name: Generate summary with Cursor
         env:
@@ -71,9 +71,10 @@ jobs:
           EOF
 
           PROMPT="$(cat prompt.txt)"
-          cursor-agent -p "$PROMPT" --model gpt-5 > cursor-summary.md
+          cursor-agent -p "$PROMPT" --model gpt-5 --trust --force > cursor-summary.md
 
       - name: Publish GitHub job summary
+        if: always()
         shell: bash
         run: |
           {
@@ -81,10 +82,15 @@ jobs:
             echo
             echo "Merge range: \`${{ steps.diff.outputs.before }}..${{ steps.diff.outputs.after }}\`"
             echo
-            cat cursor-summary.md
+            if [ -f cursor-summary.md ]; then
+              cat cursor-summary.md
+            else
+              echo "No summary was generated."
+            fi
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Upload summary artifact
+        if: always()
         uses: actions/upload-artifact@v4
         with:
           name: cursor-merge-summary
@@ -93,3 +99,4 @@ jobs:
             changed_files.txt
             diff_stat.txt
             diff.patch
+            prompt.txt

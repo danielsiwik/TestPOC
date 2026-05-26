@@ -71,7 +71,7 @@ jobs:
           EOF
 
           PROMPT="$(cat prompt.txt)"
-          cursor-agent -p "$PROMPT" --model gpt-5 --trust --force > cursor-summary.md
+          cursor-agent -p "$PROMPT" --model gpt-5.5-high --trust --force > cursor-summary.md
 
       - name: Publish GitHub job summary
         if: always()

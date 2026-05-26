@@ -134,7 +134,7 @@ jobs:
           PROMPT="$(cat prompt.txt)"
           cursor-agent -p "$PROMPT" --model gpt-5.5-high --trust --force > business-doc.md
 
-      - name: Build Asana task content
+      - name: Build Asana page content
         id: asana_payload
         shell: bash
         run: |
@@ -142,37 +142,129 @@ jobs:
 
           {
             echo "title=$TITLE"
-            echo "notes<<EOF"
-            echo "Repository: ${{ github.repository }}"
-            echo "Branch: main"
-            echo "Commit: ${{ github.sha }}"
-            echo "Compare: ${{ steps.diff.outputs.before }}..${{ steps.diff.outputs.after }}"
-            echo ""
-            if [ -f business-doc.md ]; then
-              cat business-doc.md
-            else
-              echo "No business documentation was generated."
-            fi
-            echo "EOF"
           } >> "$GITHUB_OUTPUT"
 
-      - name: Create Asana task
+      - name: Create Asana page
         env:
           ASANA_PAT: ${{ secrets.ASANASEC }}
-          ASANA_TASK_TITLE: ${{ steps.asana_payload.outputs.title }}
-          ASANA_TASK_NOTES: ${{ steps.asana_payload.outputs.notes }}
+          ASANA_PAGE_TITLE: ${{ steps.asana_payload.outputs.title }}
+          ASANA_PAGE_ENDPOINT: ${{ secrets.ASANA_PAGE_ENDPOINT }}
         shell: bash
         run: |
           python3 - <<'PY'
           import json
           import os
+          import re
           import urllib.request
+          from html import escape
+
+          repo = "${{ github.repository }}"
+          branch = "main"
+          commit_sha = "${{ github.sha }}"
+          compare_range = "${{ steps.diff.outputs.before }}..${{ steps.diff.outputs.after }}"
+          title = os.environ["ASANA_PAGE_TITLE"]
+
+          if os.path.exists("business-doc.md"):
+              with open("business-doc.md", "r", encoding="utf-8") as f:
+                  md = f.read()
+          else:
+              md = "# Business Documentation\n\nNo business documentation was generated."
+
+          def markdown_to_asana_html(md_text):
+              lines = md_text.splitlines()
+              html = ["<body>"]
+              in_ul = False
+              in_ol = False
+
+              def close_lists():
+                  nonlocal in_ul, in_ol, html
+                  if in_ul:
+                      html.append("</ul>")
+                      in_ul = False
+                  if in_ol:
+                      html.append("</ol>")
+                      in_ol = False
+
+              for raw in lines:
+                  line = raw.rstrip()
+
+                  if not line.strip():
+                      close_lists()
+                      continue
+
+                  if line.startswith("# "):
+                      close_lists()
+                      html.append(f"<h1>{escape(line[2:].strip())}</h1>")
+                      continue
+
+                  if line.startswith("## "):
+                      close_lists()
+                      html.append(f"<h2>{escape(line[3:].strip())}</h2>")
+                      continue
+
+                  if re.match(r"^\d+\.\s+", line):
+                      if in_ul:
+                          html.append("</ul>")
+                          in_ul = False
+                      if not in_ol:
+                          html.append("<ol>")
+                          in_ol = True
+                      item = re.sub(r"^\d+\.\s+", "", line)
+                      html.append(f"<li>{escape(item)}</li>")
+                      continue
+
+                  if line.startswith("- "):
+                      if in_ol:
+                          html.append("</ol>")
+                          in_ol = False
+                      if not in_ul:
+                          html.append("<ul>")
+                          in_ul = True
+                      html.append(f"<li>{escape(line[2:].strip())}</li>")
+                      continue
+
+                  close_lists()
+                  html.append(f"<p>{escape(line.strip())}</p>")
+
+              close_lists()
+              html.append("</body>")
+              return "".join(html)
+
+          doc_html = markdown_to_asana_html(md)
+
+          intro_html = (
+              f"<body>"
+              f"<strong>{escape(title)}</strong>"
+              f"<ul>"
+              f"<li>Repository: {escape(repo)}</li>"
+              f"<li>Branch: {escape(branch)}</li>"
+              f"<li>Commit: {escape(commit_sha)}</li>"
+              f"<li>Compare: {escape(compare_range)}</li>"
+              f"</ul>"
+              f"</body>"
+          )
+
+          if doc_html.startswith("<body>") and doc_html.endswith("</body>"):
+              doc_inner = doc_html[len("<body>"):-len("</body>")]
+          else:
+              doc_inner = doc_html
+
+          full_html = (
+              "<body>"
+              f"<strong>{escape(title)}</strong>"
+              f"<ul>"
+              f"<li>Repository: {escape(repo)}</li>"
+              f"<li>Branch: {escape(branch)}</li>"
+              f"<li>Commit: {escape(commit_sha)}</li>"
+              f"<li>Compare: {escape(compare_range)}</li>"
+              f"</ul>"
+              f"<hr/>{doc_inner}</body>"
+          )
 
           payload = {
               "data": {
-                  "name": os.environ["ASANA_TASK_TITLE"],
-                  "notes": os.environ["ASANA_TASK_NOTES"],
-                  "projects": ["1215114726069982"]
+                  "name": title,
+                  "html_text": full_html
               }
           }
 
@@ -180,7 +272,7 @@ jobs:
               json.dump(payload, f, ensure_ascii=False)
 
           req = urllib.request.Request(
-              "https://app.asana.com/api/1.0/tasks",
+              os.environ["ASANA_PAGE_ENDPOINT"],
               data=json.dumps(payload).encode("utf-8"),
               headers={
                   "Authorization": f"Bearer {os.environ['ASANA_PAT']}",

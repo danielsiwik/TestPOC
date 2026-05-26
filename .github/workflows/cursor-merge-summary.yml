@@ -1,0 +1,95 @@
+name: Cursor Merge Summary
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  summarize-merge:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Install Cursor CLI
+        run: |
+          curl https://cursor.com/install -fsS | bash
+          echo "$HOME/.cursor/bin" >> $GITHUB_PATH
+
+      - name: Prepare diff context
+        id: diff
+        shell: bash
+        run: |
+          BEFORE="${{ github.event.before }}"
+          AFTER="${{ github.sha }}"
+
+          echo "before=$BEFORE" >> "$GITHUB_OUTPUT"
+          echo "after=$AFTER" >> "$GITHUB_OUTPUT"
+
+          git diff --name-only "$BEFORE" "$AFTER" > changed_files.txt
+          git diff --stat "$BEFORE" "$AFTER" > diff_stat.txt
+          git diff --unified=0 "$BEFORE" "$AFTER" > diff.patch
+
+      - name: Generate summary with Cursor
+        env:
+          CURSOR_API_KEY: ${{ secrets.CURSOR_API_KEY }}
+        shell: bash
+        run: |
+          cat > prompt.txt <<'EOF'
+          Read AGENTS.md first and follow it strictly.
+
+          Task:
+          Summarize the changes introduced by the merge to main.
+
+          Rules:
+          - Do not modify files.
+          - Do not commit.
+          - Do not push.
+          - Do not open a pull request.
+          - Return only a concise report in Markdown.
+
+          Required output format:
+          1. Short summary
+          2. Files changed
+          3. Important behavioral or CI/CD impact
+          4. Risks / things to verify
+          5. Suggested next step
+
+          Use these inputs:
+          - changed_files.txt
+          - diff_stat.txt
+          - diff.patch
+          - AGENTS.md
+          - README.md if helpful
+          EOF
+
+          PROMPT="$(cat prompt.txt)"
+          cursor-agent -p "$PROMPT" --model gpt-5 > cursor-summary.md
+
+      - name: Publish GitHub job summary
+        shell: bash
+        run: |
+          {
+            echo "# Cursor merge summary"
+            echo
+            echo "Merge range: \`${{ steps.diff.outputs.before }}..${{ steps.diff.outputs.after }}\`"
+            echo
+            cat cursor-summary.md
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload summary artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: cursor-merge-summary
+          path: |
+            cursor-summary.md
+            changed_files.txt
+            diff_stat.txt
+            diff.patch

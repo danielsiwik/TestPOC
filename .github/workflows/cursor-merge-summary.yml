@@ -75,7 +75,7 @@ jobs:
           ## Teams Affected
           No Customer Success, Sales Ops, Revenue Ops, Product, or Business Analyst action is required.
 
-          ## Operational Notes
+          ## What Happens Now
           No business process, Salesforce user workflow, or customer-facing behavior changed.
 
           ## Follow-up
@@ -101,10 +101,11 @@ jobs:
           - Do not generate docs-business/ or multiple files. Return one Markdown document only.
           - Ignore workflow, AGENTS, and skill maintenance changes. Focus on the merged business-relevant repository changes only.
           - If the merge contains no meaningful business-facing change, say that clearly instead of inventing impact.
+          - Do not add repository, branch, commit, or compare metadata to the document itself.
 
           Task:
           Create a business-facing documentation note for the changes introduced by the latest merge to main.
-          Do not add any commit information. 
+
           Required output format:
           # Business Documentation
 

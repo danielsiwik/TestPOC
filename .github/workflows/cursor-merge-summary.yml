@@ -103,7 +103,7 @@ jobs:
 
           Task:
           Create a business-facing documentation note for the changes introduced by the latest merge to main.
-
+          Do not add any commit information. 
           Required output format:
           # Business Documentation
 

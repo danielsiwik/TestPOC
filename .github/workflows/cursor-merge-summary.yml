@@ -155,165 +155,49 @@ jobs:
 
       - name: Create Asana note
         env:
-          ASANA_PAT: ${{ secrets.ASANASEC }}
-          ASANA_WORKSPACE_GID: ${{ secrets.ASANA_WORKSPACE_GID }}
-          ASANA_NOTE_TITLE: ${{ steps.asana_payload.outputs.title }}
+          ASANA_ACCESS_TOKEN: ${{ secrets.ASANASEC }}
+          NOTE_NAME: ${{ steps.asana_payload.outputs.title }}
+          WORKSPACE: "15793206719"
         shell: bash
         run: |
-          if [ -z "$ASANA_PAT" ]; then
+          set -euo pipefail
+
+          if [ -z "$ASANA_ACCESS_TOKEN" ]; then
             echo "ASANASEC secret is missing or empty."
             exit 1
           fi
 
-          if [ -z "$ASANA_WORKSPACE_GID" ]; then
-            echo "ASANA_WORKSPACE_GID secret is missing or empty."
+          payload=$(jq -nc \
+            --arg ws "$WORKSPACE" \
+            --arg name "$NOTE_NAME" \
+            '{data:{workspace:$ws,name:$name}}')
+
+          echo "$payload" | jq . > asana-payload.json
+
+          response=$(curl -sS -w "\n%{http_code}" \
+            -X POST "https://app.asana.com/api/1.0/notes" \
+            -H "Authorization: Bearer ${ASANA_ACCESS_TOKEN}" \
+            -H "Content-Type: application/json" \
+            -H "Accept: application/json" \
+            -d "$payload")
+
+          body=$(echo "$response" | sed '$d')
+          status=$(echo "$response" | tail -n1)
+
+          echo "HTTP $status"
+          echo "$body" | jq .
+          echo "$body" > asana-response.json
+
+          if [ "$status" -ge 400 ]; then
             exit 1
           fi
 
-          python3 - <<'PY'
-          import json
-          import os
-          import re
-          import urllib.request
-          import urllib.error
-          from html import escape
-
-          repo = "${{ github.repository }}"
-          branch = "main"
-          commit_sha = "${{ github.sha }}"
-          before_sha = "${{ steps.diff.outputs.before }}"
-          after_sha = "${{ steps.diff.outputs.after }}"
-          title = os.environ["ASANA_NOTE_TITLE"]
-          workspace_gid = "15793206719"
-          endpoint = "https://app.asana.com/api/1.0/notes"
-
-          if os.path.exists("business-doc.md"):
-              with open("business-doc.md", "r", encoding="utf-8") as f:
-                  md = f.read()
-          else:
-              md = "# Business Documentation\n\nNo business documentation was generated."
-
-          def markdown_to_asana_html(md_text):
-              lines = md_text.splitlines()
-              html = ["<body>"]
-              in_ul = False
-              in_ol = False
-
-              def close_lists():
-                  nonlocal in_ul, in_ol
-                  if in_ul:
-                      html.append("</ul>")
-                      in_ul = False
-                  if in_ol:
-                      html.append("</ol>")
-                      in_ol = False
-
-              for raw in lines:
-                  line = raw.rstrip()
-
-                  if not line.strip():
-                      close_lists()
-                      continue
-
-                  if line.startswith("# "):
-                      close_lists()
-                      html.append(f"<h1>{escape(line[2:].strip())}</h1>")
-                      continue
-
-                  if line.startswith("## "):
-                      close_lists()
-                      html.append(f"<h2>{escape(line[3:].strip())}</h2>")
-                      continue
-
-                  if re.match(r"^\d+\.\s+", line):
-                      if in_ul:
-                          html.append("</ul>")
-                          in_ul = False
-                      if not in_ol:
-                          html.append("<ol>")
-                          in_ol = True
-                      item = re.sub(r"^\d+\.\s+", "", line)
-                      html.append(f"<li>{escape(item)}</li>")
-                      continue
-
-                  if line.startswith("- "):
-                      if in_ol:
-                          html.append("</ol>")
-                          in_ol = False
-                      if not in_ul:
-                          html.append("<ul>")
-                          in_ul = True
-                      html.append(f"<li>{escape(line[2:].strip())}</li>")
-                      continue
-
-                  close_lists()
-                  html.append(f"<p>{escape(line.strip())}</p>")
-
-              close_lists()
-              html.append("</body>")
-              return "".join(html)
-
-          doc_html = markdown_to_asana_html(md)
-
-          if doc_html.startswith("<body>") and doc_html.endswith("</body>"):
-              doc_inner = doc_html[len("<body>"):-len("</body>")]
-          else:
-              doc_inner = doc_html
-
-          compare_line = ""
-          if before_sha and after_sha:
-              compare_line = f"<li>Compare: {escape(before_sha)}..{escape(after_sha)}</li>"
-
-          full_html = (
-              "<body>"
-              f"<h1>{escape(title)}</h1>"
-              "<ul>"
-              f"<li>Repository: {escape(repo)}</li>"
-              f"<li>Branch: {escape(branch)}</li>"
-              f"<li>Commit: {escape(commit_sha)}</li>"
-              f"{compare_line}"
-              "</ul>"
-              f"{doc_inner}"
-              "</body>"
-          )
-
-          payload = {
-              "data": {
-                  "workspace": workspace_gid,
-                  "name": title,
-                  "html_text": full_html
-              }
-          }
-
-          print(json.dumps(payload, ensure_ascii=False, indent=2))
-
-          with open("asana-payload.json", "w", encoding="utf-8") as f:
-              json.dump(payload, f, ensure_ascii=False, indent=2)
-
-          req = urllib.request.Request(
-              endpoint,
-              data=json.dumps(payload).encode("utf-8"),
-              headers={
-                  "Authorization": f"Bearer {os.environ['ASANA_PAT']}",
-                  "Content-Type": "application/json",
-                  "Accept": "application/json"
-              },
-              method="POST"
-          )
-
-          try:
-              with urllib.request.urlopen(req) as response:
-                  body = response.read().decode("utf-8")
-                  print(body)
-                  with open("asana-response.json", "w", encoding="utf-8") as f:
-                      f.write(body)
-          except urllib.error.HTTPError as e:
-              error_body = e.read().decode("utf-8", errors="replace")
-              print(error_body)
-              with open("asana-response.json", "w", encoding="utf-8") as f:
-                  f.write(error_body)
-              raise
-          PY
+          gid=$(echo "$body" | jq -r '.data.gid')
+          echo "note_gid=$gid" >> "$GITHUB_OUTPUT"
+          echo "### Created Asana note" >> "$GITHUB_STEP_SUMMARY"
+          echo "- name: \`$NOTE_NAME\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- gid: \`$gid\`" >> "$GITHUB_STEP_SUMMARY"
+          echo "- url: https://app.asana.com/1/${WORKSPACE}/note/${gid}" >> "$GITHUB_STEP_SUMMARY"
 
       - name: Publish GitHub job summary
         if: always()

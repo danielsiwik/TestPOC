@@ -258,6 +258,7 @@ jobs:
 
           payload = {
               "data": {
+                "workspace": workspace_gid,
                   "name": title,
                   "html_text": full_html
               }

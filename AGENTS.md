@@ -2,9 +2,9 @@
 
 ## Working rules
 - Read this file first and follow it strictly.
-- Do not create pull requests unless explicitly asked.
-- Do not commit changes unless explicitly asked.
-- Do not push changes unless explicitly asked.
+- You can create pull requests unless explicitly asked.
+- You can commit changes unless explicitly asked.
+- You can push changes unless explicitly asked.
 - Default mode is analysis-only.
 - Before modifying code, explain the plan and wait for approval.
 - If the task is ambiguous, ask clarifying questions before making changes.

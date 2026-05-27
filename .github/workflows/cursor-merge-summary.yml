@@ -147,11 +147,17 @@ jobs:
         env:
           ASANA_PAT: ${{ secrets.ASANASEC }}
           ASANA_NOTES_ENDPOINT: ${{ secrets.ASANA_NOTES_ENDPOINT }}
+          ASANA_WORKSPACE_GID: ${{ secrets.ASANA_WORKSPACE_GID }}
           ASANA_NOTE_TITLE: ${{ steps.asana_payload.outputs.title }}
         shell: bash
         run: |
           if [ -z "$ASANA_NOTES_ENDPOINT" ]; then
             echo "ASANA_NOTES_ENDPOINT secret is missing or empty."
+            exit 1
+          fi
+
+          if [ -z "$ASANA_WORKSPACE_GID" ]; then
+            echo "ASANA_WORKSPACE_GID secret is missing or empty."
             exit 1
           fi
 
@@ -169,6 +175,7 @@ jobs:
           compare_range = "${{ steps.diff.outputs.before }}..${{ steps.diff.outputs.after }}"
           title = os.environ["ASANA_NOTE_TITLE"]
           endpoint = os.environ["ASANA_NOTES_ENDPOINT"]
+          workspace_gid = os.environ["ASANA_WORKSPACE_GID"]
 
           if os.path.exists("business-doc.md"):
               with open("business-doc.md", "r", encoding="utf-8") as f:
@@ -258,12 +265,13 @@ jobs:
 
           payload = {
               "data": {
-                "workspace": workspace_gid,
+                  "workspace": workspace_gid,
                   "name": title,
                   "html_text": full_html
               }
           }
-          print(json.dumps(payload, ensure_ascii=False, indent=2)) 
+
+          print(json.dumps(payload, ensure_ascii=False, indent=2))
 
           with open("asana-payload.json", "w", encoding="utf-8") as f:
               json.dump(payload, f, ensure_ascii=False, indent=2)

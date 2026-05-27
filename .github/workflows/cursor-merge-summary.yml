@@ -35,23 +35,33 @@ jobs:
           BEFORE="${{ github.event.before }}"
           AFTER="${{ github.sha }}"
 
+          if [ -z "$BEFORE" ] || [ "$BEFORE" = "0000000000000000000000000000000000000000" ]; then
+            BEFORE="$(git rev-parse HEAD^ 2>/dev/null || true)"
+          fi
+
           echo "before=$BEFORE" >> "$GITHUB_OUTPUT"
           echo "after=$AFTER" >> "$GITHUB_OUTPUT"
 
-          git diff --name-only "$BEFORE" "$AFTER" -- . \
-            ':(exclude).github/workflows/cursor-merge-summary.yml' \
-            ':(exclude)AGENTS.md' \
-            ':(exclude).cursor/skills/sfdc-business-docs/SKILL.md' > changed_files.txt || true
+          if [ -n "$BEFORE" ]; then
+            git diff --name-only "$BEFORE" "$AFTER" -- . \
+              ':(exclude).github/workflows/cursor-merge-summary.yml' \
+              ':(exclude)AGENTS.md' \
+              ':(exclude).cursor/skills/sfdc-business-docs/SKILL.md' > changed_files.txt || true
 
-          git diff --stat "$BEFORE" "$AFTER" -- . \
-            ':(exclude).github/workflows/cursor-merge-summary.yml' \
-            ':(exclude)AGENTS.md' \
-            ':(exclude).cursor/skills/sfdc-business-docs/SKILL.md' > diff_stat.txt || true
+            git diff --stat "$BEFORE" "$AFTER" -- . \
+              ':(exclude).github/workflows/cursor-merge-summary.yml' \
+              ':(exclude)AGENTS.md' \
+              ':(exclude).cursor/skills/sfdc-business-docs/SKILL.md' > diff_stat.txt || true
 
-          git diff --unified=0 "$BEFORE" "$AFTER" -- . \
-            ':(exclude).github/workflows/cursor-merge-summary.yml' \
-            ':(exclude)AGENTS.md' \
-            ':(exclude).cursor/skills/sfdc-business-docs/SKILL.md' > diff.patch || true
+            git diff --unified=0 "$BEFORE" "$AFTER" -- . \
+              ':(exclude).github/workflows/cursor-merge-summary.yml' \
+              ':(exclude)AGENTS.md' \
+              ':(exclude).cursor/skills/sfdc-business-docs/SKILL.md' > diff.patch || true
+          else
+            git ls-files > changed_files.txt || true
+            echo "Initial/manual run - no compare base available." > diff_stat.txt
+            git show --stat --oneline "${AFTER}" > diff.patch || true
+          fi
 
           if [ -s changed_files.txt ]; then
             echo "has_changes=true" >> "$GITHUB_OUTPUT"
@@ -136,7 +146,7 @@ jobs:
           PROMPT="$(cat prompt.txt)"
           cursor-agent -p "$PROMPT" --model gpt-5.5-high --trust --force > business-doc.md
 
-      - name: Build Asana note content
+      - name: Build Asana note metadata
         id: asana_payload
         shell: bash
         run: |
@@ -146,13 +156,12 @@ jobs:
       - name: Create Asana note
         env:
           ASANA_PAT: ${{ secrets.ASANASEC }}
-          ASANA_NOTES_ENDPOINT: ${{ secrets.ASANA_NOTES_ENDPOINT }}
           ASANA_WORKSPACE_GID: ${{ secrets.ASANA_WORKSPACE_GID }}
           ASANA_NOTE_TITLE: ${{ steps.asana_payload.outputs.title }}
         shell: bash
         run: |
-          if [ -z "$ASANA_NOTES_ENDPOINT" ]; then
-            echo "ASANA_NOTES_ENDPOINT secret is missing or empty."
+          if [ -z "$ASANA_PAT" ]; then
+            echo "ASANASEC secret is missing or empty."
             exit 1
           fi
 
@@ -172,10 +181,11 @@ jobs:
           repo = "${{ github.repository }}"
           branch = "main"
           commit_sha = "${{ github.sha }}"
-          compare_range = "${{ steps.diff.outputs.before }}..${{ steps.diff.outputs.after }}"
+          before_sha = "${{ steps.diff.outputs.before }}"
+          after_sha = "${{ steps.diff.outputs.after }}"
           title = os.environ["ASANA_NOTE_TITLE"]
-          endpoint = os.environ["ASANA_NOTES_ENDPOINT"]
-          workspace_gid = os.environ["ASANA_WORKSPACE_GID"]
+          workspace_gid = "15793206719"
+          endpoint = "https://app.asana.com/api/1.0/notes"
 
           if os.path.exists("business-doc.md"):
               with open("business-doc.md", "r", encoding="utf-8") as f:
@@ -250,15 +260,19 @@ jobs:
           else:
               doc_inner = doc_html
 
+          compare_line = ""
+          if before_sha and after_sha:
+              compare_line = f"<li>Compare: {escape(before_sha)}..{escape(after_sha)}</li>"
+
           full_html = (
               "<body>"
-              f"<strong>{escape(title)}</strong>"
-              f"<ul>"
+              f"<h1>{escape(title)}</h1>"
+              "<ul>"
               f"<li>Repository: {escape(repo)}</li>"
               f"<li>Branch: {escape(branch)}</li>"
               f"<li>Commit: {escape(commit_sha)}</li>"
-              f"<li>Compare: {escape(compare_range)}</li>"
-              f"</ul>"
+              f"{compare_line}"
+              "</ul>"
               f"{doc_inner}"
               "</body>"
           )
@@ -308,8 +322,10 @@ jobs:
           {
             echo "# Cursor business documentation"
             echo
-            echo "Merge range: \`${{ steps.diff.outputs.before }}..${{ steps.diff.outputs.after }}\`"
-            echo
+            if [ -n "${{ steps.diff.outputs.before }}" ]; then
+              echo "Merge range: \`${{ steps.diff.outputs.before }}..${{ steps.diff.outputs.after }}\`"
+              echo
+            fi
             if [ -f business-doc.md ]; then
               cat business-doc.md
             else

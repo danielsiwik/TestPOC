@@ -45,3 +45,17 @@
 - If blocked, say exactly what is missing.
 - Never assume missing credentials, services, or metadata exist; report the gap explicitly.
 - For business documentation, prefer clarity and readability over completeness of technical detail.
+
+## Cursor Cloud specific instructions
+
+This is a Salesforce DX repo (metadata in `force-app/`, only flexipages today) plus a Node.js CI helper (`.github/scripts/tier1-impact-check.js`). There is no app server, no `package.json`, and no ESLint config — do not look for `npm run` scripts.
+
+Tooling (installed by the update script; do not reinstall by hand):
+- Node.js v22 is preinstalled. The Salesforce CLI (`sf`) is installed as a global npm package into `~/.npm-global` (already on `PATH` via `~/.bashrc`). The update script keeps it fresh.
+- `nvm` prints a benign warning about the npm `prefix` being "incompatible with nvm" on most commands. Ignore it — `sf` and `npm -g` still work correctly.
+
+How to lint / build / test / run (standard commands are in `README.md`; these are the non-obvious specifics for this repo):
+- Lint: no linter is configured; use `node --check .github/scripts/tier1-impact-check.js` for the CI helper.
+- Build (offline, no org needed): `sf project convert source --root-dir force-app --output-dir <dir>` converts source to Metadata API format and generates `package.xml`. Good for validating the project shape.
+- Deploy / run Apex tests: require a real org. Run `sf org login web` (or JWT) to a Dev Hub / scratch org first — no org is authenticated by default here, so `sf project deploy`, `sf apex run test`, and scratch-org creation will fail until you authenticate.
+- Tier 1 Impact Check helper: `node .github/scripts/tier1-impact-check.js` needs `GITHUB_TOKEN`, `GITHUB_REPOSITORY`, `PR_NUMBER`, `PR_HEAD_SHA` and hits the live GitHub API, including **writes** (PR comment + check run). Per this file's rules, keep GitHub writes mocked locally: stub `global.fetch` and require the script rather than pointing it at a real PR. Watched objects/fields it flags live in `.github/tier1/tier1-config.json`.
